@@ -6,9 +6,38 @@
     <title>Ayman Mahfuz - Portfolio</title>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
     <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
     <style>
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
         
+
+        .links {
+            display: flex;
+            justify-content: center;
+            align-items: center;
+            padding: 20px 0;
+            background-color: var(--primary-color);
+            color: #fff;
+            margin-top: 60px; /* Adjust this value based on your header height */
+        }
+
+        .links a {
+            color: #fff;
+            text-decoration: none;
+            margin: 0 15px;
+            font-size: 1.5rem;
+            transition: color 0.3s ease;
+        }
+
+        .links a:hover {
+            color: var(--secondary-color);
+        }
+
+        .links i {
+            margin-right: 8px;
+        }
+
+
         :root {
             --primary-color: #2c3e50;
             --secondary-color: #3498db;
@@ -32,7 +61,7 @@
         .container {
             max-width: 1200px;
             margin: 0 auto;
-            padding: 0 20px;
+            padding: 20px;
         }
         
         header {
@@ -48,6 +77,7 @@
             scroll-behavior: smooth;
         }
         
+        .experience-item:hover,
         .project-card:hover {
             transform: translateY(-5px);
             box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
@@ -161,6 +191,8 @@
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
             gap: 30px;
+            margin-bottom: 60px; /* Added margin to ensure proper spacing */
+
         }
         
         .project-card {
@@ -229,11 +261,23 @@
         </nav>
     </header>
 
+
     <section id="home" class="hero">
         <div class="hero-content">
             <img class ='prof-pic' src="Facetune_07-05-2024-16-02-47.jpg" alt="Ayman Mahfuz">
             <h1>Ayman Mahfuz</h1>
             <p>Computer Science & Mathematics Student | Aspiring Software Engineer & Machine Learning Researcher</p>
+            <div class="links">
+                <a href="https://www.linkedin.com/in/aymanmahfuz/" target="_blank">
+                    <i class="fab fa-linkedin"></i> LinkedIn
+                </a>
+                <a href="https://github.com/AymanMahfuz27" target="_blank">
+                    <i class="fab fa-github"></i> GitHub
+                </a>
+                <a href="personal-portfolio-website.html" target="_blank">
+                    <i class="fas fa-file-pdf"></i> Resume
+                </a>
+            </div>
         </div>
     </section>
 
@@ -246,12 +290,12 @@
                 <span class="experience-date">Aug 2023 - Present</span>
             </div>
             <ul>
-                <li>Engineered robust Python pipelines for scraping, preprocessing, and uploading data to BigQuery.</li>
-                <li>Employed various scraping techniques (APIs, sitemaps, HTML parsing), leveraged Pandas and Numpy heavily, and ensured data integrity with automated cron jobs for daily updates.</li>
-                <li>Processed over 50 million news articles and 70 million comments from 12+ domains, maintaining a comprehensive database dating back to 1851.</li>
-                <li>Developed dynamic dashboards and visualizations using SQL, Pandas, Matplotlib, and Looker Studio to track data collection progress, identify and programmatically fill data gaps.</li>
-                <li>Led machine learning initiatives, creating and evaluating models to classify news headlines and comments.</li>
-                <li>Fine-tuned a DistilBERT model using Hugging Face, achieving high accuracy and performance metrics.</li>
+                <li>Engineered robust <strong>Python</strong> pipelines for scraping, preprocessing, and uploading data to <strong>BigQuery.</strong></li>
+                <li>Employed various scraping techniques (<strong>APIs</strong>, sitemaps, HTML parsing), leveraged <strong>Pandas</strong> and <strong>Numpy</strong> heavily, and ensured data integrity with automated <strong>cron jobs</strong> for daily updates.</li>
+                <li>Processed over <strong>50 million</strong> news articles and <strong>70 million</strong> comments from <strong>12+ domains</strong>, maintaining a comprehensive database dating back to 1851.</li>
+                <li>Developed dynamic dashboards and visualizations using <strong>SQL</strong>, <strong>Pandas</strong>, <strong>Matplotlib</strong>, and <strong>Looker Studio</strong> to track data collection progress, identify and programmatically fill data gaps.</li>
+                <li>Led <strong>machine learning</strong> initiatives, creating and evaluating models to classify news headlines and comments.</li>
+                <li><strong>Fine-tuned</strong> a <strong>DistilBERT</strong> model using <strong>Hugging Face</strong>, achieving high accuracy and performance metrics.</li>
                 <li>Conducted advanced research projects: analyzed clickbait trends over a decade and investigated the prevalence of personal stories in comments.</li>
             </ul>
         </div>
@@ -262,10 +306,10 @@
                 <span class="experience-date">Aug 2023 - Present</span>
             </div>
             <ul>
-                <li>Led a team of 3 members to revolutionize abdominal organ segmentation by developing advanced machine learning models for medical imaging.</li>
-                <li>Built on existing MONAI frameworks to segment the pancreas from MRI scans, enhancing accuracy and performance using the latest vision transformer technologies and the TransUNet library.</li>
+                <li>Led a team of 3 members to revolutionize abdominal organ segmentation by developing advanced <strong>machine learning</strong> models for medical imaging.</li>
+                <li>Built on existing MONAI frameworks to segment the pancreas from MRI scans, enhancing accuracy and performance using the latest <strong>vision transformer</strong> technologies and the TransUNet library.</li>
                 <li>Engineered robust data preprocessing pipelines for 3D MRI images, using libraries such as Nibabel, Pydicom, NumPy, and H5py.</li>
-                <li>Developed and fine-tuned machine learning models for pancreas segmentation using advanced architectures like TransUNet and ResNet-50 with ViT.</li>
+                <li>Developed and <strong>fine-tuned</strong> machine learning models for pancreas segmentation using advanced architectures like <strong>TransUNet</strong> and <strong>ResNet-50</strong> with <strong>ViT</strong>.</li>
                 <li>Conducted comprehensive data analysis and visualization, employing statistical and machine learning techniques to analyze the impact of contextual changes on model performance.</li>
             </ul>
         </div>
@@ -276,9 +320,9 @@
                 <span class="experience-date">Feb 2024 - Present</span>
             </div>
             <ul>
-                <li>Led a team in the systematic design and implementation of a comprehensive Python script for assessing the consistency of MedAgents in diagnosing medical conditions.</li>
-                <li>Utilized the Autogen library and GPT-3.5 API, incorporating features such as exponential backoff for API rate limiting, offline script execution, and organized data collection.</li>
-                <li>Engineered robust data pipelines using Pandas and NumPy for data preprocessing and cleaning.</li>
+                <li>Led a team in the systematic design and implementation of a comprehensive <strong>Python</strong> script for assessing the consistency of MedAgents in diagnosing medical conditions.</li>
+                <li>Utilized the <strong>Autogen</strong> library and <strong>GPT-3.5 API</strong>, incorporating features such as exponential backoff for API rate limiting, offline script execution, and organized data collection.</li>
+                <li>Engineered robust data pipelines using <strong>Pandas</strong> and <strong>NumPy</strong> for data preprocessing and cleaning.</li>
                 <li>Developed models to evaluate the impact of contextual changes on the diagnostic consistency of MedAgents.</li>
                 <li>Conducted advanced data analysis and visualization using a variety of statistical and machine learning techniques.</li>
             </ul>
@@ -290,7 +334,7 @@
                 <span class="experience-date">Jun 2022 - Jan 2024</span>
             </div>
             <ul>
-                <li>Developed an NLP-driven chatbot, improving online engagement & analyzing human-chatbot dynamics, contributing to a CHI 2024 conference paper.</li>
+                <li>Developed an <strong>NLP-driven</strong> chatbot, improving online engagement & analyzing human-chatbot dynamics, contributing to a <strong>CHI 2024</strong> conference paper.</li>
                 <li>Conducted advanced text analytics & Python scripting for data analysis, producing key linguistic insights & visualizations.</li>
             </ul>
         </div>
@@ -301,7 +345,7 @@
                 <span class="experience-date">Jun 2022 - Oct 2022</span>
             </div>
             <ul>
-                <li>Optimized CRM workflows & refined the Configuration Database, enhancing operational efficiency & data integrity through JavaScript & RPA integration.</li>
+                <li>Optimized CRM workflows & refined the Configuration Database, enhancing operational efficiency & data integrity through <strong>JavaScript</strong> & RPA integration.</li>
             </ul>
         </div>
         <div class="experience-item">
@@ -339,26 +383,27 @@
         <h2>Skills</h2>
         <div class="skills-container">
             <div class="skills">
-                <span class="skill-tag">Python</span>
-                <span class="skill-tag">Java</span>
-                <span class="skill-tag">C</span>
-                <span class="skill-tag">JavaScript</span>
-                <span class="skill-tag">HTML/CSS</span>
-                <span class="skill-tag">SQL</span>
-                <span class="skill-tag">PHP</span>
-                <span class="skill-tag">Node.js</span>
-                <span class="skill-tag">React.js</span>
-                <span class="skill-tag">MATLAB</span>
-                <span class="skill-tag">C++</span>
-                <span class="skill-tag">Flask</span>
-                <span class="skill-tag">Django</span>
-                <span class="skill-tag">Pandas</span>
-                <span class="skill-tag">NumPy</span>
-                <span class="skill-tag">Scikit-learn</span>
-                <span class="skill-tag">Ruby</span>
-                <span class="skill-tag">ARM64</span>
-                <span class="skill-tag">PostgreSQL</span>
+                <span class="skill-tag"><i class="fab fa-python"></i> Python</span>
+                <span class="skill-tag"><i class="fab fa-java"></i> Java</span>
+                <span class="skill-tag"><i class="fab fa-cuttlefish"></i> C</span>
+                <span class="skill-tag"><i class="fab fa-js"></i> JavaScript</span>
+                <span class="skill-tag"><i class="fab fa-html5"></i> HTML/CSS</span>
+                <span class="skill-tag"><i class="fas fa-database"></i> SQL</span>
+                <span class="skill-tag"><i class="fab fa-php"></i> PHP</span>
+                <span class="skill-tag"><i class="fab fa-node-js"></i> Node.js</span>
+                <span class="skill-tag"><i class="fab fa-react"></i> React.js</span>
+                <span class="skill-tag"><i class="fab fa-square"></i> MATLAB</span>
+                <span class="skill-tag"><i class="fab fa-cuttlefish"></i> C++</span>
+                <span class="skill-tag"><i class="fas fa-flask"></i> Flask</span>
+                <span class="skill-tag"><i class="fab fa-python"></i> Django</span>
+                <span class="skill-tag"><i class="fas fa-chart-line"></i> Pandas</span>
+                <span class="skill-tag"><i class="fas fa-chart-bar"></i> NumPy</span>
+                <span class="skill-tag"><i class="fas fa-brain"></i> Scikit-learn</span>
+                <span class="skill-tag"><i class="fas fa-gem"></i> Ruby</span>
+                <span class="skill-tag"><i class="fas fa-microchip"></i> ARM64</span>
+                <span class="skill-tag"><i class="fas fa-database"></i> PostgreSQL</span>
             </div>
+
         </div>
     </section>
 
