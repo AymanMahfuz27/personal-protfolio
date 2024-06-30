@@ -1,0 +1,393 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <title>Ayman Mahfuz - Portfolio</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
+    <style>
+        @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
+        
+        :root {
+            --primary-color: #2c3e50;
+            --secondary-color: #3498db;
+            --background-color: #f4f4f4;
+            --text-color: #333;
+        }
+        
+        * {
+            margin: 0;
+            padding: 0;
+            box-sizing: border-box;
+        }
+        
+        body {
+            font-family: 'Poppins', sans-serif;
+            line-height: 1.6;
+            color: var(--text-color);
+            background-color: var(--background-color);
+        }
+        
+        .container {
+            max-width: 1200px;
+            margin: 0 auto;
+            padding: 0 20px;
+        }
+        
+        header {
+            background-color: var(--primary-color);
+            color: #fff;
+            padding: 20px 0;
+            position: fixed;
+            width: 100%;
+            top: 0;
+            z-index: 1000;
+        }
+        html {
+            scroll-behavior: smooth;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+            box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+        }
+
+
+        nav ul {
+            display: flex;
+            justify-content: flex-end;
+            list-style-type: none;
+        }
+        
+        nav ul li {
+            margin-left: 20px;
+        }
+        
+        nav ul li a {
+            color: #fff;
+            text-decoration: none;
+            transition: color 0.3s ease;
+        }
+        
+        nav ul li a:hover {
+            color: var(--secondary-color);
+        }
+        
+        section {
+            padding: 80px 0;
+        }
+        
+        h2 {
+            font-size: 2.5rem;
+            margin-bottom: 40px;
+            text-align: center;
+            color: var(--primary-color);
+        }
+        
+        .hero {
+            height: 100vh;
+            display: flex;
+            align-items: center;
+            justify-content: center;
+            text-align: center;
+            background-color: var(--primary-color);
+            color: #fff;
+        }
+        
+        .hero-content {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .hero-content img {
+            width: 200px;
+            height: 200px;
+            border-radius: 50%;
+            margin-bottom: 20px;
+            object-fit: cover;
+        }
+        
+        .hero-content h1 {
+            font-size: 3rem;
+            margin-bottom: 20px;
+        }
+        
+        .hero-content p {
+            font-size: 1.2rem;
+            max-width: 600px;
+            margin: 0 auto;
+        }
+        
+        .experience-item {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            margin-bottom: 30px;
+        }
+        
+       
+        .experience-header {
+            display: flex;
+            flex-direction: column; /* This line makes the items stack vertically */
+            align-items: flex-start; /* Align items to the start of the container */
+            margin-bottom: 15px;
+        }
+
+        .experience-title {
+            font-size: 1.3rem;
+            color: var(--primary-color);
+            margin-bottom: 5px; /* Optional: Adds space between the title and the next element */
+        }
+
+        .experience-company {
+            font-weight: 600;
+            color: var(--secondary-color);
+            margin-bottom: 5px; /* Optional: Adds space between the company and the next element */
+        }
+
+        .experience-date {
+            font-style: italic;
+            color: #666;
+        }
+        .experience-item ul {
+            list-style-type: disc;
+            padding-left: 20px;
+        }
+        
+        .projects {
+            display: grid;
+            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+            gap: 30px;
+        }
+        
+        .project-card {
+            background-color: #fff;
+            border-radius: 5px;
+            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+            padding: 20px;
+            transition: transform 0.3s ease;
+        }
+        
+        .project-card:hover {
+            transform: translateY(-5px);
+        }
+        
+        .skills-container {
+            display: flex;
+            flex-direction: column;
+            align-items: center;
+        }
+        
+        .skills {
+            display: flex;
+            flex-wrap: wrap;
+            justify-content: center;
+            gap: 10px;
+            max-width: 800px;
+        }
+        
+        .skill-tag {
+            background-color: var(--secondary-color);
+            color: #fff;
+            padding: 5px 10px;
+            border-radius: 20px;
+            font-size: 0.9rem;
+        }
+        
+        @media (max-width: 768px) {
+            .hero-content h1 {
+                font-size: 2rem;
+            }
+            
+            .hero-content p {
+                font-size: 1rem;
+            }
+            
+            .experience-header {
+                flex-direction: column;
+            }
+            
+            .projects {
+                grid-template-columns: 1fr;
+            }
+        }
+    </style>
+</head>
+<body>
+    <header>
+        <nav class="container">
+            <ul>
+                <li><a href="#home">Home</a></li>
+                <li><a href="#experience">Experience</a></li>
+                <li><a href="#projects">Projects</a></li>
+                <li><a href="#skills">Skills</a></li>
+                <li><a href="#hobbies">Hobbies</a></li>
+            </ul>
+        </nav>
+    </header>
+
+    <section id="home" class="hero">
+        <div class="hero-content">
+            <img class ='prof-pic' src="Facetune_07-05-2024-16-02-47.jpg" alt="Ayman Mahfuz">
+            <h1>Ayman Mahfuz</h1>
+            <p>Computer Science & Mathematics Student | Aspiring Software Engineer & Machine Learning Researcher</p>
+        </div>
+    </section>
+
+    <section id="experience" class="container">
+        <h2>Work Experience</h2>
+        <div class="experience-item">
+            <div class="experience-header">
+                <h3 class="experience-title">Software Engineering Research Assistant</h3>
+                <span class="experience-company">The University of Texas at Austin</span>
+                <span class="experience-date">Aug 2023 - Present</span>
+            </div>
+            <ul>
+                <li>Engineered robust Python pipelines for scraping, preprocessing, and uploading data to BigQuery.</li>
+                <li>Employed various scraping techniques (APIs, sitemaps, HTML parsing), leveraged Pandas and Numpy heavily, and ensured data integrity with automated cron jobs for daily updates.</li>
+                <li>Processed over 50 million news articles and 70 million comments from 12+ domains, maintaining a comprehensive database dating back to 1851.</li>
+                <li>Developed dynamic dashboards and visualizations using SQL, Pandas, Matplotlib, and Looker Studio to track data collection progress, identify and programmatically fill data gaps.</li>
+                <li>Led machine learning initiatives, creating and evaluating models to classify news headlines and comments.</li>
+                <li>Fine-tuned a DistilBERT model using Hugging Face, achieving high accuracy and performance metrics.</li>
+                <li>Conducted advanced research projects: analyzed clickbait trends over a decade and investigated the prevalence of personal stories in comments.</li>
+            </ul>
+        </div>
+        <div class="experience-item">
+            <div class="experience-header">
+                <h3 class="experience-title">Machine Learning Research Assistant</h3>
+                <span class="experience-company">Dell Medical School</span>
+                <span class="experience-date">Aug 2023 - Present</span>
+            </div>
+            <ul>
+                <li>Led a team of 3 members to revolutionize abdominal organ segmentation by developing advanced machine learning models for medical imaging.</li>
+                <li>Built on existing MONAI frameworks to segment the pancreas from MRI scans, enhancing accuracy and performance using the latest vision transformer technologies and the TransUNet library.</li>
+                <li>Engineered robust data preprocessing pipelines for 3D MRI images, using libraries such as Nibabel, Pydicom, NumPy, and H5py.</li>
+                <li>Developed and fine-tuned machine learning models for pancreas segmentation using advanced architectures like TransUNet and ResNet-50 with ViT.</li>
+                <li>Conducted comprehensive data analysis and visualization, employing statistical and machine learning techniques to analyze the impact of contextual changes on model performance.</li>
+            </ul>
+        </div>
+        <div class="experience-item">
+            <div class="experience-header">
+                <h3 class="experience-title">Machine Learning Research Assistant</h3>
+                <span class="experience-company">School of Information</span>
+                <span class="experience-date">Feb 2024 - Present</span>
+            </div>
+            <ul>
+                <li>Led a team in the systematic design and implementation of a comprehensive Python script for assessing the consistency of MedAgents in diagnosing medical conditions.</li>
+                <li>Utilized the Autogen library and GPT-3.5 API, incorporating features such as exponential backoff for API rate limiting, offline script execution, and organized data collection.</li>
+                <li>Engineered robust data pipelines using Pandas and NumPy for data preprocessing and cleaning.</li>
+                <li>Developed models to evaluate the impact of contextual changes on the diagnostic consistency of MedAgents.</li>
+                <li>Conducted advanced data analysis and visualization using a variety of statistical and machine learning techniques.</li>
+            </ul>
+        </div>
+        <div class="experience-item">
+            <div class="experience-header">
+                <h3 class="experience-title">Software Engineering Research Assistant</h3>
+                <span class="experience-company">The University of Maryland, College Park</span>
+                <span class="experience-date">Jun 2022 - Jan 2024</span>
+            </div>
+            <ul>
+                <li>Developed an NLP-driven chatbot, improving online engagement & analyzing human-chatbot dynamics, contributing to a CHI 2024 conference paper.</li>
+                <li>Conducted advanced text analytics & Python scripting for data analysis, producing key linguistic insights & visualizations.</li>
+            </ul>
+        </div>
+        <div class="experience-item">
+            <div class="experience-header">
+                <h3 class="experience-title">Software Engineer Intern</h3>
+                <span class="experience-company">Lockheed Martin</span>
+                <span class="experience-date">Jun 2022 - Oct 2022</span>
+            </div>
+            <ul>
+                <li>Optimized CRM workflows & refined the Configuration Database, enhancing operational efficiency & data integrity through JavaScript & RPA integration.</li>
+            </ul>
+        </div>
+        <div class="experience-item">
+            <div class="experience-header">
+                <h3 class="experience-title">Summer Extern</h3>
+                <span class="experience-company">AT&T</span>
+                <span class="experience-date">Jun 2021 - Aug 2021</span>
+            </div>
+            <ul>
+                <li>Engaged with industry leaders & collaborated on tech-focused strategies, enhancing AI & technology insight, & contributing a unique international perspective towards shaping future tech innovation.</li>
+            </ul>
+        </div>
+    </section>
+
+    <section id="projects" class="container">
+        <h2>Projects</h2>
+        <div class="projects">
+            <div class="project-card">
+                <h3>Inkwell: YouTube for Books</h3>
+                <p>Developed Inkwell, a dynamic book-sharing platform, leading full-stack development with React, PostgresQL, & Django, enhancing user experience & preparing for future growth & monetization.</p>
+            </div>
+            <div class="project-card">
+                <h3>AI Dermatologist</h3>
+                <p>Leading the AI Dermatologist project to innovate skincare recommendations with a single facial scan using vision transformers, public Kaggle datasets, and content-based machine learning filtering.</p>
+            </div>
+            <div class="project-card">
+                <!-- <h3>Leetcode Matchmaker</h3> -->
+                <a href="https://leetcode-matchmaker-2bb8b1daa393.herokuapp.com/"><h3 href=>LeetCode Matchmaker</h3></a>
+                <p>Developed a web application that finds and displays LeetCode problems solved similarly to a given problem to aid in interview prep, using Machine learning, React for the frontend, & Flask for the backend.</p>
+            </div>
+        </div>
+    </section>
+
+    <section id="skills" class="container">
+        <h2>Skills</h2>
+        <div class="skills-container">
+            <div class="skills">
+                <span class="skill-tag">Python</span>
+                <span class="skill-tag">Java</span>
+                <span class="skill-tag">C</span>
+                <span class="skill-tag">JavaScript</span>
+                <span class="skill-tag">HTML/CSS</span>
+                <span class="skill-tag">SQL</span>
+                <span class="skill-tag">PHP</span>
+                <span class="skill-tag">Node.js</span>
+                <span class="skill-tag">React.js</span>
+                <span class="skill-tag">MATLAB</span>
+                <span class="skill-tag">C++</span>
+                <span class="skill-tag">Flask</span>
+                <span class="skill-tag">Django</span>
+                <span class="skill-tag">Pandas</span>
+                <span class="skill-tag">NumPy</span>
+                <span class="skill-tag">Scikit-learn</span>
+                <span class="skill-tag">Ruby</span>
+                <span class="skill-tag">ARM64</span>
+                <span class="skill-tag">PostgreSQL</span>
+            </div>
+        </div>
+    </section>
+
+    <section id="hobbies" class="container">
+        <h2>Hobbies</h2>
+        <p>I love making projects, playing soccer, and spending time with friends.</p>
+    </section>
+
+    <script>
+        gsap.registerPlugin(ScrollTrigger);
+
+        gsap.from('.hero-content', {
+            opacity: 0,
+            y: 50,
+            duration: 1,
+            ease: 'power3.out'
+        });
+
+        gsap.from('.experience-item, .project-card', {
+            scrollTrigger: {
+                trigger: '#experience',
+                start: 'top 80%'
+            },
+            opacity: 0,
+            y: 50,
+            stagger: 0.2,
+            duration: 0.8,
+            ease: 'power3.out'
+        });
+
+        gsap.from('.skill');
+    </script>
