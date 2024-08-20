@@ -188,24 +188,52 @@
         }
         
         .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
-            gap: 30px;
-            margin-bottom: 60px; /* Added margin to ensure proper spacing */
+    display: flex;
+    flex-direction: column;
+    gap: 30px;
+}
 
-        }
-        
-        .project-card {
-            background-color: #fff;
-            border-radius: 5px;
-            box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
-            padding: 20px;
-            transition: transform 0.3s ease;
-        }
-        
-        .project-card:hover {
-            transform: translateY(-5px);
-        }
+.project-item {
+    background-color: #fff;
+    border-radius: 5px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.project-item h3 {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.project-item p {
+    margin-bottom: 15px;
+}
+
+.project-item ul {
+    list-style-type: disc;
+    padding-left: 20px;
+}
+
+.project-item li {
+    margin-bottom: 5px;
+    font-size: 0.9em;
+}
+
+.project-item a {
+    text-decoration: none;
+    color: inherit;
+}
+
+.project-item a:hover {
+    text-decoration: underline;
+}
         
         .skills-container {
             display: flex;
@@ -274,7 +302,7 @@
                 <a href="https://github.com/AymanMahfuz27" target="_blank">
                     <i class="fab fa-github"></i> GitHub
                 </a>
-                <a href="personal-portfolio-website.html" target="_blank">
+                <a href="Ayman Mahfuz Resume 2024.pdf" download="Ayman_Mahfuz_Resume.pdf">
                     <i class="fas fa-file-pdf"></i> Resume
                 </a>
             </div>
@@ -394,17 +422,33 @@
     <section id="projects" class="container">
         <h2>Projects</h2>
         <div class="projects">
-            <div class="project-card">
-                <h3>Inkwell: YouTube for Books</h3>
-                <p>Developed Inkwell, a dynamic book-sharing platform, leading full-stack development with React, PostgresQL, & Django, enhancing user experience & preparing for future growth & monetization.</p>
+            <div class="project-item">
+                <a href="https://www.inkwellbooks.app/"><h3>Inkwell: YouTube for Books</h3></a>
+                <p>Led full-stack development of Inkwell, a dynamic book-sharing platform, using React, PostgreSQL, and Django. Key achievements include:</p>
+                <ul>
+                    <li>Implemented JWT authentication with auto-refresh for enhanced security.</li>
+                    <li>Developed a comprehensive RESTful API with 50+ endpoints for complex functionalities.</li>
+                    <li>Created a multi-step book upload process with draft saving.</li>
+                    <li>Engineered a real-time analytics dashboard using Chart.js.</li>
+                    <li>Developed a custom rich text editor for book content creation.</li>
+                    <li>Implemented intelligent search functionality using PostgreSQL's full-text search.</li>
+                    <li>Designed a scalable database schema for complex user and book relationships.</li>
+                    <li>Created a responsive front-end design using React and custom CSS.</li>
+                    <li>Implemented social features like follower systems and user profiles.</li>
+                    <li>Developed a versatile book reader component supporting PDF and rich text.</li>
+                    <li>Integrated state management and custom hooks in React for efficient data flow.</li>
+                    <li>Implemented file upload systems for multimedia content.</li>
+                    <li>Designed a book collection system for organizing reading lists.</li>
+                    <li>Created a robust error handling and user feedback system.</li>
+                    <li>Implemented server-side pagination for optimized performance with large datasets.</li>
+                </ul>
             </div>
-            <div class="project-card">
+            <div class="project-item">
                 <h3>AI Dermatologist</h3>
                 <p>Leading the AI Dermatologist project to innovate skincare recommendations with a single facial scan using vision transformers, public Kaggle datasets, and content-based machine learning filtering.</p>
             </div>
-            <div class="project-card">
-                <!-- <h3>Leetcode Matchmaker</h3> -->
-                <a href="https://leetcode-matchmaker-2bb8b1daa393.herokuapp.com/"><h3 href=>LeetCode Matchmaker</h3></a>
+            <div class="project-item">
+                <a href="https://leetcode-matchmaker-2bb8b1daa393.herokuapp.com/"><h3>LeetCode Matchmaker</h3></a>
                 <p>Developed a web application that finds and displays LeetCode problems solved similarly to a given problem to aid in interview prep, using Machine learning, React for the frontend, & Flask for the backend.</p>
             </div>
         </div>
