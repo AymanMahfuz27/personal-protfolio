@@ -235,27 +235,73 @@
     text-decoration: underline;
 }
         
-        .skills-container {
-            display: flex;
-            flex-direction: column;
-            align-items: center;
-        }
-        
-        .skills {
-            display: flex;
-            flex-wrap: wrap;
-            justify-content: center;
-            gap: 10px;
-            max-width: 800px;
-        }
-        
-        .skill-tag {
-            background-color: var(--secondary-color);
-            color: #fff;
-            padding: 5px 10px;
-            border-radius: 20px;
-            font-size: 0.9rem;
-        }
+.skills-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+}
+
+.skills-group h3 {
+    font-size: 1.3rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+    text-align: center;
+}
+
+.skills {
+    display: flex;
+    flex-wrap: wrap;
+    justify-content: center;
+    gap: 10px;
+}
+
+.skill-tag {
+    background-color: var(--secondary-color);
+    color: #fff;
+    padding: 8px 12px;
+    border-radius: 20px;
+    font-size: 0.9rem;
+    text-align: center;
+}
+
+.hobbies-container {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
+    gap: 20px;
+    margin-top: 20px;
+    text-align: center;
+}
+
+.hobby-item {
+    background-color: #fff;
+    padding: 20px;
+    border-radius: 10px;
+    box-shadow: 0 3px 10px rgba(0, 0, 0, 0.1);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.hobby-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+}
+
+.hobby-item i {
+    font-size: 2rem;
+    color: var(--secondary-color);
+    margin-bottom: 10px;
+}
+
+.hobby-item h3 {
+    font-size: 1.5rem;
+    color: var(--primary-color);
+    margin-bottom: 10px;
+}
+
+.hobby-item p {
+    font-size: 1rem;
+    color: var(--text-color);
+}
+
         
         @media (max-width: 768px) {
             .hero-content h1 {
@@ -274,6 +320,8 @@
                 grid-template-columns: 1fr;
             }
         }
+
+
     </style>
 </head>
 <body>
@@ -308,6 +356,77 @@
             </div>
         </div>
     </section>
+    <section id="skills" class="container">
+        <h2>Skills</h2>
+        <div class="skills-container">
+            <div class="skills-group">
+                <h3>Programming Languages</h3>
+                <div class="skills">
+                    <span class="skill-tag"><i class="fab fa-python"></i> Python</span>
+                    <span class="skill-tag"><i class="fab fa-java"></i> Java</span>
+                    <span class="skill-tag"><i class="fab fa-cuttlefish"></i> C</span>
+                    <span class="skill-tag"><i class="fab fa-js"></i> JavaScript</span>
+                    <span class="skill-tag"><i class="fab fa-html5"></i> HTML/CSS</span>
+                    <span class="skill-tag"><i class="fas fa-gem"></i> Ruby</span>
+                    <span class="skill-tag"><i class="fab fa-cuttlefish"></i> C++</span>
+                    <span class="skill-tag"><i class="fab fa-php"></i> PHP</span>
+                </div>
+            </div>
+    
+            <div class="skills-group">
+                <h3>Frontend Development</h3>
+                <div class="skills">
+                    <span class="skill-tag"><i class="fab fa-react"></i> React.js</span>
+                    <span class="skill-tag"><i class="fab fa-node-js"></i> Node.js</span>
+                    <span class="skill-tag"><i class="fab fa-html5"></i> HTML/CSS</span>
+                </div>
+            </div>
+    
+            <div class="skills-group">
+                <h3>Backend Development</h3>
+                <div class="skills">
+                    <span class="skill-tag"><i class="fas fa-flask"></i> Flask</span>
+                    <span class="skill-tag"><i class="fab fa-python"></i> Django</span>
+                    <span class="skill-tag"><i class="fab fa-node-js"></i> Node.js</span>
+                </div>
+            </div>
+    
+            <div class="skills-group">
+                <h3>Data Science & Machine Learning</h3>
+                <div class="skills">
+                    <span class="skill-tag"><i class="fas fa-chart-line"></i> Pandas</span>
+                    <span class="skill-tag"><i class="fas fa-chart-bar"></i> NumPy</span>
+                    <span class="skill-tag"><i class="fas fa-brain"></i> Scikit-learn</span>
+                </div>
+            </div>
+    
+            <div class="skills-group">
+                <h3>Databases</h3>
+                <div class="skills">
+                    <span class="skill-tag"><i class="fas fa-database"></i> SQL</span>
+                    <span class="skill-tag"><i class="fas fa-database"></i> PostgreSQL</span>
+                </div>
+            </div>
+    
+            <div class="skills-group">
+                <h3>Tools & Libraries</h3>
+                <div class="skills">
+                    <span class="skill-tag"><i class="fab fa-git"></i> Git</span>
+                    <span class="skill-tag"><i class="fas fa-cloud"></i> AWS</span>
+                    <span class="skill-tag"><i class="fab fa-google"></i> Google Cloud Platform</span>
+                </div>
+            </div>
+    
+            <div class="skills-group">
+                <h3>Miscellaneous</h3>
+                <div class="skills">
+                    <span class="skill-tag"><i class="fas fa-microchip"></i> ARM64</span>
+                    <span class="skill-tag"><i class="fab fa-square"></i> MATLAB</span>
+                </div>
+            </div>
+        </div>
+    </section>
+    
 
     <section id="experience" class="container">
         <h2>Work Experience</h2>
@@ -462,39 +581,34 @@
         </div>
     </section>
 
-    <section id="skills" class="container">
-        <h2>Skills</h2>
-        <div class="skills-container">
-            <div class="skills">
-                <span class="skill-tag"><i class="fab fa-python"></i> Python</span>
-                <span class="skill-tag"><i class="fab fa-java"></i> Java</span>
-                <span class="skill-tag"><i class="fab fa-cuttlefish"></i> C</span>
-                <span class="skill-tag"><i class="fab fa-js"></i> JavaScript</span>
-                <span class="skill-tag"><i class="fab fa-html5"></i> HTML/CSS</span>
-                <span class="skill-tag"><i class="fas fa-database"></i> SQL</span>
-                <span class="skill-tag"><i class="fab fa-php"></i> PHP</span>
-                <span class="skill-tag"><i class="fab fa-node-js"></i> Node.js</span>
-                <span class="skill-tag"><i class="fab fa-react"></i> React.js</span>
-                <span class="skill-tag"><i class="fab fa-square"></i> MATLAB</span>
-                <span class="skill-tag"><i class="fab fa-cuttlefish"></i> C++</span>
-                <span class="skill-tag"><i class="fas fa-flask"></i> Flask</span>
-                <span class="skill-tag"><i class="fab fa-python"></i> Django</span>
-                <span class="skill-tag"><i class="fas fa-chart-line"></i> Pandas</span>
-                <span class="skill-tag"><i class="fas fa-chart-bar"></i> NumPy</span>
-                <span class="skill-tag"><i class="fas fa-brain"></i> Scikit-learn</span>
-                <span class="skill-tag"><i class="fas fa-gem"></i> Ruby</span>
-                <span class="skill-tag"><i class="fas fa-microchip"></i> ARM64</span>
-                <span class="skill-tag"><i class="fas fa-database"></i> PostgreSQL</span>
-            </div>
-
-        </div>
-    </section>
+    
 
     <section id="hobbies" class="container">
-        <h2>Hobbies</h2>
-        <p>I love making projects, playing soccer, and spending time with friends.</p>
+        <h2>Hobbies & Interests</h2>
+        <div class="hobbies-container">
+            <div class="hobby-item">
+                <i class="fas fa-dumbbell"></i>
+                <h3>Weightlifting</h3>
+                <p>I love spending time in the gym and hitting new maxes</p>
+            </div>
+            <div class="hobby-item">
+                <i class="fas fa-futbol"></i>
+                <h3>Soccer</h3>
+                <p>I've been playing soccer since I could walk. If I'm not working, you can find me on the nearest field!</p>
+            </div>
+            <div class="hobby-item">
+                <i class="fas fa-users"></i>
+                <h3>Family and Friends</h3>
+                <p>I cherish spending quality time with friends and family, whether it's a casual hangout or a special gathering.</p>
+            </div>
+            <div class="hobby-item">
+                <i class="fas fa-lightbulb"></i>
+                <h3>Startups</h3>
+                <p>I spend a lot of time working on my startups. Outside of coding, it's asking people I'm close with for advice and feedback on my current projects.</p>
+            </div>
+        </div>
     </section>
-
+    
     <script>
         gsap.registerPlugin(ScrollTrigger);
 
