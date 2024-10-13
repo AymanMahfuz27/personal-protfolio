@@ -14,16 +14,16 @@
         @import url('https://fonts.googleapis.com/css2?family=Poppins:wght@300;400;600&display=swap');
 
         :root {
-  --primary-color: #211A1D;      /* Raisin Black */
-  --secondary-color: #0F5257;    /* Midnight Green */
-  --accent-color: #CC3F0C;       /* Sinopia */
-  --background-color: #FFF8F0;   /* Floral White */
-  --card-background: #FFFFFF;    /* White */
-  --text-color: #E8E8E8;         /* Raisin Black for text */
-  --text-color-second: #211A1D;  /* White for text */
-  --highlight-text: #9E2B25;     /* Auburn */
-  --hover-color: #0F5257;        /* Midnight Green for hover */
-  --border-color: #E8E8E8;       /* Light Gray for borders */
+  --primary-color: #222831;      /* Dark Gray (almost black) */
+  --secondary-color: #393E46;    /* Charcoal Gray */
+  --accent-color: #9E2B25;       /* Auburn */
+  --background-color: #EEEEEE;   /* Light Gray */
+  --text-color: #ebebeb;         /* Dark Gray for text */
+
+  --text-color-second: #222831;         /* Dark Gray for text */
+  --highlight-text: #FFFFFF;     /* White for contrast */
+  --hover-color: #9E2B25;        /* Auburn for hover effects */
+  --border-color: #D4D4D4;       /* Medium Gray for subtle borders */
 }
 
         * {
@@ -114,8 +114,8 @@
         }
 
         .hero-content img {
-            width: 180px;
-            height: 180px;
+            width: 275px;
+            height: 275px;
             border-radius: 50%;
             margin-bottom: 20px;
             object-fit: cover;
@@ -324,13 +324,13 @@
 
         .hobby-item i {
             font-size: 2.5rem;
-            color: var(--secondary-color);
+            color: var(--text-color-second);
             margin-bottom: 15px;
         }
 
         .hobby-item h3 {
             font-size: 1.5rem;
-            color: var(--light-text);
+            color: var(--text-color-second);
             margin-bottom: 10px;
         }
 
