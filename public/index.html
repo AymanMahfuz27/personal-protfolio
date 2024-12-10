@@ -225,6 +225,118 @@
             color: var(--secondary-color);
             margin-bottom: 5px;
         }
+
+       #education {
+    background-color: var(--card-background);
+    padding: 80px 20px;
+}
+
+.education-content {
+    max-width: 1200px;
+    margin: 0 auto;
+}
+
+.education-item {
+    background-color: white;
+    border-radius: 15px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+    padding: 40px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+    margin-bottom: 30px;
+}
+
+.education-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.2);
+}
+
+.education-header {
+    margin-bottom: 30px;
+}
+
+.education-header h3 {
+    font-size: 2.2rem;
+    color: var(--secondary-color);
+    margin-bottom: 15px;
+    font-weight: 600;
+}
+
+.education-header p {
+    font-size: 1.1rem;
+    color: var(--text-color-second);
+    margin-bottom: 8px;
+}
+
+.education-details {
+    display: grid;
+    grid-template-columns: 1fr 1fr;
+    gap: 40px;
+    margin-top: 20px;
+}
+
+.education-column {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+}
+
+.education-column p {
+    font-size: 1.1rem;
+    color: var(--text-color-second);
+    margin-bottom: 5px;
+}
+
+.education-column strong {
+    color: var(--accent-color);
+    font-weight: 600;
+}
+
+.education-column ul {
+    list-style: none;
+    padding: 0;
+    margin: 0;
+}
+
+.education-column li {
+    color: var(--text-color-second);
+    font-size: 1rem;
+    margin-bottom: 12px;
+    position: relative;
+    padding-left: 20px;
+}
+
+.education-column li::before {
+    content: "•";
+    color: var(--accent-color);
+    position: absolute;
+    left: 0;
+    font-weight: bold;
+}
+
+@media (max-width: 768px) {
+    .education-details {
+        grid-template-columns: 1fr;
+        gap: 20px;
+    }
+
+    .education-header h3 {
+        font-size: 1.8rem;
+    }
+
+    .education-item {
+        padding: 25px;
+    }
+}
+
+        /* Style for experience section paragraphs */
+        .experience-item p {
+            color: var(--text-color-second); /* Dark text for readability */
+            font-size: 1.4rem;              /* Slightly larger font for emphasis */
+            margin-bottom: 15px;            /* Space below paragraph */
+            line-height: 1.2;               /* Improve readability with spacing */
+            text-align: justify;            /* Align text for a cleaner look */
+        }
+
     
         .experience-company, .hobby-subtitle {
             font-weight: 600;
@@ -466,13 +578,13 @@
             <p>Computer Science & Mathematics Student | Aspiring Software Engineer & Machine Learning Researcher</p>
             <div class="links">
                 <a href="https://www.linkedin.com/in/aymanmahfuz/" target="_blank">
-                    <i class="fab fa-linkedin"></i> LinkedIn
+                    <i class="fab fa-linkedin"></i> Connect with me on LinkedIn
                 </a>
                 <a href="https://github.com/AymanMahfuz27" target="_blank">
-                    <i class="fab fa-github"></i> GitHub
+                    <i class="fab fa-github"></i> View my GitHub
                 </a>
                 <a href="AymanMahfuz_Resume.pdf" download="AymanMahfuz_Resume.pdf">
-                    <i class="fas fa-file-pdf"></i> Resume
+                    <i class="fas fa-file-pdf"></i> Download my Resume
                 </a>
             </div>
         </div>
@@ -502,30 +614,37 @@
     
     <section id="education" class="container">
         <h2>Education</h2>
-        <div class="experience-item">
-            <div class="experience-header">
-                <h3 class="experience-title">The University of Texas at Austin</h3>
-                <span class="experience-company">Bachelor of Science</span>
-                <span class="experience-location">Austin, TX, USA</span>
-                <span class="experience-date">Aug 2023 - May 2027</span>
+        <div class="education-content">
+            <div class="education-item">
+                <div class="education-header">
+                    <h3>The University of Texas at Austin</h3>
+                    <p>Bachelor of Science | Aug 2023 - May 2027</p>
+                    <p><strong>Location:</strong> Austin, TX, USA</p>
+                </div>
+                <div class="education-details">
+                    <div class="education-column">
+                        <p><strong>Double Major:</strong> Computer Science, Mathematics</p>
+                        <p><strong>Minor:</strong> Business</p>
+                        <p><strong>Concentration:</strong> Artificial Intelligence and Machine Learning</p>
+                    </div>
+                    <div class="education-column">
+                        <p><strong>Relevant Coursework:</strong></p>
+                        <ul>
+                            <li>Data Structures</li>
+                            <li>Computer Architecture and Organization</li>
+                            <li>Computer Systems and Operating Systems</li>
+                            <li>Discrete Mathematics</li>
+                            <li>Linear Algebra</li>
+                            <li>Statistics & Probability</li>
+                        </ul>
+                    </div>
+                </div>
             </div>
-            <ul>
-                <li><strong>Double Major:</strong> Computer Science, Mathematics</li>
-                <li><strong>Minor:</strong> Business</li>
-                <li><strong>Concentration:</strong> Artificial Intelligence and Machine Learning</li>
-                <li><strong>Relevant Coursework:</strong>
-                    <ul>
-                        <li>Data Structures</li>
-                        <li>Computer Architecture</li>
-                        <li>Computer Systems</li>
-                        <li>Discrete Mathematics</li>
-                        <li>Linear Algebra</li>
-                        <li>Statistics & Probability</li>
-                    </ul>
-                </li>
-            </ul>
         </div>
     </section>
+    
+
+
     <section id="skills" class="container">
         <h2>Skills</h2>
         <div class="skills-container">
@@ -603,11 +722,15 @@
         
         <div class="experience-item">
             <div class="experience-header">
-                <h3 class="experience-title">Machine Learning Research Assistant</h3>
+                <h3 class="experience-title">Machine Learning Engineer, Research Assistant</h3>
                 <span class="experience-company">University of Texas - Austin</span>
                 <span class="experience-location">Austin, TX, USA</span>
                 <span class="experience-date">Feb 2024 - Present</span>
             </div>
+            <p>
+                My research focuses on leveraging LLM-based multiagent interactions to enhance reasoning and decision-making in the medical domain. I design Python systems to evaluate the consistency of AI models in medical diagnoses, analyzing how contextual variations influence outcomes. This work combines multiagent collaboration and reasoning with cutting-edge AI techniques to improve reliability in medical decision-making.
+            </p>
+    
             <ul>
                 <li>Led a team in the systematic design and implementation of a comprehensive <strong>Python</strong> script for assessing the consistency of MedAgents in diagnosing medical conditions. Utilized the <strong>Autogen</strong> library and <strong>GPT-3.5 API</strong>, incorporating features such as exponential backoff for API rate limiting, offline script execution, and organized data collection. Ensured robust performance through well-structured code, modular design, and extensive documentation.</li>
                 <li>Engineered robust data pipelines using <strong>Pandas</strong> and <strong>NumPy</strong> for data preprocessing and cleaning. Developed methods to introduce variations to medical questions, ensuring clean and structured datasets for analysis. Managed data storage and processing in JSON format, facilitating efficient and accurate data handling.</li>
@@ -618,13 +741,18 @@
         
         <div class="experience-item">
             <div class="experience-header">
-                <h3 class="experience-title">Software Engineering Research Assistant</h3>
+                <h3 class="experience-title">Software Engineer, Research Assistant</h3>
                 <span class="experience-company">University of Texas - Austin</span>
                 <span class="experience-location">Austin, TX, USA</span>
                 <span class="experience-date">Sep 2023 - Present</span>
             </div>
+            <p>
+                I conduct media research by studying how people interact with news, platforms, and each other, by designing systems and using machine learning to evaluate political opinions, storytelling patterns, and societal divides. My contributions include building a 150-million-entry dataset, developing DistilBERT models for large-scale analysis, and designing the full system architecture for MTurk-integrated React games to track and analyze user behavior.
+            </p>
+    
             <ul>
                 <li>Engineered robust <strong>Python</strong> pipelines for scraping, preprocessing, and uploading data to <strong>BigQuery</strong>. Employed various scraping techniques (APIs, sitemaps, HTML parsing), leveraged <strong>Pandas</strong> and <strong>NumPy</strong> heavily, and ensured data integrity with automated <strong>cron jobs</strong> for daily updates. Processed over <strong>50 million</strong> news articles and <strong>70 million</strong> comments from <strong>12+ domains</strong>, maintaining a comprehensive database dating back to 1851.</li>
+                <li>Designed and deployed a research platform using React, Tailwind, Flask, and Firebase, featuring 3 interactive games (Higher/Lower, Slider, and Timeline) with MTurk integration, real-time analytics tracking 15+ metrics, and 99.9% uptime. The platform includes a modular Flask backend that manages random game assignments, worker ID tracking, and question set management, seamlessly integrated with Firebase for data logging and storage.</li>
                 <li>Developed dynamic dashboards and visualizations using <strong>SQL</strong>, <strong>Pandas</strong>, <strong>Matplotlib</strong>, and <strong>Looker Studio</strong> to track data collection progress, identify and programmatically fill data gaps, enhancing the database's reliability and accessibility for research purposes.</li>
                 <li>Led <strong>machine learning</strong> initiatives, creating and evaluating models to classify news headlines and comments. Fine-tuned a <strong>DistilBERT</strong> model using <strong>Hugging Face</strong>, achieving high accuracy and performance metrics (precision, recall, F1 score) through comprehensive evaluations.</li>
                 <li>Conducted advanced research projects: analyzed clickbait trends over a decade and investigated the prevalence of personal stories in comments. Leveraged machine learning algorithms and extensive data analysis to derive actionable insights, contributing to upcoming research publications that aim to understand and combat the spread of misinformation online.</li>
@@ -633,11 +761,14 @@
         
         <div class="experience-item">
             <div class="experience-header">
-                <h3 class="experience-title">Machine Learning Research Assistant</h3>
+                <h3 class="experience-title">Machine Learning Engineer, Research Assistant</h3>
                 <span class="experience-company">University of Texas - Austin</span>
                 <span class="experience-location">Austin, TX, USA</span>
                 <span class="experience-date">Sep 2023 - Present</span>
             </div>
+            <p>
+                I use the latest transformer technology to advance pancreas and organ segmentation, applying state-of-the-art models like MedSAM2 to preprocess 3D MRI data. This work aims to identify early indicators of diabetes and pancreatic cancer, enabling earlier and more accurate diagnoses for patients.            </p>
+    
             <ul>
                 <li>Led a team of 3 members to revolutionize abdominal organ segmentation by developing advanced <strong>machine learning</strong> models for medical imaging. Built on existing <strong>MONAI</strong> frameworks to segment the pancreas from MRI scans, enhancing accuracy and performance using the latest <strong>vision transformer</strong> technologies and the <strong>TransUNet</strong> library.</li>
                 <li>Engineered robust data preprocessing pipelines: Designed and implemented <strong>Python</strong> scripts for preprocessing 3D MRI images, including clipping, normalization, and extraction of 2D slices, using libraries such as <strong>Nibabel</strong>, <strong>Pydicom</strong>, <strong>NumPy</strong>, and <strong>H5py</strong>. Ensured efficient data handling and storage for large-scale medical datasets, facilitating downstream analysis and model training.</li>
@@ -653,6 +784,10 @@
                 <span class="experience-location">Remote</span>
                 <span class="experience-date">Jun 2023 - Present</span>
             </div>
+            <p>
+                I’m building an NLP-based chatbot to engage news readers and analyzing linguistic patterns to enhance the interaction. My contributions focus on Python scripting and publishing insights at CHI 2024.
+            </p>
+    
             <ul>
                 <a href="https://arxiv.org/abs/2312.10650"><li>Project: Towards Designing a Question-Answering Chatbot for Online News</li></a>
                 <li>Led the development of an <strong>NLP-driven</strong> chatbot to augment online news reader engagement, employing deep learning and AI techniques. Directed comprehensive studies and analyses, culminating in findings on human-chatbot interaction dynamics.</li>
@@ -669,6 +804,10 @@
                 <span class="experience-location">Remote</span>
                 <span class="experience-date">Jun 2022 - Oct 2022</span>
             </div>
+            <p>
+                At Lockheed Martin, I optimized CRM workflows, introduced RPA solutions, and cleaned up their Configuration Database to boost operational efficiency.
+            </p>
+    
             <ul>
                 <li>Spearheaded the development and optimization of Customer Relationship Management (CRM) workflows at Lockheed Martin, achieving a centralized device data framework that enhanced enterprise operational efficiency.</li>
                 <li>Engineered advanced CRM solutions by integrating <strong>JavaScript</strong> for flow enhancements and implementing Robotic Process Automation (RPA), streamlining the data de-duplication process and elevating data integrity.</li>
@@ -683,6 +822,10 @@
                 <span class="experience-location">Austin, TX, USA</span>
                 <span class="experience-date">Jun 2021 - Aug 2021</span>
             </div>
+            <p>
+                As the youngest participant, I gained exposure to AI, business strategies, and professional development while collaborating on tech-focused initiatives with industry leaders.
+            </p>
+    
             <ul>
                 <li>Actively engaged with industry leaders at the AT&T Summer Learning Academy, gaining insights into AI, personal development, and emerging business trends, thereby enriching my technological acumen and industry foresight.</li>
                 <li>Collaborated on tech-focused portfolio strategies, contributing fresh perspectives as the sole high school participant among international undergraduates, which enhanced the diversity of thought in strategy sessions.</li>
@@ -697,6 +840,10 @@
                 <span class="experience-location">Austin, TX, USA</span>
                 <span class="experience-date">Jun 2021 - Aug 2021</span>
             </div>
+            <p>
+                I helped Austin’s post-COVID recovery by improving loan processing workflows for small businesses. My work included Python scripting and data visualization to streamline operations.
+            </p>
+    
             <ul>
                 <li>Drove Austin's post-COVID economic recovery by innovating data analytics processes, accelerating business loan facilitation and enhancing operational efficiency for the small business relief program.</li>
                 <li>Designed and implemented Excel algorithms and Python scripts, revolutionizing loan application processing and rectification, significantly reducing processing time and errors.</li>
@@ -720,7 +867,7 @@
                 <p>
                     A dynamic book-sharing platform that allows users to explore and share books freely while empowering authors to earn more by bypassing traditional publishers.
                 </p>
-                <p><strong>Tech Stack:</strong> React, PostgreSQL, Django, AWS S3</p>
+                <p><strong>Tech Stack:</strong> React, PostgreSQL, Django, AWS S3, Django Rest Framework</p>
                 <iframe src="https://www.inkwellbooks.app/" title="Inkwell Demo" class="project-embed"></iframe>
                 <p class="project-note">Click the title to visit the live site.</p>
             </div>
@@ -755,7 +902,7 @@
                 <p>
                     A data compression tool implementing Huffman coding with encoding/decoding functionality and a graphical user interface.
                 </p>
-                <p><strong>Tech Stack:</strong> Java, Swing, File I/O</p>
+                <p><strong>Tech Stack:</strong> Java, File I/O</p>
             </div>
     
             <!-- Project 5: System Emulator -->
@@ -766,7 +913,7 @@
                 <p>
                     A low-level system emulator capable of simulating basic operations like instruction execution, memory management, and I/O handling.
                 </p>
-                <p><strong>Tech Stack:</strong> C, Assembly</p>
+                <p><strong>Tech Stack:</strong> C</p>
             </div>
     
             <!-- Project 6: Pintos Operating System -->
@@ -775,7 +922,7 @@
                 <p>
                     Developed an operating system kernel, implementing core functionalities such as thread scheduling, synchronization, and virtual memory management.
                 </p>
-                <p><strong>Tech Stack:</strong> C, Kernel Programming</p>
+                <p><strong>Tech Stack:</strong> C</p>
             </div>
     
         </div>
