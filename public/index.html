@@ -92,7 +92,11 @@
         nav ul li a:hover::after {
             width: 100%;
         }
-    
+            
+
+
+
+
         .hero {
             height: 100vh;
             display: flex;
@@ -184,7 +188,15 @@
             transform: translateX(-50%);
         }
     
-        .experience-item, .project-item, .hobby-item {
+        
+        .about-me-content {
+            animation: fadeInUp 1s ease forwards;
+            opacity: 0;
+            transform: translateY(20px);
+            color: var(--text-color-second)
+        }
+
+        .about-me-content, .experience-item, .project-item, .hobby-item {
             background-color: var(--card-background);
             border-radius: 10px;
             box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
@@ -193,6 +205,7 @@
             transition: transform 0.3s ease, box-shadow 0.3s ease;
         }
     
+        .about-me-content:hover,
         .experience-item:hover,
         .project-item:hover,
         .hobby-item:hover {
@@ -237,33 +250,62 @@
             line-height: 1.5;
         }
     
-        .projects {
-            display: grid;
-            grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
-            gap: 30px;
-        }
-    
-        .project-item h3 {
-            font-size: 1.5rem;
-            color: var(--secondary-color);
-            margin-bottom: 10px;
-        }
-    
-        .project-item p {
-            color: var(--text-color-second);
-            margin-bottom: 15px;
-        }
-    
-        .project-item a {
-            text-decoration: none;
-            color: var(--secondary-color);
-            transition: color 0.3s ease;
-        }
-    
-        .project-item a:hover {
-            color: var(--hover-color);
-        }
-    
+        /* Projects Section Styling */
+.projects {
+    display: grid;
+    grid-template-columns: repeat(auto-fit, minmax(280px, 1fr));
+    gap: 30px;
+    margin-top: 20px;
+}
+
+.project-item {
+    background-color: var(--card-background);
+    border-radius: 10px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.5);
+    padding: 20px;
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.project-item:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.7);
+}
+
+.project-item h3 {
+    color: var(--accent-color);
+    margin-bottom: 10px;
+    font-size: 1.5rem;
+}
+
+.project-item p {
+    color: var(--text-color-second);
+    margin-bottom: 15px;
+    font-size: 1rem;
+}
+
+.project-item a {
+    text-decoration: none;
+}
+
+.project-item a:hover {
+    color: var(--hover-color);
+}
+
+.project-embed {
+    width: 100%;
+    height: 300px;
+    border: 1px solid var(--border-color);
+    border-radius: 5px;
+    margin-top: 10px;
+}
+
+.project-note {
+    font-size: 0.9rem;
+    color: var(--text-color-second);
+    text-align: center;
+    margin-top: 5px;
+}
+
         .skills-container {
             display: grid;
             grid-template-columns: repeat(auto-fit, minmax(250px, 1fr));
@@ -435,6 +477,29 @@
             </div>
         </div>
     </section>
+    
+    <section id="about-me" class="container">
+        <h2>About Me</h2>
+        <div class="about-me-content">
+            <p>
+                Hey! I'm <strong>Ayman Mahfuz</strong>, a <strong>Computer Science</strong> and <strong>Mathematics</strong> student at the University of Texas at Austin, specializing in <strong>AI</strong> and <strong>Machine Learning</strong>. 
+            </p>
+            <p>
+                I’m also an engineer and research assistant at <strong>three different labs</strong>, at UT, where I work on cutting-edge projects in machine learning, medical AI, and software systems. My work spans developing robust data pipelines, training advanced machine learning models, and designing scalable software architectures, showcasing my expertise across multiple domains.
+            
+                I also <strong>founded Inkwell Books</strong>, a platform that makes books accessible to everyone while empowering authors to earn more by cutting out traditional publishers. Inkwell is my attempt to merge my love for technology and creativity into something impactful.
+            </p>
+            <p>
+                Proficient in programming languages like <strong>Python, Java, C, C++, JavaScript, and SQL</strong>, I have hands-on experience in both frontend and backend development, as well as a strong foundation in data science and AI tools like <strong>Pandas, NumPy, TensorFlow,</strong> and <strong>PyTorch</strong>. My skill set also extends to cloud platforms like <strong>AWS</strong> and <strong>GCP</strong>, making me a versatile engineer ready to tackle complex challenges.
+            </p>
+            <p>
+                When I’m not coding or researching, you’ll find me on the soccer field as part of UT’s intramural soccer club or engaging with the Muslim Students Association (MSA) to connect with my community. I’m passionate about weightlifting, startups, and spending quality time with family and friends.
+            </p>
+            
+        </div>
+    </section>
+    
+    
     <section id="education" class="container">
         <h2>Education</h2>
         <div class="experience-item">
@@ -646,48 +711,76 @@
     <section id="projects" class="container">
         <h2>Projects</h2>
         <div class="projects">
+    
+            <!-- Project 1: Inkwell -->
             <div class="project-item">
-                <a href="https://www.inkwellbooks.app/"><h3>Inkwell: YouTube for Books</h3></a>
-                <p>Led full-stack development of Inkwell, a dynamic book-sharing platform, using React, PostgreSQL, and Django.</p>
-                <!-- <ul>
-                    <li>Implemented JWT authentication with auto-refresh for enhanced security.</li>
-                    <li>Developed a comprehensive RESTful API with 50+ endpoints for complex functionalities.</li>
-                    <li>Created a multi-step book upload process with draft saving.</li>
-                    <li>Engineered a real-time analytics dashboard using Chart.js.</li>
-                    <li>Developed a custom rich text editor for book content creation.</li>
-                    <li>Implemented intelligent search functionality using PostgreSQL's full-text search.</li>
-                    <li>Designed a scalable database schema for complex user and book relationships.</li>
-                    <li>Created a responsive front-end design using React and custom CSS.</li>
-                    <li>Implemented social features like follower systems and user profiles.</li>
-                    <li>Developed a versatile book reader component supporting PDF and rich text.</li>
-                    <li>Integrated state management and custom hooks in React for efficient data flow.</li>
-                    <li>Implemented file upload systems for multimedia content.</li>
-                    <li>Designed a book collection system for organizing reading lists.</li>
-                    <li>Created a robust error handling and user feedback system.</li>
-                    <li>Implemented server-side pagination for optimized performance with large datasets.</li>
-                </ul> -->
+                <a href="https://www.inkwellbooks.app/" target="_blank">
+                    <h3>Inkwell: YouTube for Books</h3>
+                </a>
+                <p>
+                    A dynamic book-sharing platform that allows users to explore and share books freely while empowering authors to earn more by bypassing traditional publishers.
+                </p>
+                <p><strong>Tech Stack:</strong> React, PostgreSQL, Django, AWS S3</p>
+                <iframe src="https://www.inkwellbooks.app/" title="Inkwell Demo" class="project-embed"></iframe>
+                <p class="project-note">Click the title to visit the live site.</p>
             </div>
+    
+            <!-- Project 2: AI Dermatologist -->
             <div class="project-item">
                 <h3>AI Dermatologist</h3>
-                <p>Leading the AI Dermatologist project to innovate skincare recommendations with a single facial scan using vision transformers, public Kaggle datasets, and content-based machine learning filtering.</p>
+                <p>
+                    An AI-powered tool designed to provide personalized skincare recommendations from a single facial scan using cutting-edge vision transformers and machine learning models.
+                </p>
+                <p><strong>Tech Stack:</strong> Python, TensorFlow, OpenCV, Kaggle Datasets</p>
             </div>
+    
+            <!-- Project 3: LeetCode Matchmaker -->
             <div class="project-item">
-                <a href="https://leetcode-matchmaker-2bb8b1daa393.herokuapp.com/"><h3>LeetCode Matchmaker</h3></a>
-                <p>Developed a web application that finds and displays LeetCode problems solved similarly to a given problem to aid in interview prep, using Machine learning, React for the frontend, & Flask for the backend.</p>
+                <a href="https://leetcode-matchmaker-2bb8b1daa393.herokuapp.com/" target="_blank">
+                    <h3>LeetCode Matchmaker</h3>
+                </a>
+                <p>
+                    A web application that helps users discover LeetCode problems similar to a given one, aiding in interview preparation.
+                </p>
+                <p><strong>Tech Stack:</strong> React, Flask, Scikit-learn, PostgreSQL</p>
+                <iframe src="https://leetcode-matchmaker-2bb8b1daa393.herokuapp.com/" title="LeetCode Matchmaker Demo" class="project-embed"></iframe>
+                <p class="project-note">Click the title to visit the live site.</p>
             </div>
+    
+            <!-- Project 4: Huffman Encoder -->
             <div class="project-item">
-                <a href="https://github.com/AymanMahfuz27/Huffman-encoder"><h3>Huffman Encoder (Java)</h3></a>
-                <p>Developed a Huffman Encoder using Java, implementing the Huffman coding algorithm for efficient data compression. The project features both encoding and decoding functionalities, alongside a user-friendly graphical interface. Utilized Java's standard libraries, including Swing for the GUI and File I/O for managing data operations</p>
+                <a href="https://github.com/AymanMahfuz27/Huffman-encoder" target="_blank">
+                    <h3>Huffman Encoder (Java)</h3>
+                </a>
+                <p>
+                    A data compression tool implementing Huffman coding with encoding/decoding functionality and a graphical user interface.
+                </p>
+                <p><strong>Tech Stack:</strong> Java, Swing, File I/O</p>
             </div>
+    
+            <!-- Project 5: System Emulator -->
             <div class="project-item">
-                <a href="https://github.com/AymanMahfuz27/system-emulator"><h3>System Emulator (C)</h3></a>
-                <p>Built a system emulator in C, capable of simulating a basic computer system's operations, including instruction execution, memory management, and I/O handling. This project required deep knowledge of low-level programming, assembly language integration, and handling system-level tasks in C.                </p>
+                <a href="https://github.com/AymanMahfuz27/system-emulator" target="_blank">
+                    <h3>System Emulator (C)</h3>
+                </a>
+                <p>
+                    A low-level system emulator capable of simulating basic operations like instruction execution, memory management, and I/O handling.
+                </p>
+                <p><strong>Tech Stack:</strong> C, Assembly</p>
             </div>
+    
+            <!-- Project 6: Pintos Operating System -->
             <div class="project-item">
-                <a href=""><h3>Pintos Operating System</h3></a>
-                <p>Developed a basic operating system kernel using C for the Pintos project, implementing core functionalities such as thread scheduling, synchronization, and virtual memory management. This project required a deep understanding of operating system concepts, system-level programming, and kernel development.</p>
+                <h3>Pintos Operating System</h3>
+                <p>
+                    Developed an operating system kernel, implementing core functionalities such as thread scheduling, synchronization, and virtual memory management.
+                </p>
+                <p><strong>Tech Stack:</strong> C, Kernel Programming</p>
+            </div>
+    
         </div>
     </section>
+    
 
     
 
