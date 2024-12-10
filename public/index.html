@@ -490,6 +490,53 @@
             color: var(--text-color-second);
             font-size: 1rem;
         }
+
+        #contact {
+    padding: 40px;
+    text-align: center;
+    background-color: var(--background-color);
+    border-radius: 10px;
+    margin-top: 30px;
+    box-shadow: 0 4px 15px rgba(0, 0, 0, 0.1);
+}
+
+#contact h2 {
+    font-size: 2rem;
+    margin-bottom: 20px;
+    color: var(--secondary-color);
+}
+
+form {
+    display: flex;
+    flex-direction: column;
+    gap: 15px;
+    max-width: 500px;
+    margin: 0 auto;
+}
+
+form input,
+form textarea {
+    padding: 10px;
+    font-size: 1rem;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+
+form button {
+    background-color: var(--accent-color);
+    color: var(--highlight-text);
+    padding: 10px 20px;
+    font-size: 1rem;
+    border: none;
+    border-radius: 5px;
+    cursor: pointer;
+    transition: background-color 0.3s ease;
+}
+
+form button:hover {
+    background-color: var(--hover-color);
+}
+
     
         /* Animations */
         @keyframes fadeInUp {
@@ -552,6 +599,15 @@
     </style>
 
 </head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5WV0DT2D6Q"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag(){dataLayer.push(arguments);}
+  gtag('js', new Date());
+
+  gtag('config', 'G-5WV0DT2D6Q');
+</script>
 <body>
     <header>
         <nav class="container">
@@ -565,6 +621,7 @@
                 <li><a href="#projects">Projects</a></li>
                 <li><a href="#skills">Skills</a></li>
                 <li><a href="#hobbies">Hobbies</a></li>
+                <li><a href="#contact">Contact</a></li>
             </ul>
         </nav>
 
@@ -956,6 +1013,23 @@
             </div>
         </div>
     </section>
+
+    <section id="contact" class="container">
+        <h2>Contact Me</h2>
+        <form id="contact-form" action="/submit-form" method="POST">
+            <label for="name">Name:</label>
+            <input type="text" id="name" name="name" required placeholder="Your Name">
+    
+            <label for="email">Email:</label>
+            <input type="email" id="email" name="email" required placeholder="Your Email">
+    
+            <label for="message">Message:</label>
+            <textarea id="message" name="message" required placeholder="Your Message"></textarea>
+    
+            <button type="submit">Send</button>
+        </form>
+    </section>
+    
     
     <script>
         gsap.registerPlugin(ScrollTrigger);
