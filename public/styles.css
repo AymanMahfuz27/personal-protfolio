@@ -1,0 +1,691 @@
+/* ------------------------------------------- */
+/*  1) Basic Resets + Font Imports             */
+/* ------------------------------------------- */
+
+/* If you actually have OpenAI Sans, import it.
+   Otherwise, use a fallback. Below is a placeholder:
+
+   NOTE: OpenAI Sans is not publicly hosted, so either
+   store the font locally or choose any similar font. 
+*/
+
+@import url("https://fonts.googleapis.com/css2?family=Inter:wght@300;400;600&display=swap");
+/* Replace the above with your real OpenAI Sans if you have it. */
+
+*,
+*::before,
+*::after {
+  box-sizing: border-box;
+  margin: 0;
+  padding: 0;
+}
+
+html, body {
+  width: 100%;
+  height: 100%;
+  background-color: #0f0f0f;  /* Very dark background */
+  color: #f3f3f3;            /* Near‐white text */
+  font-family: 'Inter', sans-serif; /* or 'OpenAI Sans' if you have it */
+  -webkit-font-smoothing: antialiased;
+  line-height: 1.6;
+  scroll-behavior: smooth;
+  overflow-x: hidden; /* Typically to avoid sideways scrollbars */
+}
+
+img, video {
+  display: block;
+  max-width: 100%;
+  height: auto;
+}
+html,
+body {
+  margin: 0;
+  padding: 0;
+  /* Switch from OpenAI Sans to Manrope: */
+  font-family: 'Manrope', -apple-system, BlinkMacSystemFont, 'Segoe UI',
+    Roboto, Helvetica, Arial, sans-serif;
+  background-color: #000; /* Keep your background black or a dark gray */
+  color: #fff;            /* White text for contrast */
+}
+
+/* ------------------------------------------- */
+/*  2) Header + Navigation                     */
+/* ------------------------------------------- */
+
+/* Make a sticky top nav bar with black background */
+header {
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 100%;
+  background-color: #000; 
+  padding: 0.75rem 1.25rem; 
+  z-index: 999;
+  display: flex;
+  justify-content: space-between;
+  align-items: center;
+}
+
+/* Sidebar is fixed left, black background, white text */
+#sidebar {
+    position: fixed;
+    top: 0; 
+    left: 0;
+    width: 220px;
+    height: 100vh;
+    background-color: #000;
+    border-right: 1px solid #222;
+    padding: 2rem 1rem;
+    box-sizing: border-box;
+    transform: translateX(-100%); /* hidden by default */
+    transition: transform 0.3s ease;
+    overflow-y: auto;
+    z-index: 999;
+  }
+  
+  /* If you want it always open on large screens: */
+  @media (min-width: 1024px) {
+    #sidebar {
+      transform: none; /* permanently visible on large screens */
+    }
+  }
+  
+  /* The "open" class slides it in on smaller screens */
+  #sidebar.open {
+    transform: translateX(0);
+  }
+  
+  #sidebar ul {
+    list-style: none;
+    padding: 0;
+  }
+  #sidebar li {
+    margin-bottom: 1rem;
+  }
+  #sidebar li a {
+    color: #fff;
+    text-decoration: none;
+    font-weight: 500;
+    font-size: 1rem;
+    transition: color 0.2s;
+  }
+  #sidebar li a:hover {
+    color: #bbb;
+  }
+  
+  /* The hamburger / nav-toggle button */
+  .nav-toggle {
+    position: fixed;
+    top: 1rem;
+    left: 1rem;
+    font-size: 1.5rem;
+    color: #fff;
+    cursor: pointer;
+    z-index: 1000;
+    display: block;
+  }
+  
+  /* Hide hamburger on large screens if you always want sidebar open */
+  @media (min-width: 1024px) {
+    .nav-toggle {
+      display: none;
+    }
+  }
+  
+  /* The main content should be shifted right when sidebar is open */
+  main {
+    margin-left: 0;
+    transition: margin-left 0.3s ease;
+  }
+  @media (min-width: 1024px) {
+    main {
+      margin-left: 220px; /* space for the sidebar on large screens */
+    }
+  }
+  
+
+/* ------------------------------------------- */
+/*  3) Hero Section                            */
+/* ------------------------------------------- */
+
+.hero {
+    position: relative;
+    min-height: 100vh; /* or however tall you want */
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    /* 
+       multi-stop gradient for that pastel watercolor look 
+    */
+    background: linear-gradient(135deg, 
+      rgba(210, 178, 255, 0.4), 
+      rgba(160, 248, 255, 0.3), 
+      rgba(255, 210, 254, 0.4)
+    );
+    background-blend-mode: screen;
+    /* The black “base color” is behind the gradient, 
+       so it gets that hazy look 
+    */
+    background-color: #000; 
+  }
+  
+  /* Make your circular profile image float above it nicely */
+  .hero .profile-pic {
+    width: 240px;
+    height: 240px;
+    border-radius: 50%;
+    object-fit: cover;
+    object-position: 50% 30%; /* adjust so your face is centered */
+    border: 3px solid rgba(255,255,255,0.2);
+    margin-bottom: 1rem;
+  }
+  
+
+.hero .hero-content {
+  max-width: 800px;
+  margin: 0 auto;
+  animation: fadeUp 1s ease forwards;
+  opacity: 0;
+  transform: translateY(20px);
+}
+
+.hero .hero-content img.prof-pic {
+  width: 275px;
+  height: 275px;
+  border-radius: 50%;
+  object-fit: cover;
+  border: 3px solid #333;
+  margin-bottom: 1rem;
+}
+
+.hero .hero-content h1 {
+  font-size: 2.5rem;
+  margin-bottom: 1rem;
+  color: #fff;
+  font-weight: 600;
+}
+
+.hero .hero-content p {
+  font-size: 1.1rem;
+  color: #cccccc;
+  margin-bottom: 1.5rem;
+}
+
+.hero .links {
+  display: flex;
+  flex-wrap: wrap;
+  justify-content: center;
+  gap: 1rem;
+}
+
+.hero .links a {
+  display: flex;
+  align-items: center;
+  gap: 0.5rem;
+  background-color: #1f1f1f;
+  color: #fff;
+  font-weight: 500;
+  padding: 0.6rem 1.2rem;
+  border-radius: 999px;
+  transition: background-color 0.3s ease, transform 0.3s ease;
+  text-decoration: none;
+}
+
+.hero .links a:hover {
+  background-color: #333;
+  transform: translateY(-2px);
+}
+
+/* ------------------------------------------- */
+/*  4) Sections (About, Education, etc.)       */
+/* ------------------------------------------- */
+
+section.container {
+  max-width: 1200px;
+  margin: 0 auto;
+  padding: 3rem 1rem;
+}
+
+section h2 {
+  font-size: 1.8rem;
+  font-weight: 600;
+  margin-bottom: 2rem;
+  color: #ffffff;
+  text-align: center;
+  position: relative;
+}
+
+section h2::after {
+  content: "";
+  display: block;
+  width: 60px;
+  height: 3px;
+  background-color: #444;
+  margin: 0.5rem auto 0;
+}
+
+/* ------------------------------------------- */
+/*  5) About Me styling, typical content area  */
+/* ------------------------------------------- */
+
+.about-me-content {
+  background-color: #151515;
+  padding: 2rem;
+  border-radius: 8px;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.6);
+  color: #d9d9d9;
+  animation: fadeUp 1s ease forwards;
+  opacity: 0;
+  transform: translateY(20px);
+  line-height: 1.7;
+}
+
+.about-me-content p {
+  margin-bottom: 1rem;
+  color: #cccccc;
+}
+
+.about-me-content strong {
+  color: #fff;
+}
+
+/* ------------------------------------------- */
+/*  6) Education, Skills, Experience, etc.     */
+/* ------------------------------------------- */
+
+.education-item{
+  background-color: #161616;
+  border-radius: 10px;
+  box-shadow: 0 2px 8px rgba(0,0,0,0.5);
+  padding: 1.5rem;
+  margin-bottom: 2rem;
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+}
+
+.education-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 10px 20px rgba(0,0,0,0.6);
+}
+
+.hobby-header, .education-header {
+  margin-bottom: 1rem;
+}
+
+.experience-title,
+.hobby-title,
+.education-header h3 {
+  font-size: 1.3rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #ffffff;
+}
+
+.education-header p {
+  color: #999999;
+  font-size: 0.95rem;
+  margin-bottom: 0.2rem;
+}
+
+/* Cards that hold the content */
+.education-details {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 1rem;
+}
+
+.education-details p,
+.education-details li {
+  color: #cccccc;
+  font-size: 0.95rem;
+  line-height: 1.5;
+}
+
+/* Skills area: tile-based or row-based */
+.skills-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(260px, 1fr));
+  gap: 1.5rem;
+}
+
+.skills-group h3 {
+  font-size: 1.1rem;
+  color: #fff;
+  margin-bottom: 1rem;
+  position: relative;
+  text-align: center;
+}
+
+.skills-group h3::after {
+  content: "";
+  display: block;
+  width: 40px;
+  height: 2px;
+  background-color: #444;
+  margin: 0.3rem auto 0;
+}
+
+.skills {
+  display: flex;
+  flex-wrap: wrap;
+  gap: 0.5rem;
+  justify-content: center;
+}
+
+.skill-tag {
+    background-color: #111;
+    color: #fff;
+    padding: 0.5rem 1rem;
+    border-radius: 999px;
+    display: inline-block;
+    margin: 0.3rem;
+    transition: background 0.5s, color 0.5s;
+  }
+  .skill-tag:hover {
+    /* a pastel swirl gradient */
+    background: radial-gradient(
+      circle at 30% 30%, 
+      rgba(210, 178, 255, 0.7), 
+      rgba(160, 248, 255, 0.7)
+    );
+    color: #000; /* text color flips to black? up to you */
+  }
+  
+
+/* Hobbies, same style as experience or so */
+.hobbies-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(220px, 1fr));
+  gap: 1.5rem;
+  text-align: center;
+}
+
+.hobby-item {
+  background-color: #151515;
+  border-radius: 8px;
+  padding: 1.5rem;
+  box-shadow: 0 2px 5px rgba(0,0,0,0.6);
+  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  color: #bbb;
+}
+
+.hobby-item:hover {
+  transform: translateY(-2px);
+  box-shadow: 0 8px 15px rgba(0,0,0,0.6);
+}
+
+.hobby-item i {
+  font-size: 2rem;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.hobby-item h3 {
+  color: #fff;
+  margin-bottom: 0.5rem;
+}
+
+.hobby-item p {
+  font-size: 0.95rem;
+}
+
+.experience-section {
+    padding: 4rem 1rem;
+    max-width: 800px;
+    margin: 0 auto;
+  }
+  
+  .experience-item {
+    background-color: #111; 
+    border-radius: 8px;
+    padding: 2rem;
+    margin-bottom: 2rem;
+    box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+  }
+  
+  .experience-item h3 {
+    font-weight: 600;
+    margin-bottom: 0.5rem;
+  }
+  
+  .company-location {
+    font-size: 0.9rem;
+    color: #aaa;
+    margin-bottom: 1rem;
+  }
+  
+  .summary {
+    margin-bottom: 1rem;
+    line-height: 1.6;
+  }
+  
+  .tech-bullets {
+    margin-left: 1.2rem;
+    padding-left: 0.8rem;
+    list-style: disc;
+  }
+  .tech-bullets li {
+    margin-bottom: 0.6rem;
+    line-height: 1.6;
+  }
+  /* Projects Section Container */
+.projects-section {
+    padding: 2rem;
+    max-width: 1200px; /* or whatever width you like */
+    margin: 0 auto;
+  }
+  
+  /* Section Header */
+  .section-header {
+    display: flex;
+    align-items: center;
+    justify-content: space-between;
+    margin-bottom: 1.5rem;
+  }
+  
+  .section-header h2 {
+    font-size: 2rem;
+    font-weight: 600; /* or "OpenAI Sans" semibold */
+  }
+  
+  /* Optional "View all" link on the right */
+  .view-all-link {
+    color: #fff;
+    text-decoration: none;
+    opacity: 0.7;
+    transition: opacity 0.2s ease;
+  }
+  
+  .view-all-link:hover {
+    opacity: 1;
+  }
+  
+  /* Projects Grid Layout */
+  .projects-grid {
+    display: grid;
+    gap: 1.5rem;
+    /* 3 columns on large screens, degrade to fewer columns on smaller devices */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+  
+  /* Individual project card */
+  .project-card {
+    background-color: #111; /* Very dark background to match the openai style */
+    border-radius: 8px;
+    padding: 1rem;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+  }
+  
+  .project-card:hover {
+    transform: translateY(-5px);
+    box-shadow: 0 5px 15px rgba(0,0,0,0.3);
+  }
+  
+  /* Thumbnail image link & styling */
+  .project-image-link {
+    display: block;
+    margin-bottom: 1rem;
+  }
+  
+  .project-image {
+    width: 100%;
+    border-radius: 6px;
+    object-fit: cover;
+  }
+  
+  /* Projects section container */
+.projects-section {
+    padding: 2rem;
+    max-width: 1200px;
+    margin: 0 auto;
+  }
+  
+  /* Section header */
+  .section-header h2 {
+    font-size: 2rem;
+    font-weight: 600;
+    margin-bottom: 1.5rem;
+  }
+  
+  /* Grid layout for project cards */
+  .projects-grid {
+    display: grid;
+    gap: 1.5rem;
+    /* 2 or 3 columns depending on screen size */
+    grid-template-columns: repeat(auto-fill, minmax(300px, 1fr));
+  }
+  
+  /* Individual project card style */
+  .project-card {
+    background-color: #111; /* darker background for each card */
+    padding: 1rem;
+    border-radius: 8px;
+    transition: transform 0.2s ease, box-shadow 0.2s ease;
+    display: flex;
+    flex-direction: column;
+  }
+  
+  .project-card:hover {
+    transform: translateY(-4px);
+    box-shadow: 0 6px 15px rgba(0, 0, 0, 0.3);
+  }
+  
+  /* Title link styling */
+  .project-card h3 {
+    margin: 0.5rem 0;
+    font-size: 1.25rem;
+    font-weight: 600;
+  }
+  
+  .project-card a,
+  .project-card a:visited {
+    color: #fff;
+    text-decoration: none;
+  }
+  
+  .project-card a:hover {
+    text-decoration: underline;
+  }
+  
+  /* Paragraphs inside card */
+  .project-card p {
+    font-size: 0.95rem;
+    line-height: 1.4;
+    margin: 0.5rem 0;
+  }
+  
+  /* Embeds (iframed demo) */
+  .project-embed {
+    width: 100%;
+    height: 250px; /* adjust as needed */
+    border: none;
+    margin: 1rem 0;
+    background-color: #000;
+  }
+  
+  /* Note under the iframe or anywhere else */
+  .project-note {
+    font-size: 0.85rem;
+    opacity: 0.75;
+  }
+    
+  
+
+/* ------------------------------------------- */
+/*  7) Contact form or any final section       */
+/* ------------------------------------------- */
+
+#contact {
+  background-color: #101010;
+  border-radius: 8px;
+  padding: 2rem;
+  box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+  color: #fff;
+  text-align: center;
+}
+
+#contact form {
+  display: flex;
+  flex-direction: column;
+  gap: 1rem;
+  max-width: 400px;
+  margin: 1.5rem auto 0;
+}
+
+/* Buttons in the contact form */
+#contact form button {
+  background-color: #333;
+  color: #fff;
+  padding: 0.6rem 1rem;
+  border-radius: 5px;
+  border: none;
+  cursor: pointer;
+  transition: background-color 0.3s ease;
+}
+#contact form button:hover {
+  background-color: #444;
+}
+
+/* ------------------------------------------- */
+/*  8) Animations & Utilities                 */
+/* ------------------------------------------- */
+
+@keyframes fadeUp {
+  to {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+.fadeInUp {
+  animation: fadeUp 1s ease forwards;
+}
+
+/* Utility classes */
+.text-center {
+  text-align: center;
+}
+.text-white {
+  color: #fff;
+}
+
+.mt-3rem {
+  margin-top: 3rem;
+}
+.mb-2rem {
+  margin-bottom: 2rem;
+}
+
+/* Footer or extra spacing at bottom of page if needed */
+footer {
+  margin: 2rem auto;
+  padding: 1rem;
+  text-align: center;
+  color: #888;
+  font-size: 0.85rem;
+}
+
