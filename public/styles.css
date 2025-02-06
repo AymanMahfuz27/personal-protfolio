@@ -68,69 +68,72 @@ header {
 
 /* Sidebar is fixed left, black background, white text */
 #sidebar {
-    position: fixed;
-    top: 0; 
-    left: 0;
-    width: 220px;
-    height: 100vh;
-    background-color: #000;
-    border-right: 1px solid #222;
-    padding: 2rem 1rem;
-    box-sizing: border-box;
-    transform: translateX(-100%); /* hidden by default */
-    transition: transform 0.3s ease;
-    overflow-y: auto;
-    z-index: 999;
-  }
-  
-  /* If you want it always open on large screens: */
-  @media (min-width: 1024px) {
-    #sidebar {
-      transform: none; /* permanently visible on large screens */
-    }
-  }
-  
-  /* The "open" class slides it in on smaller screens */
-  #sidebar.open {
-    transform: translateX(0);
-  }
-  
-  #sidebar ul {
-    list-style: none;
-    padding: 0;
-  }
-  #sidebar li {
-    margin-bottom: 1rem;
-  }
-  #sidebar li a {
-    color: #fff;
-    text-decoration: none;
-    font-weight: 500;
-    font-size: 1rem;
-    transition: color 0.2s;
-  }
-  #sidebar li a:hover {
-    color: #bbb;
-  }
-  
-  /* The hamburger / nav-toggle button */
+  position: fixed;
+  top: 0;
+  left: 0;
+  width: 220px;
+  height: 100vh;            /* Full height sidebar */
+  background-color: #000;
+  border-right: 1px solid #000000;
+  /* Increase left padding from 1rem to 2rem or more */
+  padding: 2rem 2rem;
+  box-sizing: border-box;
+  transform: translateX(-100%);
+  transition: transform 0.3s ease;
+  overflow-y: auto;
+  z-index: 999;
+
+  /* Flex to center nav items vertically */
+  display: flex;
+  flex-direction: column;
+  justify-content: center;  /* center them vertically */
+}
+
+#sidebar ul {
+  list-style: none;
+  padding: 0;
+  margin: 0;
+}
+
+#sidebar li {
+  margin-bottom: 1.5rem; /* Increase spacing between links if desired */
+}
+
+#sidebar li a {
+  color: #fff;
+  text-decoration: none;
+  font-weight: 500;
+  font-size: 1rem;
+  transition: color 0.2s;
+}
+#sidebar li a:hover {
+  color: #bbb;
+}
+
+/* The hamburger button remains the same */
+.nav-toggle {
+  position: fixed;
+  top: 1rem;
+  left: 1rem;
+  font-size: 1.5rem;
+  color: #fff;
+  cursor: pointer;
+  z-index: 1000;
+  display: block;
+}
+@media (min-width: 1024px) {
   .nav-toggle {
-    position: fixed;
-    top: 1rem;
-    left: 1rem;
-    font-size: 1.5rem;
-    color: #fff;
-    cursor: pointer;
-    z-index: 1000;
-    display: block;
+    display: none;
   }
-  
-  /* Hide hamburger on large screens if you always want sidebar open */
-  @media (min-width: 1024px) {
-    .nav-toggle {
-      display: none;
-    }
+}
+
+/* On large screens, keep sidebar open by default */
+@media (min-width: 1024px) {
+  #sidebar {
+    transform: none;
   }
+}
+
   
   /* The main content should be shifted right when sidebar is open */
   main {
@@ -159,10 +162,10 @@ header {
     /* 
        multi-stop gradient for that pastel watercolor look 
     */
-    background: linear-gradient(135deg, 
-      rgba(210, 178, 255, 0.4), 
-      rgba(160, 248, 255, 0.3), 
-      rgba(255, 210, 254, 0.4)
+    background: linear-gradient(240deg, 
+      rgba(82, 146, 235, 0.4), 
+      rgba(243, 244, 247, 0.3), 
+      rgba(91, 183, 245, 0.4)
     );
     background-blend-mode: screen;
     /* The black “base color” is behind the gradient, 
@@ -172,15 +175,18 @@ header {
   }
   
   /* Make your circular profile image float above it nicely */
-  .hero .profile-pic {
-    width: 240px;
-    height: 240px;
+  .hero .prof-pic {
+    display: block;
+    margin: 0 auto;               /* ensures horizontal centering */
+    width: 275px;
+    height: 275px;
     border-radius: 50%;
     object-fit: cover;
-    object-position: 50% 30%; /* adjust so your face is centered */
+    object-position: 50% 50%;     /* center your face within the circle */
     border: 3px solid rgba(255,255,255,0.2);
     margin-bottom: 1rem;
   }
+  
   
 
 .hero .hero-content {
@@ -295,8 +301,17 @@ section h2::after {
 /*  6) Education, Skills, Experience, etc.     */
 /* ------------------------------------------- */
 
-.education-item{
-  background-color: #161616;
+.education-item {
+  background:
+    /* A linear swirl with partial alpha so the color stays subtle */
+    linear-gradient(
+      135deg,
+      rgba(191, 87, 0, 0.2),   /* #BF5700  = Burnt Orange */
+      rgba(253, 195, 139, 0.2),
+      rgba(255, 234, 218, 0.2)
+    ),
+    #161616; /* Your dark fallback base color */
+
   border-radius: 10px;
   box-shadow: 0 2px 8px rgba(0,0,0,0.5);
   padding: 1.5rem;
@@ -308,6 +323,8 @@ section h2::after {
   transform: translateY(-2px);
   box-shadow: 0 10px 20px rgba(0,0,0,0.6);
 }
+
+
 
 .hobby-header, .education-header {
   margin-bottom: 1rem;
@@ -437,12 +454,103 @@ section h2::after {
   }
   
   .experience-item {
-    background-color: #111; 
     border-radius: 8px;
     padding: 2rem;
     margin-bottom: 2rem;
-    box-shadow: 0 2px 6px rgba(0,0,0,0.5);
+    box-shadow: 0 2px 6px rgba(0, 0, 0, 0.5);
+    transition: transform 0.3s ease, box-shadow 0.3s ease;
   }
+  
+  .experience-item:hover {
+    transform: translateY(-2px);
+    box-shadow: 0 10px 20px rgba(0, 0, 0, 0.6);
+  }
+
+  /* 1) Burnt Orange swirl (ex: first experience) */
+.exp-1 {
+  background:
+    radial-gradient(
+      circle at 30% 30%,
+      rgba(191, 87, 0, 0.15),
+      rgba(253, 195, 139, 0.15),
+      rgba(255, 234, 218, 0.15)
+    ),
+    #111;
+}
+
+/* 2) Teal swirl */
+.exp-2 {
+  background:
+    radial-gradient(
+      circle at 30% 30%,
+      rgba(0, 170, 170, 0.15),
+      rgba(102, 224, 224, 0.15),
+      rgba(185, 255, 255, 0.15)
+    ),
+    #111;
+}
+
+/* 3) Purple swirl */
+.exp-3 {
+  background:
+    radial-gradient(
+      circle at 30% 30%,
+      rgba(128, 0, 128, 0.15),
+      rgba(204, 153, 255, 0.15),
+      rgba(230, 220, 255, 0.15)
+    ),
+    #111;
+}
+
+/* 4) Pink swirl */
+.exp-4 {
+  background:
+    radial-gradient(
+      circle at 30% 30%,
+      rgba(255, 20, 147, 0.15),
+      rgba(255, 182, 193, 0.15),
+      rgba(255, 230, 230, 0.15)
+    ),
+    #111;
+}
+
+/* 5) Green swirl */
+.exp-5 {
+  background:
+    radial-gradient(
+      circle at 30% 30%,
+      rgba(50, 205, 50, 0.15),
+      rgba(144, 238, 144, 0.15),
+      rgba(224, 255, 224, 0.15)
+    ),
+    #111;
+}
+
+/* 6) Gold swirl */
+.exp-6 {
+  background:
+    radial-gradient(
+      circle at 30% 30%,
+      rgba(218, 165, 32, 0.15),
+      rgba(255, 215, 0, 0.15),
+      rgba(255, 239, 150, 0.15)
+    ),
+    #111;
+}
+
+/* 7) Azure swirl */
+.exp-7 {
+  background:
+    radial-gradient(
+      circle at 30% 30%,
+      rgba(0, 170, 255, 0.15),
+      rgba(100, 200, 255, 0.15),
+      rgba(180, 240, 255, 0.15)
+    ),
+    #111;
+}
+
+  
   
   .experience-item h3 {
     font-weight: 600;
