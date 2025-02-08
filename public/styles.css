@@ -152,27 +152,42 @@ header {
 /* ------------------------------------------- */
 
 .hero {
-    position: relative;
-    min-height: 100vh; /* or however tall you want */
-    display: flex;
-    flex-direction: column;
-    align-items: center;
-    justify-content: center;
-    text-align: center;
-    /* 
-       multi-stop gradient for that pastel watercolor look 
-    */
-    background: linear-gradient(240deg, 
-      rgba(82, 146, 235, 0.4), 
-      rgba(243, 244, 247, 0.3), 
-      rgba(91, 183, 245, 0.4)
-    );
-    background-blend-mode: screen;
-    /* The black “base color” is behind the gradient, 
-       so it gets that hazy look 
-    */
-    background-color: #000; 
-  }
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  text-align: center;
+  background: linear-gradient(135deg, 
+    rgba(210, 178, 255, 0.5), 
+    rgba(160, 248, 255, 0.4), 
+    rgba(255, 210, 254, 0.5)
+  );
+  background-color: #000;
+  z-index: 1;
+}
+
+/* Stronger Seamless Blur */
+.hero::after {
+  content: "";
+  position: absolute;
+  bottom: -5px; /* Extend slightly down */
+  left: 0;
+  width: 100%;
+  height: 250px; /* Larger blending area */
+  background: linear-gradient(to bottom, 
+    rgba(0, 0, 0, 0) 20%, 
+    rgba(0, 0, 0, 0.3) 50%, 
+    rgba(0, 0, 0, 0.6) 70%, 
+    rgba(0, 0, 0, 1) 95%);
+  /* backdrop-filter: blur(25px); */
+  pointer-events: none;
+  opacity: 0.9;
+}
+
+
+
   
   /* Make your circular profile image float above it nicely */
   .hero .prof-pic {
@@ -224,6 +239,7 @@ header {
   flex-wrap: wrap;
   justify-content: center;
   gap: 1rem;
+  z-index: 10000;
 }
 
 .hero .links a {

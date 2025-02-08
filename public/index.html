@@ -832,5 +832,38 @@
       const app = initializeApp(firebaseConfig);
       const analytics = getAnalytics(app);
     </script>
+    <script>
+      document.addEventListener("DOMContentLoaded", function () {
+        gsap.from(".hero", {
+          opacity: 0,
+          y: 50,
+          duration: 1.2,
+          ease: "power3.out"
+        });
+    
+        gsap.from(".hero-content", {
+          opacity: 0,
+          y: 50,
+          duration: 1.2,
+          delay: 0.3,
+          ease: "power3.out"
+        });
+    
+        gsap.utils.toArray("section.container").forEach((section, index) => {
+          gsap.from(section, {
+            opacity: 0,
+            y: 50,
+            duration: 1.2,
+            delay: 0.5 + index * 0.2, // Stagger effect
+            ease: "power3.out",
+            scrollTrigger: {
+              trigger: section,
+              start: "top 80%",
+            }
+          });
+        });
+      });
+    </script>
+    
   </body>
 </html>
