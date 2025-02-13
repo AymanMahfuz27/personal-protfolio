@@ -113,6 +113,10 @@ header {
 #sidebar li a:hover {
   color: #bbb;
 }
+#sidebar.open {
+  transform: translateX(0);
+}
+
 
 /* The hamburger button remains the same */
 .nav-toggle {
