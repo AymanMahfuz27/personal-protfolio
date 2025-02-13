@@ -18,10 +18,9 @@
     />
     <link rel="stylesheet" href="styles.css" />
     <link
-  rel="stylesheet"
-  href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap"
-/>
-
+      rel="stylesheet"
+      href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;500;600;700&display=swap"
+    />
   </head>
   <!-- Google tag (gtag.js) -->
   <script
@@ -264,10 +263,78 @@
 
       <section id="experience" class="experience-section">
         <h2>Work Experience</h2>
+        <div class="experience-item exp-7">
+          <h3>Research Assistant</h3>
+          <p class="company-location">
+            University of Texas – Aritificial Intelligence Lab, Texas Robotics |
+            Austin, TX • Jan 2025 – Present
+          </p>
+
+          <p class="summary">
+            I develop multiagent reinforcement learning models for robotic
+            soccer, optimizing AI coordination and decision-making in dynamic,
+            real-time environments. My work integrates deep reinforcement
+            learning (DRL) and supervised learning (SL) to train agents in 2D
+            and 3D simulations, ensuring effective sim-to-real transfer for
+            deployment on physical NAO robots. By enhancing distributed AI
+            communication and optimizing system-level execution, I contribute to
+            improving autonomous robotics strategies in high-speed, competitive
+            settings.
+          </p>
+
+          <ul class="tech-bullets">
+            <li>
+              Developing multiagent RL models for NAO robot soccer, applying
+              deep reinforcement learning (DRL) and supervised learning (SL) to
+              train agents in 2D & 3D simulations, then optimizing sim-to-real
+              transfer for deployment on physical robots
+            </li>
+            <li>
+              Optimizing real-time decision-making in a 400K+ line C++ robotics
+              codebase, improving distributed AI coordination for
+              millisecond-level reactions while handling low-latency constraints
+              & real-time system scheduling
+            </li>
+          </ul>
+        </div>
+
+        <div class="experience-item exp-3">
+          <h3>Data Engineer Intern</h3>
+          <p class="company-location">
+            The Sunwater Institute | North Bethesda, MD • Jan 2025 – Present
+          </p>
+
+          <p class="summary">
+            I work on the Legis-1 Platform. I build high-performance data
+            pipelines to support AI-driven policy research, processing
+            legislative documents at scale to power structured retrieval and
+            automated analysis. My contributions include developing large-scale
+            LLM pipelines for AI-generated news and policy insights, leveraging
+            retrieval-augmented generation (RAG) and embeddings to analyze 500K+
+            legal records. By optimizing storage efficiency and retrieval speed,
+            I enhance the AI-readiness of structured legislative data.
+          </p>
+
+          <ul class="tech-bullets">
+            <li>
+              Building high-performance data pipelines for Legis-1, a
+              legislative database with millions of legal documents, optimizing
+              retrieval speed, storage efficiency, and AI-readiness for
+              structured data.
+            </li>
+            <li>
+              Developing LLM pipelines to power AI-generated news and policy
+              analysis, leveraging retrieval-augmented generation (RAG),
+              embeddings, and scalable document processing across 500K+ records.
+            </li>
+          </ul>
+        </div>
+
         <div class="experience-item exp-1">
           <h3>Software Engineer, Research Assistant</h3>
           <p class="company-location">
-            University of Texas – Austin, TX • Sep 2023 – Present
+            University of Texas – Center for Media Engagement | Austin, TX • Sep
+            2023 – Present
           </p>
 
           <p class="summary">
@@ -282,49 +349,22 @@
 
           <ul class="tech-bullets">
             <li>
-              Engineered robust <strong>Python</strong> pipelines for scraping,
-              preprocessing, and uploading data to <strong>BigQuery</strong>.
-              Employed various scraping techniques (APIs, sitemaps, HTML
-              parsing), leveraged <strong>Pandas</strong> and
-              <strong>NumPy</strong> heavily, and ensured data integrity with
-              automated <strong>cron jobs</strong> for daily updates. Processed
-              over <strong>50 million</strong> news articles and
-              <strong>70 million</strong> comments from
-              <strong>12+ domains</strong>, maintaining a comprehensive database
-              dating back to 1851.
+              Engineered large-scale data pipelines to scrape, preprocess, and
+              upload 50M+ news articles and 70M+ comments to BigQuery, using
+              APIs, sitemaps, and Pandas, while developing dashboards with
+              Python and SQL for real-time monitoring.
             </li>
             <li>
-              Designed and deployed a research platform using React, Tailwind,
-              Flask, and Firebase, featuring 3 interactive games (Higher/Lower,
-              Slider, and Timeline) with MTurk integration, real-time analytics
-              tracking 15+ metrics, and 99.9% uptime. The platform includes a
-              modular Flask backend that manages random game assignments, worker
-              ID tracking, and question set management, seamlessly integrated
-              with Firebase for data logging and storage.
+              Led machine learning initiatives by fine-tuning multiple BERT
+              models for key NLP tasks—including clickbait detection, story
+              identification, entity recognition, and sentiment
+              analysis—achieving up to 99% accuracy
             </li>
             <li>
-              Developed dynamic dashboards and visualizations using
-              <strong>SQL</strong>, <strong>Pandas</strong>,
-              <strong>Matplotlib</strong>, and <strong>Looker Studio</strong> to
-              track data collection progress, identify and programmatically fill
-              data gaps, enhancing the database's reliability and accessibility
-              for research purposes.
-            </li>
-            <li>
-              Led <strong>machine learning</strong> initiatives, creating and
-              evaluating models to classify news headlines and comments.
-              Fine-tuned a <strong>DistilBERT</strong> model using
-              <strong>Hugging Face</strong>, achieving high accuracy and
-              performance metrics (precision, recall, F1 score) through
-              comprehensive evaluations.
-            </li>
-            <li>
-              Conducted advanced research projects: analyzed clickbait trends
-              over a decade and investigated the prevalence of personal stories
-              in comments. Leveraged machine learning algorithms and extensive
-              data analysis to derive actionable insights, contributing to
-              upcoming research publications that aim to understand and combat
-              the spread of misinformation online.
+              Designed & deployed a research platform independently with React,
+              Flask, and Firebase, featuring 3 interactive games, MTurk
+              integration, real-time analytics tracking 15+ metrics, and 99.99%
+              uptime, serving 1,000+ participants.
             </li>
           </ul>
         </div>
@@ -333,68 +373,8 @@
         <div class="experience-item exp-2">
           <h3>Machine Learning Engineer, Research Assistant</h3>
           <p class="company-location">
-            University of Texas – Austin, TX • Feb 2024 – Jan 2025
-          </p>
-
-          <p class="summary">
-            My research focused on leveraging LLM-based multiagent interactions
-            to enhance reasoning and decision-making in the medical domain. I
-            designed Python systems to evaluate the consistency of AI models in
-            medical diagnoses, analyzing how contextual variations influence
-            outcomes. This work combined multiagent collaboration and reasoning
-            with cutting-edge AI techniques to improve reliability in medical
-            decision-making.
-          </p>
-
-          <ul class="tech-bullets">
-            <li>
-              <strong
-                >Designed and deployed a robust HPC containerized
-                pipeline</strong
-              >
-              on TACC (via Apptainer/Singularity) integrating nnU-Net,
-              PanSegNet, and MedSAM2 for 3D MRI segmentation,
-              <strong>boosting</strong> pancreas Dice to ~0.82 and accelerating
-              model testing across diverse HPC nodes.
-            </li>
-            <li>
-              <strong>Unified advanced frameworks</strong> (TransUNet, ViT-based
-              encoders, MONAI) under PyTorch to handle large-scale T2 MRI
-              volumes, <strong>resolving</strong> shape mismatches and HPC I/O
-              overhead through GPU-accelerated preprocessing and container-based
-              data orchestration.
-            </li>
-            <li>
-              <strong
-                >Engineered a scalable patch-based augmentation strategy</strong
-              >
-              that <strong>reduced training runtime</strong> by 90% (from 7000s
-              to 450s per epoch), improving memory efficiency and enabling
-              high-throughput model experimentation on HPC infrastructure.
-            </li>
-            <li>
-              <strong>Implemented multi-fold cross-validation</strong> with
-              advanced trainers (nnTransUNetTrainerV2, ResNet-ViT hybrids),
-              refining postprocessing and ensemble methods to
-              <strong>enhance</strong> segmentation consistency and
-              interpretability for clinical imaging.
-            </li>
-            <li>
-              <strong>Troubleshot complex system-level bottlenecks</strong>
-              (e.g., container-binding, shape mismatch debugging, checkpoint
-              integration), ensuring
-              <strong>reliable HPC performance</strong> and a
-              <strong>modular pipeline</strong> for future research, data
-              engineering, and medical AI deployments.
-            </li>
-          </ul>
-        </div>
-
-        <!-- 2. Machine Learning Engineer, Research Assistant (Sep 2023 - Jan 2025) -->
-        <div class="experience-item exp-3">
-          <h3>Machine Learning Engineer, Research Assistant</h3>
-          <p class="company-location">
-            University of Texas – Austin, TX • Sep 2023 – Jan 2025
+            University of Texas - Oden Institute for Computational Engineering
+            and Sciences | Austin, TX • Feb 2024 – Jan 2025
           </p>
 
           <p class="summary">
@@ -407,41 +387,17 @@
 
           <ul class="tech-bullets">
             <li>
-              Led a team of 3 members to revolutionize abdominal organ
-              segmentation by developing advanced
-              <strong>machine learning</strong> models for medical imaging.
-              Built on existing <strong>MONAI</strong> frameworks to segment the
-              pancreas from MRI scans, enhancing accuracy and performance using
-              the latest <strong>vision transformer</strong> technologies and
-              the <strong>TransUNet</strong> library.
+              Trained and evaluated ViT-enhanced models (TransUNet, MedSAM2) for
+              3D MRI segmentation on TACC’s Lonestar6 supercomputer (H100 GPUs),
+              leveraging Apptainer containerization, mixed precision training,
+              and HPC optimizations to achieve ~0.82 Dice score for Dell Medical
+              School.
             </li>
             <li>
-              Engineered robust data preprocessing pipelines: Designed and
-              implemented <strong>Python</strong> scripts for preprocessing 3D
-              MRI images, including clipping, normalization, and extraction of
-              2D slices, using libraries such as <strong>Nibabel</strong>,
-              <strong>Pydicom</strong>, <strong>NumPy</strong>, and
-              <strong>H5py</strong>. Ensured efficient data handling and storage
-              for large-scale medical datasets, facilitating downstream analysis
-              and model training.
-            </li>
-            <li>
-              Developed and fine-tuned machine learning models for pancreas
-              segmentation using advanced architectures like
-              <strong>TransUNet</strong> and <strong>ResNet-50</strong> with
-              <strong>ViT</strong>. Implemented model training, validation, and
-              evaluation processes using <strong>PyTorch</strong>, achieving
-              significant improvements over existing benchmarks. Utilized
-              metrics such as Dice Score to assess model performance.
-            </li>
-            <li>
-              Conducted comprehensive data analysis and visualization: Employed
-              statistical and machine learning techniques to analyze the impact
-              of contextual changes on model performance. Utilized tools such as
-              <strong>Scikit-learn</strong>, <strong>Statsmodels</strong>, and
-              <strong>Matplotlib</strong> to perform descriptive statistics,
-              correlation analyses, and visualize segmentation results, driving
-              insights into model behavior and robustness.
+              Developed real-time training monitoring scripts to track loss
+              curves, step efficiency, and model convergence, enabling rapid
+              hyperparameter tuning and comparative model evaluation, while
+              resolving I/O bottlenecks and HPC memory constraints.
             </li>
           </ul>
         </div>
@@ -543,27 +499,6 @@
             strategies, and professional development while collaborating on
             tech-focused initiatives with industry leaders.
           </p>
-
-          <ul class="tech-bullets">
-            <li>
-              Actively engaged with industry leaders at the AT&T Summer Learning
-              Academy, gaining insights into AI, personal development, and
-              emerging business trends, thereby enriching my technological
-              acumen and industry foresight.
-            </li>
-            <li>
-              Collaborated on tech-focused portfolio strategies, contributing
-              fresh perspectives as the sole high school participant among
-              international undergraduates, which enhanced the diversity of
-              thought in strategy sessions.
-            </li>
-            <li>
-              Leveraged the unique opportunity to broaden my understanding of
-              technology's integral role in shaping business strategies and
-              societal trends, positioning myself at the forefront of future
-              tech innovators.
-            </li>
-          </ul>
         </div>
 
         <!-- 6. Software Engineer Intern (City of Austin) (Jun 2021 - Aug 2021) -->
@@ -578,33 +513,6 @@
             workflows for small businesses. My work included Python scripting
             and data visualization to streamline operations.
           </p>
-
-          <ul class="tech-bullets">
-            <li>
-              Drove Austin's post-COVID economic recovery by innovating data
-              analytics processes, accelerating business loan facilitation and
-              enhancing operational efficiency for the small business relief
-              program.
-            </li>
-            <li>
-              Designed and implemented Excel algorithms and Python scripts,
-              revolutionizing loan application processing and rectification,
-              significantly reducing processing time and errors.
-            </li>
-            <li>
-              Pioneered the use of Power BI for dynamic business data
-              visualization, delivering actionable insights that informed
-              strategic relief efforts. Recognized for exceptional performance
-              with a one-month internship extension and entrusted as the lead
-              for automating critical operational processes.
-            </li>
-            <li>
-              Instrumental in bolstering the resilience of Austin's small
-              business community during the pandemic, earning accolades for
-              superior performance and enduring contributions to the city's
-              economic recovery initiatives.
-            </li>
-          </ul>
         </div>
       </section>
 
@@ -613,7 +521,7 @@
         <div class="section-header">
           <h2>Projects</h2>
         </div>
-      
+
         <!-- Grid of project cards -->
         <div class="projects-grid">
           <!-- Project 1: Inkwell -->
@@ -637,7 +545,7 @@
             ></iframe>
             <p class="project-note">Click the title to visit the live site.</p>
           </article>
-      
+
           <!-- Project 2: AI Dermatologist -->
           <article class="project-card">
             <h3>AI Dermatologist</h3>
@@ -651,7 +559,7 @@
               Datasets
             </p>
           </article>
-      
+
           <!-- Project 3: LeetCode Matchmaker -->
           <article class="project-card">
             <a
@@ -665,7 +573,8 @@
               similar to a given one, aiding in interview preparation.
             </p>
             <p>
-              <strong>Tech Stack:</strong> React, Flask, Scikit-learn, PostgreSQL
+              <strong>Tech Stack:</strong> React, Flask, Scikit-learn,
+              PostgreSQL
             </p>
             <iframe
               src="https://leetcode-matchmaker-2bb8b1daa393.herokuapp.com/"
@@ -674,7 +583,7 @@
             ></iframe>
             <p class="project-note">Click the title to visit the live site.</p>
           </article>
-      
+
           <!-- Project 4: Huffman Encoder -->
           <article class="project-card">
             <a
@@ -689,7 +598,7 @@
             </p>
             <p><strong>Tech Stack:</strong> Java, File I/O</p>
           </article>
-      
+
           <!-- Project 5: System Emulator -->
           <article class="project-card">
             <a
@@ -704,7 +613,7 @@
             </p>
             <p><strong>Tech Stack:</strong> C</p>
           </article>
-      
+
           <!-- Project 6: Pintos Operating System -->
           <article class="project-card">
             <h3>Pintos Operating System</h3>
@@ -717,7 +626,6 @@
           </article>
         </div>
       </section>
-      
 
       <section id="hobbies" class="container">
         <h2>Hobbies & Interests</h2>
@@ -838,17 +746,17 @@
           opacity: 0,
           y: 50,
           duration: 1.2,
-          ease: "power3.out"
+          ease: "power3.out",
         });
-    
+
         gsap.from(".hero-content", {
           opacity: 0,
           y: 50,
           duration: 1.2,
           delay: 0.3,
-          ease: "power3.out"
+          ease: "power3.out",
         });
-    
+
         gsap.utils.toArray("section.container").forEach((section, index) => {
           gsap.from(section, {
             opacity: 0,
@@ -859,11 +767,10 @@
             scrollTrigger: {
               trigger: section,
               start: "top 80%",
-            }
+            },
           });
         });
       });
     </script>
-    
   </body>
 </html>
