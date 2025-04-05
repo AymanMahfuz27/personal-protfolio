@@ -34,6 +34,22 @@
     gtag("js", new Date());
 
     gtag("config", "G-5WV0DT2D6Q");
+
+    gsap.registerPlugin(ScrollTrigger);
+
+    gsap.utils.toArray(".experience-item").forEach((item, index) => {
+      gsap.to(item, {
+        opacity: 1,
+        y: 0,
+        duration: 1,
+        delay: index * 0.1,
+        scrollTrigger: {
+          trigger: item,
+          start: "top 85%",
+          toggleActions: "play none none none",
+        },
+      });
+    });
   </script>
   <body>
     <div class="nav-toggle" onclick="toggleNav()">☰</div>
@@ -42,7 +58,11 @@
       <ul>
         <li><a href="#home">Home</a></li>
         <li><a href="#about-me">About Me</a></li>
-        <li><a href="https://aymanmahfuz27.github.io/principles-first-blog/">Read my Blog</a></li>
+        <li>
+          <a href="https://aymanmahfuz27.github.io/principles-first-blog/"
+            >Read my Blog</a
+          >
+        </li>
         <li><a href="#education">Education</a></li>
         <li><a href="#experience">Experience</a></li>
         <li><a href="#projects">Projects</a></li>
@@ -83,30 +103,40 @@
         <h2>About Me</h2>
         <div class="about-me-content">
           <p>
-            Hey! I'm <strong>Ayman Mahfuz</strong>, a <strong>Computer Science</strong> student at the University of Texas at Austin, specializing in 
-            <strong>AI</strong> and <strong>Machine Learning</strong>. My passion for problem-solving and technology started 
-            early, and today, I focus on reinforcement learning, large-scale ML systems, and software engineering to build 
+            Hey! I'm <strong>Ayman Mahfuz</strong>, a
+            <strong>Computer Science</strong> student at the University of Texas
+            at Austin, specializing in <strong>AI</strong> and
+            <strong>Machine Learning</strong>. My passion for problem-solving
+            and technology started early, and today, I focus on reinforcement
+            learning, large-scale ML systems, and software engineering to build
             AI that is both intelligent and efficient.
           </p>
           <p>
-            I conduct research in <strong>multiagent reinforcement learning</strong> and 
-            <strong>high-performance machine learning</strong>, optimizing AI decision-making in real-time environments. 
-            My work spans deep reinforcement learning (DRL), distributed AI systems, and scalable ML architectures. 
-            Beyond research, I’ve built production-grade software—developing robust data pipelines, training 
-            state-of-the-art models, and deploying full-stack AI applications.
+            I conduct research in
+            <strong>multiagent reinforcement learning</strong> and
+            <strong>high-performance machine learning</strong>, optimizing AI
+            decision-making in real-time environments. My work spans deep
+            reinforcement learning (DRL), distributed AI systems, and scalable
+            ML architectures. Beyond research, I’ve built production-grade
+            software—developing robust data pipelines, training state-of-the-art
+            models, and deploying full-stack AI applications.
           </p>
           <p>
-            I bring a strong <strong>systems and AI engineering</strong> mindset, with expertise in <strong>Python, Java, C, C++, 
-            JavaScript, and SQL</strong>. I work with AI frameworks like <strong>PyTorch, TensorFlow</strong>, and optimize 
-            AI for <strong>high-performance computing (HPC)</strong> on cloud platforms like <strong>AWS and GCP</strong>.
+            I bring a strong
+            <strong>systems and AI engineering</strong> mindset, with expertise
+            in <strong>Python, Java, C, C++, JavaScript, and SQL</strong>. I
+            work with AI frameworks like <strong>PyTorch, TensorFlow</strong>,
+            and optimize AI for
+            <strong>high-performance computing (HPC)</strong> on cloud platforms
+            like <strong>AWS and GCP</strong>.
           </p>
           <p>
-            Outside of engineering and research, I play soccer, lift weights, and stay involved with the Muslim 
-            Students Association (MSA). I’m always looking for ways to push AI forward—whether through research, 
+            Outside of engineering and research, I play soccer, lift weights,
+            and stay involved with the Muslim Students Association (MSA). I’m
+            always looking for ways to push AI forward—whether through research,
             software, or real-world applications.
           </p>
         </div>
-        
       </section>
 
       <section id="education" class="container">
@@ -251,256 +281,327 @@
 
       <section id="experience" class="experience-section">
         <h2>Work Experience</h2>
-        <div class="experience-item exp-7">
-          <h3>Research Assistant</h3>
-          <p class="company-location">
-            University of Texas – Aritificial Intelligence Lab, Texas Robotics |
-            Austin, TX • Jan 2025 – Present
-          </p>
+        <div class="experience-grid">
 
-          <p class="summary">
-            I develop multiagent reinforcement learning models for robotic
-            soccer, optimizing AI coordination and decision-making in dynamic,
-            real-time environments. My work integrates deep reinforcement
-            learning (DRL) and supervised learning (SL) to train agents in 2D
-            and 3D simulations, ensuring effective sim-to-real transfer for
-            deployment on physical NAO robots. By enhancing distributed AI
-            communication and optimizing system-level execution, I contribute to
-            improving autonomous robotics strategies in high-speed, competitive
-            settings.
-          </p>
+          
+          <div class="experience-item exp-7 exp-large">
+            <h3>
+              University of Texas – Aritificial Intelligence Lab, Texas Robotics
+            </h3>
+            <p class="company-location">
+              Research Assistant| Austin, TX • Jan 2025 – Present
+            </p>
 
-          <ul class="tech-bullets">
-            <li>
-              Developing multiagent RL models for NAO robot soccer, applying
-              deep reinforcement learning (DRL) and supervised learning (SL) to
-              train agents in 2D & 3D simulations, then optimizing sim-to-real
-              transfer for deployment on physical robots
-            </li>
-            <li>
-              Optimizing real-time decision-making in a 400K+ line C++ robotics
-              codebase, improving distributed AI coordination for
-              millisecond-level reactions while handling low-latency constraints
-              & real-time system scheduling
-            </li>
-          </ul>
-        </div>
+            <p class="summary">
+              I'm using RL to teach robots how to play soccer. My work
+              integrates deep reinforcement learning (DRL) and supervised
+              learning (SL) to train agents in 2D and 3D simulations, ensuring
+              effective sim-to-real transfer for deployment on physical NAO
+              robots. We're competing in the RoboCup Soccer tournament, and aim
+              to win the championship this year
+            </p>
 
-        <div class="experience-item exp-3">
-          <h3>Data Engineer Intern</h3>
-          <p class="company-location">
-            The Sunwater Institute | North Bethesda, MD • Jan 2025 – Present
-          </p>
-
-          <p class="summary">
-            I work on the Legis-1 Platform. I build high-performance data
-            pipelines to support AI-driven policy research, processing
-            legislative documents at scale to power structured retrieval and
-            automated analysis. My contributions include developing large-scale
-            LLM pipelines for AI-generated news and policy insights, leveraging
-            retrieval-augmented generation (RAG) and embeddings to analyze 500K+
-            legal records. By optimizing storage efficiency and retrieval speed,
-            I enhance the AI-readiness of structured legislative data.
-          </p>
-
-          <ul class="tech-bullets">
-            <li>
-              Building high-performance data pipelines for Legis-1, a
-              legislative database with millions of legal documents, optimizing
-              retrieval speed, storage efficiency, and AI-readiness for
-              structured data.
-            </li>
-            <li>
-              Developing LLM pipelines to power AI-generated news and policy
-              analysis, leveraging retrieval-augmented generation (RAG),
-              embeddings, and scalable document processing across 500K+ records.
-            </li>
-          </ul>
-        </div>
-
-        <div class="experience-item exp-1">
-          <h3>Software Engineer, Research Assistant</h3>
-          <p class="company-location">
-            University of Texas – Center for Media Engagement | Austin, TX • Sep
-            2023 – Present
-          </p>
-
-          <p class="summary">
-            I conduct media research by studying how people interact with news,
-            platforms, and each other, by designing systems and using machine
-            learning to evaluate political opinions, storytelling patterns, and
-            societal divides. My contributions include building a
-            150-million-entry dataset, developing DistilBERT models for
-            large-scale analysis, and designing the full system architecture for
-            MTurk-integrated React games to track and analyze user behavior.
-          </p>
-
-          <ul class="tech-bullets">
-            <li>
-              Engineered large-scale data pipelines to scrape, preprocess, and
-              upload 50M+ news articles and 70M+ comments to BigQuery, using
-              APIs, sitemaps, and Pandas, while developing dashboards with
-              Python and SQL for real-time monitoring.
-            </li>
-            <li>
-              Led machine learning initiatives by fine-tuning multiple BERT
-              models for key NLP tasks—including clickbait detection, story
-              identification, entity recognition, and sentiment
-              analysis—achieving up to 99% accuracy
-            </li>
-            <li>
-              Designed & deployed a research platform independently with React,
-              Flask, and Firebase, featuring 3 interactive games, MTurk
-              integration, real-time analytics tracking 15+ metrics, and 99.99%
-              uptime, serving 1,000+ participants.
-            </li>
-          </ul>
-        </div>
-
-        <!-- 1. Machine Learning Engineer, Research Assistant (Feb 2024 - Jan 2025) -->
-        <div class="experience-item exp-2">
-          <h3>Machine Learning Engineer, Research Assistant</h3>
-          <p class="company-location">
-            University of Texas - Oden Institute for Computational Engineering
-            and Sciences | Austin, TX • Feb 2024 – Jan 2025
-          </p>
-
-          <p class="summary">
-            I used the latest computer vision technology to advance pancreas and
-            organ segmentation, applying state-of-the-art models like MedSAM2 to
-            preprocess 3D MRI data. This work aimed to identify early indicators
-            of diabetes and pancreatic cancer, enabling earlier and more
-            accurate diagnoses for patients.
-          </p>
-
-          <ul class="tech-bullets">
-            <li>
-              Trained and evaluated ViT-enhanced models (TransUNet, MedSAM2) for
-              3D MRI segmentation on TACC’s Lonestar6 supercomputer (H100 GPUs),
-              leveraging Apptainer containerization, mixed precision training,
-              and HPC optimizations to achieve ~0.82 Dice score for Dell Medical
-              School.
-            </li>
-            <li>
-              Developed real-time training monitoring scripts to track loss
-              curves, step efficiency, and model convergence, enabling rapid
-              hyperparameter tuning and comparative model evaluation, while
-              resolving I/O bottlenecks and HPC memory constraints.
-            </li>
-          </ul>
-        </div>
-
-        <!-- 3. Software Engineering Research Intern (Jun 2023 - Present) -->
-        <div class="experience-item exp-4">
-          <h3>Software Engineering Research Intern</h3>
-          <p class="company-location">
-            University of Maryland – College Park • Remote • Jun 2023 – Present
-          </p>
-
-          <p class="summary">
-            I helped build an NLP-based chatbot to engage news readers and
-            analyzed linguistic patterns to enhance the interaction. My
-            contributions focus on Python scripting and publishing insights at
-            CHI 2024.
-          </p>
-
-          <ul class="tech-bullets">
-            <a href="https://arxiv.org/abs/2312.10650">
+            <ul class="tech-bullets">
               <li>
-                Project: Towards Designing a Question-Answering Chatbot for
-                Online News
+                Designing multiagent RL policies from the ground up to train NAO
+                robot soccer team, progressing from walking and dribbling to
+                defending and attacking; blending curriculum learning,
+                distillation, and hierarchical models across 5M+ simulation
+                episodes for seamless real-world play.
               </li>
-            </a>
-            <li>
-              Led the development of an <strong>NLP-driven</strong> chatbot to
-              augment online news reader engagement, employing deep learning and
-              AI techniques. Directed comprehensive studies and analyses,
-              culminating in findings on human-chatbot interaction dynamics.
-            </li>
-            <li>
-              Executed sophisticated text analytics and data labeling using
-              <strong>Python</strong>, encompassing Parts of Speech Tagging,
-              LIWC, and clustering on sentence embeddings, to derive intricate
-              linguistic patterns and insights.
-            </li>
-            <li>
-              Collaborated with a cross-disciplinary team of professors and
-              graduate students, driving content creation and ensuring
-              methodological precision. Contributed core analytical insights and
-              visualizations to the research paper published at the
-              <strong>CHI 2024</strong> conference.
-            </li>
-            <li>
-              Authored Python scripts for in-depth data analysis, generating
-              insightful graphs and visualizations that formed the backbone of
-              the research findings, illustrating complex human-chatbot
-              interaction patterns.
-            </li>
-          </ul>
-        </div>
+              <li>
+                Accelerated a 400K+ line C++ robotics stack, boosting
+                state-space efficiency 5x and cutting latency to sub-50ms; tuned
+                simulation dynamics to mirror reality, enabling rapid policy
+                design and deployment through sim-to-real pipeline.
+              </li>
+            </ul>
+          </div>
+           
+          <div class="experience-item exp-1 exp-large">
+            <h3>University of Texas – Center for Media Engagement</h3>
+            <p class="company-location">
+              Software Engineer, Research Assistant | Austin, TX • Sep 2023 –
+              Present
+            </p>
 
-        <!-- 4. Software Engineer Intern (Lockheed Martin) (Jun 2022 - Oct 2022) -->
-        <div class="experience-item exp-5">
-          <h3>Software Engineer Intern</h3>
-          <p class="company-location">
-            Lockheed Martin – Remote • Jun 2022 – Oct 2022
-          </p>
+            <p class="summary">
+              I conduct media research by studying how people interact with
+              news, platforms, and each other, by designing systems and using
+              machine learning to evaluate political opinions, storytelling
+              patterns, and societal divides. My contributions include building
+              a 150-million-entry dataset, developing DistilBERT models for
+              large-scale analysis, and designing the full system architecture
+              for MTurk-integrated React games to track and analyze user
+              behavior.
+            </p>
 
-          <p class="summary">
-            At Lockheed Martin, I optimized CRM workflows, introduced RPA
-            solutions, and cleaned up their Configuration Database to boost
-            operational efficiency.
-          </p>
+            <ul class="tech-bullets">
+              <li>
+                Engineered large-scale data pipelines to scrape, preprocess, and
+                upload 50M+ news articles and 70M+ comments to BigQuery, using
+                APIs, sitemaps, and Pandas, while developing dashboards with
+                Python and SQL for real-time monitoring.
+              </li>
+              <li>
+                Led machine learning initiatives by fine-tuning multiple BERT
+                models for key NLP tasks—including clickbait detection, story
+                identification, entity recognition, and sentiment
+                analysis—achieving up to 99% accuracy
+              </li>
+              <li>
+                Designed & deployed a research platform independently with
+                React, Flask, and Firebase, featuring 3 interactive games, MTurk
+                integration, real-time analytics tracking 15+ metrics, and
+                99.99% uptime, serving 1,000+ participants.
+              </li>
+            </ul>
+          </div>
+          <div class="experience-item exp-1">
+            <h3>University of Texas - School of Information</h3>
+            <p class="company-location">
+              Research Assistant | Austin, TX • Feb 2024 – Jan 2025
+            </p>
 
-          <ul class="tech-bullets">
-            <li>
-              Spearheaded the development and optimization of Customer
-              Relationship Management (CRM) workflows at Lockheed Martin,
-              achieving a centralized device data framework that enhanced
-              enterprise operational efficiency.
-            </li>
-            <li>
-              Engineered advanced CRM solutions by integrating
-              <strong>JavaScript</strong> for flow enhancements and implementing
-              Robotic Process Automation (RPA), streamlining the data
-              de-duplication process and elevating data integrity.
-            </li>
-            <li>
-              Administered and refined the Configuration Database, successfully
-              purging redundant records and bolstering data accuracy.
-              Synthesized and presented data-driven insights to executives,
-              highlighting the tangible impact on operational efficiency and
-              guiding strategic decisions.
-            </li>
-          </ul>
-        </div>
+            <p class="summary">
+              I designed and led a research project studying the consistency and
+              reasoning behaviors of multiagent large language models (LLMs) in
+              medical diagnosis, working at the intersection of AI, healthcare,
+              and system design. Alongside building the framework itself, I
+              explored how factors like demographics and misleading symptoms
+              influenced multiagent collaboration, aiming to push toward more
+              reliable AI-driven clinical reasoning.
+            </p>
 
-        <!-- 5. Summer Learning Academy (AT&T) (Jun 2021 - Aug 2021) -->
-        <div class="experience-item exp-6">
-          <h3>Summer Learning Academy</h3>
-          <p class="company-location">
-            AT&T – Austin, TX • Jun 2021 – Aug 2021
-          </p>
+            <ul class="tech-bullets">
+            
+              <li>
+                Explored multiagent LLM reasoning paradigms, introducing
+                contextual variations such as patient demographics, symptom
+                modifications, and misleading details to rigorously test
+                consistency in diagnostic reasoning. Developed methods to
+                systematically analyze the influence of inter-agent
+                communication on diagnostic reliability, uncovering patterns in
+                how agents resolve conflicts and refine responses over iterative
+                interactions.
+              </li>
+              
+              <li>
+                Conducted advanced evaluations of multiagent LLM performance
+                using machine learning-driven analyses and statistical
+                frameworks. Applied metrics such as Cohen’s Kappa, Chi-square
+                tests, and logistic regression to assess agreement, accuracy,
+                and bias across agents. Enhanced insights through correlation
+                analyses, identifying key factors affecting reasoning
+                consistency and robustness.Presented my independently designed
+                research project at the UT AI Health Conference, standing among
+                the youngest presenters at the event. Shared findings on
+                multiagent LLM diagnostic consistency through a technical
+                poster, synthesizing engineering, experimentation, and
+                statistical evaluation.
+              </li>
+            </ul>
+          </div>
+          
 
-          <p class="summary">
-            As the youngest participant, I gained exposure to AI, business
-            strategies, and professional development while collaborating on
-            tech-focused initiatives with industry leaders.
-          </p>
-        </div>
+          
+          <!-- 4. Software Engineer Intern (Lockheed Martin) (Jun 2022 - Oct 2022) -->
+          <div class="experience-item exp-5 exp-small">
+            <h3>Lockheed Martin</h3>
+            <p class="company-location">
+              Software Engineer Intern – Remote • Jun 2022 – Oct 2022
+            </p>
 
-        <!-- 6. Software Engineer Intern (City of Austin) (Jun 2021 - Aug 2021) -->
-        <div class="experience-item exp-7">
-          <h3>Software Engineer Intern</h3>
-          <p class="company-location">
-            City of Austin – Austin, TX • Jun 2021 – Aug 2021
-          </p>
+            <p class="summary">
+              At Lockheed Martin, I optimized CRM workflows, introduced RPA
+              solutions, and cleaned up their Configuration Database to boost
+              operational efficiency.
+            </p>
 
-          <p class="summary">
-            I helped Austin’s post-COVID recovery by improving loan processing
-            workflows for small businesses. My work included Python scripting
-            and data visualization to streamline operations.
-          </p>
+            <ul class="tech-bullets">
+              <li>
+                Spearheaded the development and optimization of Customer
+                Relationship Management (CRM) workflows at Lockheed Martin,
+                achieving a centralized device data framework that enhanced
+                enterprise operational efficiency.
+              </li>
+              <li>
+                Engineered advanced CRM solutions by integrating
+                <strong>JavaScript</strong> for flow enhancements and
+                implementing Robotic Process Automation (RPA), streamlining the
+                data de-duplication process and elevating data integrity.
+              </li>
+              <li>
+                Administered and refined the Configuration Database,
+                successfully purging redundant records and bolstering data
+                accuracy. Synthesized and presented data-driven insights to
+                executives, highlighting the tangible impact on operational
+                efficiency and guiding strategic decisions.
+              </li>
+            </ul>
+          </div>
+
+          
+          <!-- 6. Software Engineer Intern (City of Austin) (Jun 2021 - Aug 2021) -->
+          
+           
+          <div class="experience-item exp-3">
+            <h3>The Sunwater Institute</h3>
+            <p class="company-location">
+              Data Engineer Intern | North Bethesda, MD • Jan 2025 – Present
+            </p>
+
+            <p class="summary">
+              I work on the Legis-1 Platform. I build high-performance data
+              pipelines to support AI-driven policy research, processing
+              legislative documents at scale to power structured retrieval and
+              automated analysis. My contributions include developing
+              large-scale LLM pipelines for AI-generated news and policy
+              insights, leveraging retrieval-augmented generation (RAG) and
+              embeddings to analyze 500K+ legal records. By optimizing storage
+              efficiency and retrieval speed, I enhance the AI-readiness of
+              structured legislative data.
+            </p>
+
+            <ul class="tech-bullets">
+              <li>
+                Building high-performance data pipelines for Legis-1, a
+                legislative database with millions of legal documents,
+                optimizing retrieval speed, storage efficiency, and AI-readiness
+                for structured data.
+              </li>
+              <li>
+                Developing LLM pipelines to power AI-generated news and policy
+                analysis, leveraging retrieval-augmented generation (RAG),
+                embeddings, and scalable document processing across 500K+
+                records.
+              </li>
+            </ul>
+          </div>
+          
+
+          <!-- 1. Machine Learning Engineer, Research Assistant (Feb 2024 - Jan 2025) -->
+          
+          <div class="experience-item exp-2 exp-large">
+            <h3>
+              University of Texas - Oden Institute for Computational Engineering
+              and Sciences
+            </h3>
+            <p class="company-location">
+              Machine Learning Engineer, Research Assistant | Austin, TX • Feb
+              2024 – Jan 2025
+            </p>
+
+            <p class="summary">
+              At the Oden Institute, I led efforts to build a scalable deep
+              learning pipeline for medical image segmentation, training across
+              H100 GPUs and handling over a thousand MRI scans. Focused on
+              pushing the limits of model performance and engineering
+              reliability at high performance scale, I worked hands-on with
+              transformers, CNNs, and hybrid architectures to advance pancreas
+              segmentation research.
+            </p>
+
+            <ul class="tech-bullets">
+              <li>
+                Engineered a high-throughput, containerized pipeline for 3D
+                pancreas MRI segmentation on TACC’s H100 supercomputer using
+                Apptainer, SLURM, CNNs, and transformers; achieved a +12% Dice
+                gain, matching SOTA segmentation performance
+              </li>
+              <li>
+                Benchmarked CNNs, vision transformers, and hybrid models across
+                1000+ scans with 5-fold cross-validation, finding hybrids (e.g.,
+                PanSegNet) excel at small-organ segmentation, consistent with
+                medical imaging literature.
+              </li>
+              <li>
+                Diagnosed and resolved GPU memory bottlenecks, I/O lag, and
+                mixed precision instability to enable stable, scalable training
+                across large-volume datasets and architectures
+              </li>
+            </ul>
+          </div>
+          
+         
+          
+          <!-- 3. Software Engineering Research Intern (Jun 2023 - Present) -->
+          <div class="experience-item exp-4">
+            <h3>University of Maryland – College Park</h3>
+            <p class="company-location">
+              Software Engineering and Research Intern • Remote • Jun 2023 –
+              Present
+            </p>
+
+            <p class="summary">
+              I helped build an NLP-based chatbot to engage news readers and
+              analyzed linguistic patterns to enhance the interaction. My
+              contributions focus on Python scripting and publishing insights at
+              CHI 2024.
+            </p>
+
+            <ul class="tech-bullets">
+              <a href="https://arxiv.org/abs/2312.10650">
+                <li>
+                  Project: Towards Designing a Question-Answering Chatbot for
+                  Online News
+                </li>
+              </a>
+              <li>
+                Led the development of an <strong>NLP-driven</strong> chatbot to
+                augment online news reader engagement, employing deep learning
+                and AI techniques. Directed comprehensive studies and analyses,
+                culminating in findings on human-chatbot interaction dynamics.
+              </li>
+              <li>
+                Executed sophisticated text analytics and data labeling using
+                <strong>Python</strong>, encompassing Parts of Speech Tagging,
+                LIWC, and clustering on sentence embeddings, to derive intricate
+                linguistic patterns and insights.
+              </li>
+              <li>
+                Collaborated with a cross-disciplinary team of professors and
+                graduate students, driving content creation and ensuring
+                methodological precision. Contributed core analytical insights
+                and visualizations to the research paper published at the
+                <strong>CHI 2024</strong> conference.
+              </li>
+              <li>
+                Authored Python scripts for in-depth data analysis, generating
+                insightful graphs and visualizations that formed the backbone of
+                the research findings, illustrating complex human-chatbot
+                interaction patterns.
+              </li>
+            </ul>
+          </div>
+          <div class="experience-item exp-7 exp-small">
+            <h3>City of Austin</h3>
+            <p class="company-location">
+              Software Engineer Intern – Austin, TX • Jun 2021 – Aug 2021
+            </p>
+
+            <p class="summary">
+              I helped Austin’s post-COVID recovery by improving loan processing
+              workflows for small businesses. My work included Python scripting
+              and data visualization to streamline operations.
+            </p>
+          </div>
+         
+          
+          <!-- 5. Summer Learning Academy (AT&T) (Jun 2021 - Aug 2021) -->
+          <div class="experience-item exp-6 exp-small">
+            <h3>AT&T</h3>
+            <p class="company-location">
+              Summer Learning Academy – Austin, TX • Jun 2021 – Aug 2021
+            </p>
+
+            <p class="summary">
+              As the youngest participant, I gained exposure to AI, business
+              strategies, and professional development while collaborating on
+              tech-focused initiatives with industry leaders.
+            </p>
+          </div>
+          
         </div>
       </section>
 
