@@ -473,67 +473,19 @@ section h2::after {
   font-size: 0.95rem;
 }
 /* ------------------------------------------- */
-/*  EXPERIENCE SECTION (Dynamic Masonry Style) */
+/*  EXPERIENCE SECTION (OpenAI-inspired Card Grid) */
 /* ------------------------------------------- */
 
 .experience-section {
   padding: 6rem 2rem;
-  max-width: 1400px;
+  max-width: 1200px;
   margin: 0 auto;
 }
-@media (max-width: 900px) {
-  .experience-grid {
-    column-count: 1;
-  }
-}
-.experience-grid {
-  column-count: 2;
-  column-gap: 2rem;
-}
 
-
-
-.experience-item {
-  background-color: #111;
-  border-radius: 12px;
-  padding: 2rem;
-  box-shadow: 0 6px 20px rgba(0, 0, 0, 0.4);
-  margin-bottom: 2rem;
-  display: inline-block;
-  width: 100%;
-  break-inside: avoid;
-  opacity: 1;
-  transform: none;
-  transition: opacity 0.6s ease, transform 0.6s ease, box-shadow 0.3s ease;
-}
-
-.experience-item.visible {
-  opacity: 1;
-  transform: translateY(0);
-}
-
-.experience-item:hover {
-  transform: translateY(-5px) scale(1.02);
-  box-shadow: 0 20px 30px rgba(0, 0, 0, 0.6);
-}
-
-/* Large important experiences */
-.exp-large {
-  font-size: 1rem;
-  padding: 2.5rem;
-}
-
-/* Smaller ones */
-.exp-small {
-  font-size: 0.9rem;
-  padding: 1.5rem;
-}
-
-/* Section heading */
 .experience-section h2 {
   font-size: 2.4rem;
   text-align: center;
-  margin-bottom: 4rem;
+  margin-bottom: 3rem;
   font-weight: 700;
   color: #fff;
   position: relative;
@@ -548,39 +500,91 @@ section h2::after {
   margin: 0.5rem auto 0;
 }
 
-/* Inside each card */
-.experience-item h3 {
-  font-weight: 600;
+.experience-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 2rem;
+}
+
+.exp-group-header {
   font-size: 1.5rem;
-  margin-bottom: 0.5rem;
+  font-weight: 700;
   color: #fff;
+  margin: 2.5rem 0 1.2rem 0;
+  cursor: pointer;
+  transition: color 0.2s;
+  display: flex;
+  align-items: center;
+  user-select: none;
+}
+.exp-group-header:hover {
+  color: #10a37f;
+}
+.exp-group-header .exp-toggle {
+  font-size: 1.3rem;
+  margin-right: 0.7rem;
+  transition: transform 0.2s;
+}
+.exp-group-header.collapsed .exp-toggle {
+  transform: rotate(-90deg);
 }
 
+.experience-item {
+  background: #101112;
+  border-radius: 16px;
+  box-shadow: 0 2px 16px 0 rgba(0,0,0,0.10), 0 1.5px 6px 0 rgba(0,0,0,0.08);
+  padding: 2.5rem 2rem 2rem 2.5rem;
+  border-left: 4px solid #444;
+  transition: box-shadow 0.2s, border-color 0.2s, transform 0.2s;
+  display: flex;
+  flex-direction: column;
+  gap: 1.2rem;
+  min-height: 260px;
+  position: relative;
+}
+.experience-item:hover {
+  box-shadow: 0 8px 32px 0 rgba(0,0,0,0.18), 0 3px 12px 0 rgba(0,0,0,0.12);
+  border-left: 4px solid #10a37f;
+  transform: translateY(-4px) scale(1.01);
+}
+
+.experience-item h3 {
+  font-size: 1.25rem;
+  font-weight: 600;
+  color: #fff;
+  margin-bottom: 0.2rem;
+}
 .company-location {
-  font-size: 0.95rem;
-  color: #aaa;
-  margin-bottom: 1rem;
-}
-
-.summary {
-  margin-bottom: 1rem;
-  line-height: 1.7;
-  color: #ccc;
   font-size: 1rem;
-}
-
-.tech-bullets {
-  margin-left: 1rem;
-  padding-left: 1rem;
-  list-style-type: disc;
-  color: #ccc;
-  font-size: 0.95rem;
-  line-height: 1.5;
-}
-
-.tech-bullets li {
+  color: #8e8ea0;
   margin-bottom: 0.5rem;
 }
+.summary {
+  color: #b3b3b3;
+  font-size: 1.05rem;
+  line-height: 1.7;
+  margin-bottom: 0.5rem;
+}
+.tech-bullets {
+  margin-left: 1.2rem;
+  padding-left: 0.5rem;
+  list-style-type: disc;
+  color: #b3b3b3;
+  font-size: 0.98rem;
+  line-height: 1.6;
+}
+.tech-bullets li {
+  margin-bottom: 0.4rem;
+}
+
+/* Accent color for each experience type (optional, for variety) */
+.exp-1 { border-left-color: #bf5700; }
+.exp-2 { border-left-color: #00aaaa; }
+.exp-3 { border-left-color: #800080; }
+.exp-4 { border-left-color: #ff1493; }
+.exp-5 { border-left-color: #32cd32; }
+.exp-6 { border-left-color: #daa520; }
+.exp-7 { border-left-color: #00aaff; }
 
 /* ------------------------------------------- */
 /*  Vibrant Backgrounds (Exp Cards)            */
@@ -622,8 +626,44 @@ section h2::after {
   background-image: radial-gradient(circle at 30% 30%, rgba(0, 170, 255, 0.3), rgba(100, 200, 255, 0.25), rgba(180, 240, 255, 0.25));
 }
 
+/* Watercolor-style backgrounds for each experience card */
+.exp-1 {
+  background: linear-gradient(135deg, rgba(191, 87, 0, 0.18), rgba(253, 195, 139, 0.18), rgba(255, 234, 218, 0.18)),
+    radial-gradient(circle at 30% 30%, rgba(191, 87, 0, 0.22), rgba(253, 195, 139, 0.18), rgba(255, 234, 218, 0.15)),
+    #161616;
+}
+.exp-2 {
+  background: linear-gradient(135deg, rgba(0, 170, 170, 0.18), rgba(102, 224, 224, 0.18), rgba(185, 255, 255, 0.18)),
+    radial-gradient(circle at 70% 60%, rgba(0, 170, 170, 0.22), rgba(102, 224, 224, 0.18), rgba(185, 255, 255, 0.15)),
+    #161616;
+}
+.exp-3 {
+  background: linear-gradient(135deg, rgba(128, 0, 128, 0.18), rgba(204, 153, 255, 0.18), rgba(230, 220, 255, 0.18)),
+    radial-gradient(circle at 60% 40%, rgba(128, 0, 128, 0.22), rgba(204, 153, 255, 0.18), rgba(230, 220, 255, 0.15)),
+    #161616;
+}
+.exp-4 {
+  background: linear-gradient(135deg, rgba(255, 20, 147, 0.18), rgba(255, 182, 193, 0.18), rgba(255, 230, 230, 0.18)),
+    radial-gradient(circle at 40% 70%, rgba(255, 20, 147, 0.22), rgba(255, 182, 193, 0.18), rgba(255, 230, 230, 0.15)),
+    #161616;
+}
+.exp-5 {
+  background: linear-gradient(135deg, rgba(50, 205, 50, 0.18), rgba(144, 238, 144, 0.18), rgba(224, 255, 224, 0.18)),
+    radial-gradient(circle at 80% 30%, rgba(50, 205, 50, 0.22), rgba(144, 238, 144, 0.18), rgba(224, 255, 224, 0.15)),
+    #161616;
+}
+.exp-6 {
+  background: linear-gradient(135deg, rgba(218, 165, 32, 0.18), rgba(255, 215, 0, 0.18), rgba(255, 239, 150, 0.18)),
+    radial-gradient(circle at 20% 80%, rgba(218, 165, 32, 0.22), rgba(255, 215, 0, 0.18), rgba(255, 239, 150, 0.15)),
+    #161616;
+}
+.exp-7 {
+  background: linear-gradient(135deg, rgba(0, 170, 255, 0.18), rgba(100, 200, 255, 0.18), rgba(180, 240, 255, 0.18)),
+    radial-gradient(circle at 60% 80%, rgba(0, 170, 255, 0.22), rgba(100, 200, 255, 0.18), rgba(180, 240, 255, 0.15)),
+    #161616;
+}
 
-  /* Projects Section Container */
+/* Projects Section Container */
 .projects-section {
     padding: 2rem;
     max-width: 1200px; /* or whatever width you like */
