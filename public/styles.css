@@ -897,3 +897,242 @@ footer {
   font-size: 0.85rem;
 }
 
+/* ------------------------------------------- */
+/*  Experience Section - New Tier Design      */
+/* ------------------------------------------- */
+
+/* ------------------------------------------- */
+/*  Experience Section - Clean Redesign       */
+/* ------------------------------------------- */
+
+.experience-section {
+  padding: 4rem 2rem;
+  max-width: 900px;
+  margin: 0 auto;
+  background-color: #000;
+}
+
+/* Match other section headers */
+.experience-section h2 {
+  text-align: center;
+  font-size: 2.5rem;
+  font-weight: 700;
+  margin-bottom: 3rem;
+  color: #fff;
+}
+
+.experience-tier {
+  margin-bottom: 4rem;
+}
+
+/* Tier Headers */
+.tier-header {
+  cursor: pointer;
+  margin-bottom: 2rem;
+  padding: 1rem;
+  border-radius: 8px;
+  transition: background-color 0.3s ease;
+  position: relative;
+}
+
+.tier-header:hover {
+  background-color: #111;
+}
+
+.tier-toggle {
+  position: absolute;
+  right: 1rem;
+  top: 50%;
+  transform: translateY(-50%);
+  font-size: 1.2rem;
+  color: #8af;
+  transition: transform 0.3s ease;
+}
+
+.tier-header.collapsed .tier-toggle {
+  transform: translateY(-50%) rotate(90deg);
+}
+
+.tier-title {
+  font-size: 2rem;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.tier-subtitle {
+  font-size: 1rem;
+  color: #888;
+  font-weight: 400;
+}
+
+/* Timeline */
+.experience-timeline {
+  position: relative;
+  display: flex;
+  flex-direction: column;
+  gap: 0.5rem;
+}
+
+.experience-timeline::before {
+  content: '';
+  position: absolute;
+  left: 1.5rem;
+  top: 1rem;
+  bottom: 1rem;
+  width: 1px;
+  background-color: #444;
+  z-index: 1;
+}
+
+/* Experience Cards */
+.experience-item {
+  position: relative;
+  background-color: #0d0d0d;
+  border: none;
+  border-radius: 10px;
+  padding: 2rem 2rem 2rem 4.5rem;
+  margin-left: 0;
+  transition: all 0.3s ease;
+  border-left: 2px solid transparent;
+}
+
+.experience-item:hover {
+  background-color: #121212;
+  border-left: 2px solid #8af;
+}
+
+/* NO MORE CIRCLES - Remove all ::before pseudo-elements */
+.experience-item::before {
+  display: none !important;
+}
+
+/* Flagship roles styling */
+.flagship-role {
+  border-left: 3px solid #8af;
+  background-color: #111;
+}
+
+.flagship-role:hover {
+  background-color: #161616;
+  border-left: 3px solid #8af;
+}
+
+/* Role Badges */
+.role-badge {
+  position: absolute;
+  top: 1.5rem;
+  right: 1.5rem;
+  background-color: #222;
+  color: #bbb;
+  padding: 0.4rem 0.8rem;
+  border-radius: 6px;
+  font-size: 0.75rem;
+  font-weight: 600;
+  text-transform: uppercase;
+  letter-spacing: 0.5px;
+  border: 1px solid #333;
+}
+
+.flagship-role .role-badge {
+  background-color: #8af;
+  color: #000;
+  border: none;
+}
+
+/* Typography */
+.experience-item h3 {
+  font-size: 1.4rem;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  color: #fff;
+}
+
+.company-location {
+  color: #9a9a9a;
+  font-size: 1rem;
+  margin-bottom: 1rem;
+  font-weight: 400;
+}
+
+.summary {
+  color: #cfcfcf;
+  line-height: 1.6;
+  margin-bottom: 1rem;
+  font-size: 1.05rem;
+}
+
+.tech-bullets {
+  list-style: none;
+  padding: 0;
+  margin-top: 1rem;
+}
+
+.tech-bullets li {
+  position: relative;
+  padding-left: 1.25rem;
+  margin-bottom: 0.75rem;
+  color: #999;
+  line-height: 1.5;
+  font-size: 0.95rem;
+}
+
+.tech-bullets li::before {
+  content: '—';
+  position: absolute;
+  left: 0;
+  color: #8af;
+}
+
+/* Links */
+.experience-item a {
+  color: #8af;
+  text-decoration: none;
+  transition: color 0.3s ease;
+}
+
+.experience-item a:hover {
+  color: #bcd8ff;
+  text-decoration: underline;
+}
+
+/* Responsive Design */
+@media (max-width: 768px) {
+  .experience-timeline::before { 
+    display: none; 
+  }
+  
+  .experience-item { 
+    padding-left: 2rem; 
+  }
+  
+  .tier-title { 
+    font-size: 1.8rem; 
+  }
+  
+  .tier-toggle {
+    right: 0.5rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .experience-section { 
+    padding: 2rem 1rem; 
+  }
+  
+  .experience-item { 
+    padding-left: 1.5rem; 
+  }
+  
+  .flagship-role { 
+    border-left: none; 
+  }
+  
+  .role-badge {
+    position: static;
+    display: inline-block;
+    margin-bottom: 1rem;
+    margin-top: 0.5rem;
+  }
+}
+
