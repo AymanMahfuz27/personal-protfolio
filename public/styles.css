@@ -314,6 +314,24 @@ section h2::after {
   line-height: 1.7;
 }
 
+.about-me-content ul {
+  list-style: none;
+  padding-left: 0;
+  margin-top: 1.5rem;
+}
+
+.about-me-content li {
+  background-color: #1a1a1a;
+  padding: 1rem;
+  border-radius: 5px;
+  margin-bottom: 1rem;
+  border-left: 3px solid #4a90e2;
+}
+
+.about-me-content li strong {
+  color: #4a90e2;
+}
+
 .about-me-content p {
   margin-bottom: 1rem;
   color: #cccccc;
