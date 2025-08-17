@@ -303,42 +303,112 @@ section h2::after {
 /* ------------------------------------------- */
 
 .about-me-content {
-  background-color: #151515;
-  padding: 2rem;
-  border-radius: 8px;
-  box-shadow: 0 2px 5px rgba(0,0,0,0.6);
-  color: #d9d9d9;
+  background-color: #000000;
+  padding: 3rem;
+  border-radius: 20px;
+  border: 1px solid #1a1a1a;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+  color: #ffffff;
   animation: fadeUp 1s ease forwards;
   opacity: 0;
   transform: translateY(20px);
   line-height: 1.7;
+  position: relative;
+  overflow: hidden;
+}
+
+.about-me-content::before {
+  content: '';
+  position: absolute;
+  top: -50px;
+  right: -50px;
+  width: 200px;
+  height: 200px;
+  background: radial-gradient(circle, rgba(255, 107, 107, 0.15) 0%, rgba(255, 182, 193, 0.1) 50%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(40px);
+  z-index: 0;
+}
+
+.about-me-content::after {
+  content: '';
+  position: absolute;
+  bottom: -30px;
+  left: -30px;
+  width: 150px;
+  height: 150px;
+  background: radial-gradient(circle, rgba(100, 149, 237, 0.12) 0%, rgba(173, 216, 230, 0.08) 50%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(30px);
+  z-index: 0;
+}
+
+.about-me-content p {
+  margin-bottom: 1.5rem;
+  color: #e0e0e0;
+  font-size: 1.1rem;
+  line-height: 1.8;
+  position: relative;
+  z-index: 1;
+}
+
+.about-me-content strong {
+  color: #ffffff;
+  font-weight: 600;
 }
 
 .about-me-content ul {
   list-style: none;
   padding-left: 0;
-  margin-top: 1.5rem;
+  margin-top: 2rem;
+  position: relative;
+  z-index: 1;
 }
 
 .about-me-content li {
-  background-color: #1a1a1a;
-  padding: 1rem;
-  border-radius: 5px;
-  margin-bottom: 1rem;
-  border-left: 3px solid #4a90e2;
+  background-color: #0a0a0a;
+  padding: 1.5rem 2rem;
+  border-radius: 16px;
+  margin-bottom: 1.5rem;
+  border: 1px solid #1a1a1a;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+}
+
+.about-me-content li::before {
+  content: '';
+  position: absolute;
+  top: 0;
+  left: 0;
+  width: 100%;
+  height: 100%;
+  background: linear-gradient(135deg, 
+    rgba(255, 107, 107, 0.08) 0%, 
+    rgba(255, 182, 193, 0.05) 25%, 
+    rgba(100, 149, 237, 0.08) 50%, 
+    rgba(173, 216, 230, 0.05) 75%, 
+    rgba(255, 107, 107, 0.08) 100%);
+  opacity: 0;
+  transition: opacity 0.4s ease;
+}
+
+.about-me-content li:hover::before {
+  opacity: 1;
+}
+
+.about-me-content li:hover {
+  transform: translateY(-4px);
+  box-shadow: 0 20px 40px rgba(0, 0, 0, 0.6);
+  border-color: #2a2a2a;
+  background-color: #0f0f0f;
 }
 
 .about-me-content li strong {
-  color: #4a90e2;
-}
-
-.about-me-content p {
-  margin-bottom: 1rem;
-  color: #cccccc;
-}
-
-.about-me-content strong {
-  color: #fff;
+  color: #ffffff;
+  font-weight: 600;
+  position: relative;
+  z-index: 1;
 }
 
 /* ------------------------------------------- */
@@ -499,18 +569,17 @@ section h2::after {
   max-width: 1200px;
   margin: 0 auto;
   position: relative;
+  background-color: #000000;
 }
 
 .experience-section h2 {
   font-size: 2.4rem;
-  text-align: left;
+  text-align: center;
   margin-bottom: 3rem;
   font-weight: 700;
-  color: #fff;
-  position: sticky;
-  top: 1rem;
+  color: #ffffff;
+  position: relative;
   z-index: 10;
-  background: linear-gradient(180deg, #000 70%, rgba(0,0,0,0));
   padding: 1rem 0;
 }
 
@@ -600,36 +669,41 @@ section h2::after {
 }
 
 .experience-item h3 {
-  font-size: 1.5rem;
+  font-size: 1.6rem;
   font-weight: 600;
-  color: #fff;
-  margin-bottom: 0.5rem;
-  background: linear-gradient(90deg, #fff, rgba(255,255,255,0.8));
-  -webkit-background-clip: text;
-  -webkit-text-fill-color: transparent;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+  position: relative;
+  z-index: 1;
 }
 
 .company-location {
   font-size: 1.1rem;
-  color: rgba(255,255,255,0.7);
-  margin-bottom: 1rem;
+  color: #b0b0b0;
+  margin-bottom: 1.25rem;
   font-weight: 500;
+  position: relative;
+  z-index: 1;
 }
 
 .summary {
-  color: rgba(255,255,255,0.9);
+  color: #e0e0e0;
   font-size: 1.1rem;
   line-height: 1.8;
-  margin-bottom: 1rem;
+  margin-bottom: 1.5rem;
+  position: relative;
+  z-index: 1;
 }
 
 .tech-bullets {
   margin-left: 1.5rem;
   padding-left: 0.5rem;
   list-style-type: none;
-  color: rgba(255,255,255,0.8);
+  color: #b0b0b0;
   font-size: 1.05rem;
   line-height: 1.7;
+  position: relative;
+  z-index: 1;
 }
 
 .tech-bullets li {
@@ -641,7 +715,7 @@ section h2::after {
   content: '•';
   position: absolute;
   left: -1.5rem;
-  color: #10a37f;
+  color: #ffffff;
   font-size: 1.2em;
 }
 
@@ -941,30 +1015,64 @@ footer {
 
 .experience-tier {
   margin-bottom: 4rem;
+  position: relative;
+}
+
+.experience-tier::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, rgba(255, 107, 107, 0.12) 0%, rgba(255, 182, 193, 0.08) 50%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(25px);
+  z-index: 0;
 }
 
 /* Tier Headers */
 .tier-header {
   cursor: pointer;
   margin-bottom: 2rem;
-  padding: 1rem;
-  border-radius: 8px;
-  transition: background-color 0.3s ease;
+  padding: 1.5rem 2rem;
+  border-radius: 16px;
+  background-color: #0a0a0a;
+  border: 1px solid #1a1a1a;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
+  overflow: hidden;
+}
+
+.tier-header::before {
+  content: '';
+  position: absolute;
+  top: -30px;
+  left: -30px;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(100, 149, 237, 0.15) 0%, rgba(173, 216, 230, 0.1) 50%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(20px);
+  z-index: 0;
 }
 
 .tier-header:hover {
-  background-color: #111;
+  background-color: #0f0f0f;
+  border-color: #2a2a2a;
+  transform: translateY(-2px);
+  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
 }
 
 .tier-toggle {
   position: absolute;
-  right: 1rem;
+  right: 1.5rem;
   top: 50%;
   transform: translateY(-50%);
   font-size: 1.2rem;
-  color: #8af;
-  transition: transform 0.3s ease;
+  color: #ffffff;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  z-index: 1;
 }
 
 .tier-header.collapsed .tier-toggle {
@@ -975,13 +1083,17 @@ footer {
   font-size: 2rem;
   font-weight: 600;
   margin-bottom: 0.5rem;
-  color: #fff;
+  color: #ffffff;
+  position: relative;
+  z-index: 1;
 }
 
 .tier-subtitle {
   font-size: 1rem;
-  color: #888;
+  color: #b0b0b0;
   font-weight: 400;
+  position: relative;
+  z-index: 1;
 }
 
 /* Timeline */
@@ -989,46 +1101,85 @@ footer {
   position: relative;
   display: flex;
   flex-direction: column;
-  gap: 0.5rem;
+  gap: 1.5rem;
 }
 
 .experience-timeline::before {
   content: '';
   position: absolute;
-  left: 1.5rem;
+  left: 2rem;
   top: 1rem;
   bottom: 1rem;
-  width: 1px;
-  background-color: #444;
+  width: 2px;
+  background: linear-gradient(180deg, rgba(255, 107, 107, 0.3), rgba(100, 149, 237, 0.3));
   z-index: 1;
 }
 
 /* Experience Cards */
 .experience-item {
   position: relative;
-  background-color: #0d0d0d;
-  border: none;
-  border-radius: 10px;
-  padding: 2rem 2rem 2rem 4.5rem;
+  background-color: #000000;
+  border: 1px solid #1a1a1a;
+  border-radius: 16px;
+  padding: 2.5rem 2.5rem 2.5rem 5rem;
   margin-left: 0;
-  transition: all 0.3s ease;
-  border-left: 2px solid transparent;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 15px 45px rgba(0, 0, 0, 0.8);
+}
+
+.experience-item::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, rgba(255, 182, 193, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(20px);
+  z-index: 0;
+}
+
+.experience-item::after {
+  content: '';
+  position: absolute;
+  bottom: -15px;
+  left: -15px;
+  width: 60px;
+  height: 60px;
+  background: radial-gradient(circle, rgba(100, 149, 237, 0.12) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(15px);
+  z-index: 0;
 }
 
 .experience-item:hover {
-  background-color: #121212;
-  border-left: 2px solid #8af;
-}
-
-/* NO MORE CIRCLES - Remove all ::before pseudo-elements */
-.experience-item::before {
-  display: none !important;
+  background-color: #0a0a0a;
+  border-color: #2a2a2a;
+  transform: translateY(-6px);
+  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9);
 }
 
 /* Flagship roles styling */
 .flagship-role {
-  border-left: 3px solid #8af;
-  background-color: #111;
+  border-left: 3px solid #ffffff;
+  background-color: #000000;
+  position: relative;
+}
+
+.flagship-role::before {
+  content: '';
+  position: absolute;
+  top: -25px;
+  right: -25px;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(255, 107, 107, 0.2) 0%, rgba(255, 182, 193, 0.15) 50%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(25px);
+  z-index: 0;
 }
 
 .flagship-role:hover {
@@ -1041,21 +1192,24 @@ footer {
   position: absolute;
   top: 1.5rem;
   right: 1.5rem;
-  background-color: #222;
-  color: #bbb;
-  padding: 0.4rem 0.8rem;
-  border-radius: 6px;
-  font-size: 0.75rem;
+  background-color: #ffffff;
+  color: #000000;
+  padding: 0.5rem 1rem;
+  border-radius: 25px;
+  font-size: 0.8rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  border: 1px solid #333;
+  border: none;
+  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
+  transition: all 0.3s ease;
+  z-index: 1;
 }
 
 .flagship-role .role-badge {
-  background-color: #8af;
-  color: #000;
-  border: none;
+  background: linear-gradient(135deg, #ffffff, #f0f0f0);
+  color: #000000;
+  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
 }
 
 /* Typography */
@@ -1104,14 +1258,15 @@ footer {
 
 /* Links */
 .experience-item a {
-  color: #8af;
+  color: #ffffff;
   text-decoration: none;
-  transition: color 0.3s ease;
+  transition: all 0.3s ease;
+  border-bottom: 1px solid transparent;
 }
 
 .experience-item a:hover {
-  color: #bcd8ff;
-  text-decoration: underline;
+  color: #ffffff;
+  border-bottom: 1px solid #ffffff;
 }
 
 /* Responsive Design */
@@ -1151,6 +1306,201 @@ footer {
     display: inline-block;
     margin-bottom: 1rem;
     margin-top: 0.5rem;
+  }
+}
+
+/* ------------------------------------------- */
+/*  Resume Section Styling                     */
+/* ------------------------------------------- */
+
+.resume-container {
+  display: grid;
+  grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+  gap: 2.5rem;
+  margin-bottom: 2.5rem;
+}
+
+.resume-card {
+  background-color: #000000;
+  border: 1px solid #1a1a1a;
+  border-radius: 20px;
+  padding: 2.5rem;
+  text-align: center;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  position: relative;
+  overflow: hidden;
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.8);
+}
+
+.resume-card::before {
+  content: '';
+  position: absolute;
+  top: -40px;
+  right: -40px;
+  width: 120px;
+  height: 120px;
+  background: radial-gradient(circle, rgba(255, 107, 107, 0.2) 0%, rgba(255, 182, 193, 0.15) 50%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(30px);
+  z-index: 0;
+}
+
+.resume-card::after {
+  content: '';
+  position: absolute;
+  bottom: -30px;
+  left: -30px;
+  width: 100px;
+  height: 100px;
+  background: radial-gradient(circle, rgba(100, 149, 237, 0.18) 0%, rgba(173, 216, 230, 0.12) 50%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(25px);
+  z-index: 0;
+}
+
+.resume-card:hover {
+  transform: translateY(-8px);
+  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9);
+  border-color: #2a2a2a;
+}
+
+.resume-icon {
+  font-size: 3.5rem;
+  color: #ffffff;
+  margin-bottom: 1.5rem;
+  transition: all 0.4s ease;
+  position: relative;
+  z-index: 1;
+}
+
+.resume-card:hover .resume-icon {
+  transform: scale(1.1);
+  color: #e0e0e0;
+}
+
+.resume-card h3 {
+  font-size: 1.6rem;
+  font-weight: 600;
+  color: #ffffff;
+  margin-bottom: 0.75rem;
+  position: relative;
+  z-index: 1;
+}
+
+.resume-card p {
+  color: #b0b0b0;
+  margin-bottom: 2rem;
+  font-size: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.resume-download-btn {
+  display: inline-flex;
+  align-items: center;
+  gap: 0.75rem;
+  background-color: #ffffff;
+  color: #000000;
+  text-decoration: none;
+  padding: 1rem 2rem;
+  border-radius: 50px;
+  font-weight: 600;
+  font-size: 1rem;
+  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+  border: none;
+  cursor: pointer;
+  position: relative;
+  z-index: 1;
+  box-shadow: 0 8px 25px rgba(255, 255, 255, 0.2);
+}
+
+.resume-download-btn:hover {
+  transform: translateY(-3px);
+  box-shadow: 0 15px 35px rgba(255, 255, 255, 0.3);
+  background-color: #f0f0f0;
+}
+
+.resume-download-btn:active {
+  transform: translateY(-1px);
+}
+
+.resume-tip {
+  background-color: #0a0a0a;
+  border: 1px solid #1a1a1a;
+  border-radius: 16px;
+  padding: 1.5rem 2rem;
+  text-align: center;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  max-width: 500px;
+  margin: 0 auto;
+  position: relative;
+  overflow: hidden;
+}
+
+.resume-tip::before {
+  content: '';
+  position: absolute;
+  top: -20px;
+  right: -20px;
+  width: 80px;
+  height: 80px;
+  background: radial-gradient(circle, rgba(255, 182, 193, 0.15) 0%, transparent 70%);
+  border-radius: 50%;
+  filter: blur(20px);
+  z-index: 0;
+}
+
+.resume-tip i {
+  color: #ffffff;
+  font-size: 1.3rem;
+  position: relative;
+  z-index: 1;
+}
+
+.resume-tip p {
+  color: #b0b0b0;
+  margin: 0;
+  font-size: 1rem;
+  position: relative;
+  z-index: 1;
+}
+
+.resume-tip strong {
+  color: #ffffff;
+}
+
+/* Responsive Design for Resume Section */
+@media (max-width: 768px) {
+  .resume-container {
+    grid-template-columns: 1fr;
+    gap: 1.5rem;
+  }
+  
+  .resume-card {
+    padding: 1.5rem;
+  }
+  
+  .resume-icon {
+    font-size: 2.5rem;
+  }
+  
+  .resume-card h3 {
+    font-size: 1.3rem;
+  }
+}
+
+@media (max-width: 480px) {
+  .resume-card {
+    padding: 1.25rem;
+  }
+  
+  .resume-tip {
+    flex-direction: column;
+    text-align: center;
+    gap: 0.5rem;
   }
 }
 
