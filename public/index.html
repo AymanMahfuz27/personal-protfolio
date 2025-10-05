@@ -47,20 +47,23 @@
 <body>
   <div class="nav-toggle" onclick="toggleNav()">☰</div>
 
+  <!-- Floating Resume CTA -->
+  <a href="Ayman_Mahfuz_resume.pdf" target="_blank" class="floating-resume-btn" title="View Resume">
+    <i class="fas fa-file-pdf"></i>
+    <span>Resume</span>
+  </a>
+
   <nav id="sidebar">
     <ul>
       <li><a href="#home">Home</a></li>
+      <li><a href="#featured">Featured</a></li>
+      <li><a href="#resume">Resume</a></li>
       <li><a href="#about-me">About Me</a></li>
-      <li>
-        <a href="https://aymanmahfuz27.github.io/principles-first-blog/">Read my Blog</a>
-      </li>
+      <li><a href="#skills">Skills</a></li>
       <li><a href="#education">Education</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#projects">Projects</a></li>
-      <li><a href="#skills">Skills</a></li>
-      <li><a href="#resume">Resume</a></li>
       <li><a href="#hobbies">Hobbies</a></li>
-      <!-- etc. -->
     </ul>
   </nav>
 
@@ -73,15 +76,96 @@
           Computer Science & Mathematics Student | Aspiring Software Engineer
           & Machine Learning Researcher
         </p>
+        <div class="hero-metrics">
+          <span class="hero-metric"><i class="fas fa-trophy"></i> RoboCup 2025 Bronze</span>
+          <span class="hero-metric"><i class="fas fa-lightbulb"></i> Patent Pending</span>
+          <span class="hero-metric"><i class="fas fa-flask"></i> 4 Research Labs</span>
+          <span class="hero-metric"><i class="fas fa-microchip"></i> ML @ Arm</span>
+        </div>
         <div class="links">
-          <a href="https://www.linkedin.com/in/aymanmahfuz/" target="_blank">
-            <i class="fab fa-linkedin"></i> Connect with me on LinkedIn
+          <a href="https://www.linkedin.com/in/aymanmahfuz/" target="_blank" class="hero-btn hero-btn-secondary">
+            <i class="fab fa-linkedin"></i> LinkedIn
           </a>
-          <a href="https://github.com/AymanMahfuz27" target="_blank">
-            <i class="fab fa-github"></i> View my GitHub
+          <a href="https://github.com/AymanMahfuz27" target="_blank" class="hero-btn hero-btn-secondary">
+            <i class="fab fa-github"></i> GitHub
           </a>
-          <a href="#resume">
+          <a href="https://aymanmahfuz27.github.io/principles-first-blog/" target="_blank" class="hero-btn hero-btn-primary">
+            <i class="fas fa-blog"></i> Read my Blog
+          </a>
+          <a href="#resume" class="hero-btn hero-btn-primary">
             <i class="fas fa-file-pdf"></i> View Resume
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Achievements Section -->
+    <section id="featured" class="featured-section">
+      <h2>Featured Impact</h2>
+      <div class="featured-grid">
+        
+        <!-- Arm Achievement -->
+        <article class="featured-card featured-arm">
+          <div class="featured-icon">
+            <i class="fas fa-microchip"></i>
+          </div>
+          <div class="featured-metric">99.8th</div>
+          <div class="featured-metric-label">Percentile</div>
+          <h3>Patent-Pending ML Validation</h3>
+          <p>First-of-its-kind Bayesian Optimization framework that discovers worst-case hardware stress in &lt;1% of search space at Arm</p>
+          <div class="featured-tags">
+            <span class="featured-tag">Python</span>
+            <span class="featured-tag">Bayesian Optimization</span>
+            <span class="featured-tag">Random Forests</span>
+          </div>
+        </article>
+
+        <!-- RoboCup Achievement -->
+        <article class="featured-card featured-robocup">
+          <div class="featured-icon">
+            <i class="fas fa-trophy"></i>
+          </div>
+          <div class="featured-metric">🥉 Bronze</div>
+          <div class="featured-metric-label">RoboCup 2025</div>
+          <h3>Multi-Agent RL for Robot Soccer</h3>
+          <p>Core AI developer for UT Austin Villa's 7v7 robot soccer team, building RL-powered agent skills that won 3rd place globally</p>
+          <div class="featured-tags">
+            <span class="featured-tag">Reinforcement Learning</span>
+            <span class="featured-tag">C++</span>
+            <span class="featured-tag">GPU Optimization</span>
+          </div>
+        </article>
+
+        <!-- CMS Achievement -->
+        <article class="featured-card featured-cms">
+          <div class="featured-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <div class="featured-metric">150M+</div>
+          <div class="featured-metric-label">Data Entries</div>
+          <h3>Large-Scale Media Analysis Pipeline</h3>
+          <p>Built end-to-end data/ML infrastructure processing 50M+ articles and 70M+ comments with 99%+ accuracy BERT models at UT's Center for Media Engagement</p>
+          <div class="featured-tags">
+            <span class="featured-tag">BERT</span>
+            <span class="featured-tag">BigQuery</span>
+            <span class="featured-tag">React/Flask</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+    <section id="resume" class="container">
+      <h2>📄 Resume</h2>
+      <div class="resume-container">
+        <div class="resume-card">
+          <div class="resume-icon">
+            <i class="fas fa-file-pdf"></i>
+          </div>
+          <h3>Resume</h3>
+          <p>View my latest resume</p>
+          <a href="Ayman_Mahfuz_resume.pdf" target="_blank" class="resume-download-btn">
+            <i class="fas fa-eye"></i> View
           </a>
         </div>
       </div>
@@ -96,53 +180,15 @@
         <ul>
           <li><strong>Patent-pending ML validation at Arm:</strong> Indusrty-first Bayesian optimization that uncovers worst-case CPU &
             memory stress in <1 % of the search space.</li>
-          <li><strong>RoboCup 2025 bronze:</strong> Worked on multi-agent reinforcement-learning skills and enviorments powering UT Austin Villa’s
+          <li><strong>RoboCup 2025 bronze:</strong> Worked on multi-agent reinforcement-learning skills and enviorments powering UT Austin Villa's
             7-v-7 robot soccer team, where we won bronze in a global tournament.</li>
           <li><strong>200 M-entry media pipeline:</strong> Built data/ML stack & fine-tuned BERT models (99 %+ accuracy)
-            for UT’s Center for Media Engagement.</li>
+            for UT's Center for Media Engagement.</li>
           <li><strong>Pancreas MRI segmentation on H100s using computer vision and transformers:</strong> Engineered 3D
             medical-image pipeline, achieving +12 % Dice at the Oden Institute.</li>
           <li><strong>Youngest speaker, UT AI Health Symposium:</strong> Presented research on multi-agent LLM clinical
             reasoning.</li>
         </ul>
-      </div>
-    </section>
-
-    <section id="education" class="container">
-      <h2>Education</h2>
-      <div class="education-content">
-        <div class="education-item">
-          <div class="education-header">
-            <h3>The University of Texas at Austin</h3>
-            <p>Bachelor of Science</p>
-            <p><strong>Location:</strong> Austin, TX, USA</p>
-          </div>
-          <div class="education-details">
-            <div class="education-column">
-              <p>
-                <strong>Major:</strong> Computer Science
-              </p>
-              <p>
-                <strong>Concentration:</strong> Artificial Intelligence and
-                Machine Learning
-              </p>
-            </div>
-            <div class="education-column">
-              <p><strong>Relevant Coursework:</strong></p>
-              <ul>
-                <li>Generative Visual Computing</li>
-                <li>Natural Language Processing</li>
-                <li>Science of High Performance Computing</li>
-                <li>Data Structures</li>
-                <li>Computer Architecture and Organization</li>
-                <li>Computer Systems and Operating Systems</li>
-                <li>Algorithms</li>
-                <li>Linear Algebra</li>
-                <li>Probability</li>
-              </ul>
-            </div>
-          </div>
-        </div>
       </div>
     </section>
 
@@ -217,18 +263,40 @@
       </div>
     </section>
 
-    <section id="resume" class="container">
-      <h2>📄 Resume</h2>
-      <div class="resume-container">
-        <div class="resume-card">
-          <div class="resume-icon">
-            <i class="fas fa-file-pdf"></i>
+    <section id="education" class="container">
+      <h2>Education</h2>
+      <div class="education-content">
+        <div class="education-item">
+          <div class="education-header">
+            <h3>The University of Texas at Austin</h3>
+            <p>Bachelor of Science</p>
+            <p><strong>Location:</strong> Austin, TX, USA</p>
           </div>
-          <h3>Resume</h3>
-          <p>View my latest resume</p>
-          <a href="Ayman_Mahfuz_resume.pdf" target="_blank" class="resume-download-btn">
-            <i class="fas fa-eye"></i> View
-          </a>
+          <div class="education-details">
+            <div class="education-column">
+              <p>
+                <strong>Major:</strong> Computer Science
+              </p>
+              <p>
+                <strong>Concentration:</strong> Artificial Intelligence and
+                Machine Learning
+              </p>
+            </div>
+            <div class="education-column">
+              <p><strong>Relevant Coursework:</strong></p>
+              <ul>
+                <li>Generative Visual Computing</li>
+                <li>Natural Language Processing</li>
+                <li>Science of High Performance Computing</li>
+                <li>Data Structures</li>
+                <li>Computer Architecture and Organization</li>
+                <li>Computer Systems and Operating Systems</li>
+                <li>Algorithms</li>
+                <li>Linear Algebra</li>
+                <li>Probability</li>
+              </ul>
+            </div>
+          </div>
         </div>
       </div>
     </section>
@@ -711,16 +779,14 @@
       });
     });
 
-    // Collapse industry and research tiers by default on load, keep current leadership expanded
+    // All tiers expanded by default for better recruiter scanning
     window.addEventListener('DOMContentLoaded', function () {
+      // All experience tiers are visible by default
       document.querySelectorAll('.tier-header').forEach(function (header) {
-        const tier = header.parentElement;
-        if (tier.classList.contains('industry-tier') || tier.classList.contains('research-tier')) {
-          header.classList.add('collapsed');
-          const content = header.nextElementSibling;
-          if (content) content.style.display = 'none';
-          header.querySelector('.tier-toggle').textContent = '▶';
-        }
+        const content = header.nextElementSibling;
+        if (content) content.style.display = '';
+        const toggle = header.querySelector('.tier-toggle');
+        if (toggle) toggle.textContent = '▼';
       });
     });
   </script>
