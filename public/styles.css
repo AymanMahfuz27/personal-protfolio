@@ -16,22 +16,24 @@
 /*  Theme Variables (minimal, OpenAI/Apple)    */
 /* ------------------------------------------- */
 :root {
-  /* Core palette */
-  --bg: #0a0a0b;
-  --surface: #0e0f11;
-  --surface-2: #111214;
-  --text: #ececf1;
-  --muted: #a9a9b1;
-  --border: #ffffff1a; /* subtle 1px lines */
-  --ring: #ffffff26;
-  --accent: #10a37f; /* OpenAI green */
+  /* Core palette - Sophisticated dark blue theme */
+  --bg: #0E141E;
+  --surface: #1a2332;
+  --surface-2: #0E141E;
+  --text: #EFFFFA;
+  --muted: #6B818C;
+  --border: #6B818C33; /* subtle lines with gray-blue */
+  --ring: #6B818C40;
+  --accent: #4A051C; /* Maroon accent */
+  --accent-light: #6B818C; /* Gray-blue for secondary accents */
+  --accent-soft: #DDCECD; /* Light pink/rose for subtle highlights */
 
   /* Radius & shadows */
   --radius-lg: 24px;
   --radius-md: 16px;
   --radius-sm: 10px;
-  --shadow-soft: 0 8px 30px rgba(0,0,0,.45);
-  --shadow-hover: 0 16px 60px rgba(0,0,0,.55);
+  --shadow-soft: 0 8px 30px rgba(14,20,30,.45);
+  --shadow-hover: 0 16px 60px rgba(14,20,30,.65);
 
   /* Layout */
   --container: 1200px;
@@ -76,7 +78,7 @@ body {
   color: var(--text);
 }
 
-/* Soft global gradient glow for a magical feel */
+/* Soft global gradient glow with dark blue palette */
 body::before {
   content: '';
   position: fixed;
@@ -85,9 +87,9 @@ body::before {
   height: 70vh;
   pointer-events: none;
   background:
-    radial-gradient(900px 400px at 15% 0%, rgba(142, 197, 252, 0.12), transparent 60%),
-    radial-gradient(900px 400px at 110% 5%, rgba(218, 164, 255, 0.12), transparent 60%),
-    radial-gradient(700px 320px at 50% -10%, rgba(16, 163, 127, 0.10), transparent 65%);
+    radial-gradient(900px 400px at 15% 0%, rgba(107, 129, 140, 0.08), transparent 60%),
+    radial-gradient(900px 400px at 110% 5%, rgba(221, 206, 205, 0.06), transparent 60%),
+    radial-gradient(700px 320px at 50% -10%, rgba(74, 5, 28, 0.08), transparent 65%);
   filter: blur(40px);
   z-index: 0;
 }
@@ -96,13 +98,13 @@ body::before {
 /*  2) Header + Navigation                     */
 /* ------------------------------------------- */
 
-/* Make a sticky top nav bar with black background */
+/* Make a sticky top nav bar with dark blue background */
 header {
   position: fixed;
   top: 0;
   left: 0;
   width: 100%;
-  background-color: #000; 
+  background-color: var(--bg); 
   padding: 0.75rem 1.25rem; 
   z-index: 999;
   display: flex;
@@ -110,14 +112,14 @@ header {
   align-items: center;
 }
 
-/* Sidebar is fixed left, black background, white text */
+/* Sidebar is fixed left, dark blue background, light text */
 #sidebar {
   position: fixed;
   top: 0;
   left: 0;
   width: 220px;
   height: 100vh;            /* Full height sidebar */
-  background-color: #000;
+  background-color: var(--bg);
   border-right: 1px solid var(--border);
   /* Increase left padding from 1rem to 2rem or more */
   padding: 2rem 2rem;
@@ -152,7 +154,7 @@ header {
   opacity: .9;
 }
 #sidebar li a:hover {
-  color: #fff;
+  color: var(--accent-soft);
   opacity: 1;
 }
 
@@ -162,7 +164,7 @@ header {
     width: 80%;
     max-width: 320px;
     backdrop-filter: blur(10px);
-    background-color: rgba(0,0,0,.85);
+    background-color: rgba(7,30,34,.95);
     border-right: 1px solid var(--border);
   }
 }
@@ -171,17 +173,17 @@ header {
 }
 
 
-/* The hamburger button remains the same */
+/* The hamburger button with new color scheme */
 .nav-toggle {
   position: fixed;
   top: 1rem;
   left: 1rem;
   font-size: 1.25rem;
-  color: #000;
-  background: #fff;
+  color: var(--bg);
+  background: var(--text);
   border-radius: 999px;
   padding: .4rem .7rem;
-  box-shadow: 0 1px 0 var(--border), 0 8px 20px rgba(255,255,255,.12);
+  box-shadow: 0 1px 0 var(--border), 0 8px 20px rgba(107,129,140,.15);
   cursor: pointer;
   z-index: 1000;
   display: block;
@@ -248,7 +250,7 @@ header {
 
 .hero-metric i {
   font-size: 1.1rem;
-  color: #10a37f;
+  color: var(--accent-light);
 }
 
 .hero {
@@ -339,18 +341,18 @@ header {
   font-size: 1rem;
 }
 
-/* Primary buttons (Blog and Resume) */
+/* Primary buttons (Blog and Resume) with new palette */
 .hero-btn-primary {
-  background: linear-gradient(135deg, #10a37f, #34d399);
-  color: #fff;
-  box-shadow: 0 8px 25px rgba(16, 163, 127, 0.3);
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  background: linear-gradient(135deg, var(--accent), #6b1a2e);
+  color: var(--text);
+  box-shadow: 0 8px 25px rgba(74, 5, 28, 0.4);
+  border: 2px solid rgba(107, 129, 140, 0.2);
 }
 
 .hero-btn-primary:hover {
-  background: linear-gradient(135deg, #34d399, #10a37f);
+  background: linear-gradient(135deg, #6b1a2e, var(--accent));
   transform: translateY(-3px);
-  box-shadow: 0 12px 35px rgba(16, 163, 127, 0.5);
+  box-shadow: 0 12px 35px rgba(74, 5, 28, 0.6);
 }
 
 /* Secondary buttons (LinkedIn and GitHub) */
@@ -393,7 +395,7 @@ header {
   display: block;
   width: 80px;
   height: 4px;
-  background: linear-gradient(90deg, #10a37f, #34d399);
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
   margin: 1rem auto 0;
   border-radius: 2px;
 }
@@ -406,7 +408,7 @@ header {
 }
 
 .featured-card {
-  background: linear-gradient(135deg, rgba(16, 163, 127, 0.05), rgba(52, 211, 153, 0.03));
+  background: var(--bg);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 3rem 2rem;
@@ -414,48 +416,35 @@ header {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
-  box-shadow: var(--shadow-soft);
+  box-shadow: none;
 }
 
-.featured-card::before {
-  content: '';
-  position: absolute;
-  top: -50%;
-  left: -50%;
-  width: 200%;
-  height: 200%;
-  background: radial-gradient(circle, rgba(255, 255, 255, 0.05) 0%, transparent 70%);
-  opacity: 0;
-  transition: opacity 0.4s ease;
-}
-
-.featured-card:hover::before {
-  opacity: 1;
-}
+/* Removed decorative pseudo-elements for cleaner look */
 
 .featured-card:hover {
+  background: var(--surface);
   transform: translateY(-12px) scale(1.02);
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.8);
-  border-color: rgba(16, 163, 127, 0.3);
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(107, 129, 140, 0.4);
 }
 
 .featured-icon {
   font-size: 3.5rem;
   margin-bottom: 1.5rem;
-  color: #10a37f;
-  filter: drop-shadow(0 4px 20px rgba(16, 163, 127, 0.3));
+  color: var(--accent-light);
+  filter: drop-shadow(0 4px 20px rgba(107, 129, 140, 0.3));
   transition: all 0.4s ease;
 }
 
 .featured-card:hover .featured-icon {
   transform: scale(1.15) rotate(5deg);
-  filter: drop-shadow(0 8px 30px rgba(16, 163, 127, 0.5));
+  filter: drop-shadow(0 8px 30px rgba(107, 129, 140, 0.5));
 }
 
 .featured-metric {
   font-size: 3.5rem;
   font-weight: 800;
-  background: linear-gradient(135deg, #ffffff, #10a37f);
+  background: linear-gradient(135deg, var(--text), var(--accent-light));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
   background-clip: text;
@@ -497,9 +486,9 @@ header {
 }
 
 .featured-tag {
-  background: rgba(16, 163, 127, 0.15);
-  border: 1px solid rgba(16, 163, 127, 0.3);
-  color: #10a37f;
+  background: rgba(107, 129, 140, 0.15);
+  border: 1px solid rgba(107, 129, 140, 0.3);
+  color: var(--accent-light);
   padding: 0.4rem 0.9rem;
   border-radius: 50px;
   font-size: 0.85rem;
@@ -508,61 +497,49 @@ header {
 }
 
 .featured-tag:hover {
-  background: rgba(16, 163, 127, 0.25);
-  border-color: rgba(16, 163, 127, 0.5);
+  background: rgba(107, 129, 140, 0.25);
+  border-color: rgba(107, 129, 140, 0.5);
   transform: translateY(-2px);
 }
 
-/* Individual card color variations */
-.featured-arm {
-  background: linear-gradient(135deg, rgba(79, 70, 229, 0.08), rgba(139, 92, 246, 0.05));
-}
-
+/* Individual card variations - icons and tags only, no background gradient */
 .featured-arm .featured-icon,
 .featured-arm .featured-metric {
-  background: linear-gradient(135deg, #8b5cf6, #6366f1);
+  background: linear-gradient(135deg, var(--accent), #8b1f3e);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .featured-arm .featured-tag {
-  background: rgba(139, 92, 246, 0.15);
-  border-color: rgba(139, 92, 246, 0.3);
-  color: #a78bfa;
-}
-
-.featured-robocup {
-  background: linear-gradient(135deg, rgba(245, 158, 11, 0.08), rgba(251, 191, 36, 0.05));
+  background: rgba(74, 5, 28, 0.15);
+  border-color: rgba(74, 5, 28, 0.35);
+  color: #d4a5a5;
 }
 
 .featured-robocup .featured-icon,
 .featured-robocup .featured-metric {
-  background: linear-gradient(135deg, #fbbf24, #f59e0b);
+  background: linear-gradient(135deg, var(--accent-soft), #b8a5a4);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .featured-robocup .featured-tag {
-  background: rgba(245, 158, 11, 0.15);
-  border-color: rgba(245, 158, 11, 0.3);
-  color: #fbbf24;
-}
-
-.featured-cms {
-  background: linear-gradient(135deg, rgba(16, 163, 127, 0.08), rgba(52, 211, 153, 0.05));
+  background: rgba(221, 206, 205, 0.15);
+  border-color: rgba(221, 206, 205, 0.3);
+  color: var(--accent-soft);
 }
 
 .featured-cms .featured-icon,
 .featured-cms .featured-metric {
-  background: linear-gradient(135deg, #34d399, #10a37f);
+  background: linear-gradient(135deg, var(--accent-light), #8ca3b0);
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
 
 .featured-cms .featured-tag {
-  background: rgba(16, 163, 127, 0.15);
-  border-color: rgba(16, 163, 127, 0.3);
-  color: #34d399;
+  background: rgba(107, 129, 140, 0.15);
+  border-color: rgba(107, 129, 140, 0.3);
+  color: #a3bcc9;
 }
 
 @media (max-width: 768px) {
@@ -654,7 +631,7 @@ section h2::after {
   display: block;
   width: 70px;
   height: 4px;
-  background: linear-gradient(90deg, #10a37f, #34d399);
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
   margin: 1rem auto 0;
   border-radius: 2px;
 }
@@ -664,11 +641,11 @@ section h2::after {
 /* ------------------------------------------- */
 
 .about-me-content {
-  background-color: var(--surface);
+  background-color: var(--bg);
   padding: 3rem;
   border-radius: var(--radius-lg);
   border: 1px solid var(--border);
-  box-shadow: var(--shadow-soft);
+  box-shadow: none;
   color: #ffffff;
   animation: fadeUp 1s ease forwards;
   opacity: 0;
@@ -676,6 +653,12 @@ section h2::after {
   line-height: 1.7;
   position: relative;
   overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.about-me-content:hover {
+  background-color: var(--surface);
+  box-shadow: var(--shadow-soft);
 }
 
 .about-me-content::before {
@@ -685,7 +668,7 @@ section h2::after {
   right: -50px;
   width: 200px;
   height: 200px;
-  background: radial-gradient(circle, rgba(255, 107, 107, 0.15) 0%, rgba(255, 182, 193, 0.1) 50%, transparent 70%);
+  background: radial-gradient(circle, rgba(74, 5, 28, 0.12) 0%, rgba(107, 26, 46, 0.08) 50%, transparent 70%);
   border-radius: 50%;
   filter: blur(40px);
   z-index: 0;
@@ -698,7 +681,7 @@ section h2::after {
   left: -30px;
   width: 150px;
   height: 150px;
-  background: radial-gradient(circle, rgba(100, 149, 237, 0.12) 0%, rgba(173, 216, 230, 0.08) 50%, transparent 70%);
+  background: radial-gradient(circle, rgba(107, 129, 140, 0.12) 0%, rgba(147, 166, 176, 0.08) 50%, transparent 70%);
   border-radius: 50%;
   filter: blur(30px);
   z-index: 0;
@@ -745,11 +728,11 @@ section h2::after {
   width: 100%;
   height: 100%;
   background: linear-gradient(135deg, 
-    rgba(255, 107, 107, 0.08) 0%, 
-    rgba(255, 182, 193, 0.05) 25%, 
-    rgba(100, 149, 237, 0.08) 50%, 
-    rgba(173, 216, 230, 0.05) 75%, 
-    rgba(255, 107, 107, 0.08) 100%);
+    rgba(74, 5, 28, 0.08) 0%, 
+    rgba(221, 206, 205, 0.05) 25%, 
+    rgba(107, 129, 140, 0.08) 50%, 
+    rgba(147, 166, 176, 0.05) 75%, 
+    rgba(74, 5, 28, 0.08) 100%);
   opacity: 0;
   transition: opacity 0.4s ease;
 }
@@ -777,26 +760,20 @@ section h2::after {
 /* ------------------------------------------- */
 
 .education-item {
-  background:
-    /* A linear swirl with partial alpha so the color stays subtle */
-    linear-gradient(
-      135deg,
-      rgba(191, 87, 0, 0.2),   /* #BF5700  = Burnt Orange */
-      rgba(253, 195, 139, 0.2),
-      rgba(255, 234, 218, 0.2)
-    ),
-    #161616; /* Your dark fallback base color */
-
-  border-radius: var(--radius-sm);
-  box-shadow: var(--shadow-soft);
+  background: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
+  box-shadow: none;
   padding: 1.5rem;
   margin-bottom: 2rem;
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  transition: all 0.3s ease;
 }
 
 .education-item:hover {
+  background: var(--surface);
   transform: translateY(-2px);
-  box-shadow: 0 10px 20px rgba(0,0,0,0.6);
+  box-shadow: var(--shadow-soft);
+  border-color: rgba(107, 129, 140, 0.4);
 }
 
 
@@ -866,8 +843,8 @@ section h2::after {
 }
 
 .skill-tag {
-    background-color: #111;
-    color: #fff;
+    background-color: var(--surface);
+    color: var(--text);
     padding: 0.5rem 1rem;
     border-radius: 999px;
     display: inline-block;
@@ -875,13 +852,13 @@ section h2::after {
     transition: background 0.5s, color 0.5s;
   }
   .skill-tag:hover {
-    /* a pastel swirl gradient */
+    /* subtle gradient with new palette */
     background: radial-gradient(
       circle at 30% 30%, 
-      rgba(210, 178, 255, 0.7), 
-      rgba(160, 248, 255, 0.7)
+      rgba(74, 5, 28, 0.3), 
+      rgba(107, 129, 140, 0.3)
     );
-    color: #000; /* text color flips to black? up to you */
+    color: var(--text);
   }
   
 
@@ -894,17 +871,20 @@ section h2::after {
 }
 
 .hobby-item {
-  background-color: var(--surface-2);
-  border-radius: var(--radius-sm);
+  background-color: var(--bg);
+  border: 1px solid var(--border);
+  border-radius: var(--radius-md);
   padding: 1.5rem;
-  box-shadow: var(--shadow-soft);
-  transition: transform 0.3s ease, box-shadow 0.3s ease;
+  box-shadow: none;
+  transition: all 0.3s ease;
   color: #bbb;
 }
 
 .hobby-item:hover {
+  background-color: var(--surface);
   transform: translateY(-2px);
-  box-shadow: 0 8px 15px rgba(0,0,0,0.6);
+  box-shadow: var(--shadow-soft);
+  border-color: rgba(107, 129, 140, 0.4);
 }
 
 .hobby-item i {
@@ -950,7 +930,7 @@ section h2::after {
   display: block;
   width: 80px;
   height: 4px;
-  background: linear-gradient(90deg, #10a37f, #34d399);
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
   margin: 1rem auto 0;
   border-radius: 2px;
 }
@@ -978,7 +958,7 @@ section h2::after {
 
 .exp-group-header:hover {
   transform: translateX(10px);
-  background: linear-gradient(90deg, #10a37f, #34d399);
+  background: linear-gradient(90deg, var(--accent), var(--accent-light));
   -webkit-background-clip: text;
   -webkit-text-fill-color: transparent;
 }
@@ -1083,14 +1063,14 @@ section h2::after {
   content: '▸';
   position: absolute;
   left: -1.5rem;
-  color: #10a37f;
+  color: var(--accent-light);
   font-size: 1.2em;
 }
 
 /* Highlight metrics and key numbers in experience descriptions */
 .tech-bullets strong,
 .summary strong {
-  color: #10a37f;
+  color: var(--accent-light);
   font-weight: 700;
 }
 
@@ -1128,55 +1108,7 @@ section h2::after {
   animation-delay: 0.3s;
 }
 
-/* Gradient backgrounds for different experience types */
-.exp-1 {
-  background: 
-    linear-gradient(135deg, rgba(16,163,127,0.1), transparent),
-    radial-gradient(circle at 30% 30%, rgba(16,163,127,0.05), transparent 70%),
-    #101112;
-}
-
-.exp-2 {
-  background: 
-    linear-gradient(135deg, rgba(52,211,153,0.1), transparent),
-    radial-gradient(circle at 70% 30%, rgba(52,211,153,0.05), transparent 70%),
-    #101112;
-}
-
-.exp-3 {
-  background: 
-    linear-gradient(135deg, rgba(79,70,229,0.1), transparent),
-    radial-gradient(circle at 30% 70%, rgba(79,70,229,0.05), transparent 70%),
-    #101112;
-}
-
-.exp-4 {
-  background: 
-    linear-gradient(135deg, rgba(236,72,153,0.1), transparent),
-    radial-gradient(circle at 70% 70%, rgba(236,72,153,0.05), transparent 70%),
-    #101112;
-}
-
-.exp-5 {
-  background: 
-    linear-gradient(135deg, rgba(245,158,11,0.1), transparent),
-    radial-gradient(circle at 30% 30%, rgba(245,158,11,0.05), transparent 70%),
-    #101112;
-}
-
-.exp-6 {
-  background: 
-    linear-gradient(135deg, rgba(139,92,246,0.1), transparent),
-    radial-gradient(circle at 70% 30%, rgba(139,92,246,0.05), transparent 70%),
-    #101112;
-}
-
-.exp-7 {
-  background: 
-    linear-gradient(135deg, rgba(14,165,233,0.1), transparent),
-    radial-gradient(circle at 30% 70%, rgba(14,165,233,0.05), transparent 70%),
-    #101112;
-}
+/* No special gradient backgrounds for experience types - clean and consistent */
 
 /* Projects Section Container */
 .projects-section {
@@ -1220,7 +1152,7 @@ section h2::after {
   
   /* Individual project card */
   .project-card {
-    background-color: #111; /* Very dark background to match the openai style */
+    background-color: var(--surface); /* Dark blue background */
     border-radius: 8px;
     padding: 1rem;
     overflow: hidden;
@@ -1273,7 +1205,7 @@ section h2::after {
     display: block;
     width: 70px;
     height: 4px;
-    background: linear-gradient(90deg, #10a37f, #34d399);
+    background: linear-gradient(90deg, var(--accent), var(--accent-light));
     margin: 1rem auto 0;
     border-radius: 2px;
   }
@@ -1288,38 +1220,25 @@ section h2::after {
   
   /* Individual project card style */
   .project-card {
-    background: linear-gradient(135deg, rgba(16, 163, 127, 0.05), rgba(52, 211, 153, 0.02));
+    background: var(--bg);
     border: 1px solid var(--border);
     padding: 2rem;
     border-radius: var(--radius-lg);
     transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
     display: flex;
     flex-direction: column;
-    box-shadow: var(--shadow-soft);
+    box-shadow: none;
     position: relative;
     overflow: hidden;
   }
   
-  .project-card::before {
-    content: '';
-    position: absolute;
-    top: -50%;
-    left: -50%;
-    width: 200%;
-    height: 200%;
-    background: radial-gradient(circle, rgba(16, 163, 127, 0.08) 0%, transparent 60%);
-    opacity: 0;
-    transition: opacity 0.3s ease;
-  }
-  
-  .project-card:hover::before {
-    opacity: 1;
-  }
+  /* Removed decorative pseudo-elements for cleaner look */
   
   .project-card:hover {
+    background: var(--surface);
     transform: translateY(-6px);
-    box-shadow: 0 20px 50px rgba(0, 0, 0, 0.6);
-    border-color: rgba(16, 163, 127, 0.3);
+    box-shadow: var(--shadow-soft);
+    border-color: rgba(107, 129, 140, 0.4);
   }
   
   /* Title link styling */
@@ -1339,7 +1258,7 @@ section h2::after {
   }
   
   .project-card a:hover {
-    color: #10a37f;
+    color: var(--accent-light);
   }
   
   /* Paragraphs inside card */
@@ -1353,7 +1272,7 @@ section h2::after {
   }
   
   .project-card p strong {
-    color: #10a37f;
+    color: var(--accent-light);
     font-weight: 600;
   }
   
@@ -1453,11 +1372,11 @@ footer {
 /* ------------------------------------------- */
 
 /* ------------------------------------------- */
-/*  Experience Section - Clean Redesign       */
+/*  Experience Section - Scannable Redesign   */
 /* ------------------------------------------- */
 
 .experience-section {
-  padding: 6rem 2rem;
+  padding: 5rem 2rem;
   max-width: var(--container);
   margin: 0 auto;
   background-color: transparent;
@@ -1472,247 +1391,126 @@ footer {
   color: #fff;
 }
 
-.experience-tier {
-  margin-bottom: 4rem;
-  position: relative;
+/* Simpler experience grid - no tiers */
+.experience-grid {
+  display: grid;
+  grid-template-columns: 1fr;
+  gap: 1.25rem;
+  margin-top: 2rem;
 }
 
-.experience-tier::before {
-  content: '';
-  position: absolute;
-  top: -20px;
-  right: -20px;
-  width: 120px;
-  height: 120px;
-  background: radial-gradient(circle, rgba(255, 107, 107, 0.12) 0%, rgba(255, 182, 193, 0.08) 50%, transparent 70%);
-  border-radius: 50%;
-  filter: blur(25px);
-  z-index: 0;
-}
-
-/* Tier Headers */
-.tier-header {
-  cursor: pointer;
-  margin-bottom: 2rem;
-  padding: 1.5rem 2rem;
-  border-radius: 16px;
-  background-color: #0a0a0a;
-  border: 1px solid #1a1a1a;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
-  overflow: hidden;
-}
-
-.tier-header::before {
-  content: '';
-  position: absolute;
-  top: -30px;
-  left: -30px;
-  width: 100px;
-  height: 100px;
-  background: radial-gradient(circle, rgba(100, 149, 237, 0.15) 0%, rgba(173, 216, 230, 0.1) 50%, transparent 70%);
-  border-radius: 50%;
-  filter: blur(20px);
-  z-index: 0;
-}
-
-.tier-header:hover {
-  background-color: #0f0f0f;
-  border-color: #2a2a2a;
-  transform: translateY(-2px);
-  box-shadow: 0 15px 35px rgba(0, 0, 0, 0.6);
-}
-
-.tier-toggle {
-  position: absolute;
-  right: 1.5rem;
-  top: 50%;
-  transform: translateY(-50%);
-  font-size: 1.2rem;
-  color: #ffffff;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  z-index: 1;
-}
-
-.tier-header.collapsed .tier-toggle {
-  transform: translateY(-50%) rotate(90deg);
-}
-
-.tier-title {
-  font-size: 2rem;
-  font-weight: 600;
-  margin-bottom: 0.5rem;
-  color: #ffffff;
-  position: relative;
-  z-index: 1;
-}
-
-.tier-subtitle {
-  font-size: 1rem;
-  color: #b0b0b0;
-  font-weight: 400;
-  position: relative;
-  z-index: 1;
-}
-
-/* Timeline */
-.experience-timeline {
-  position: relative;
-  display: flex;
-  flex-direction: column;
-  gap: 1.5rem;
-}
-
-.experience-timeline::before {
-  content: '';
-  position: absolute;
-  left: 2rem;
-  top: 1rem;
-  bottom: 1rem;
-  width: 2px;
-  background: linear-gradient(180deg, rgba(255, 107, 107, 0.3), rgba(100, 149, 237, 0.3));
-  z-index: 1;
-}
-
-/* Experience Cards */
+/* Compact Experience Cards */
 .experience-item {
   position: relative;
-  background-color: var(--surface);
+  background-color: var(--bg);
   border: 1px solid var(--border);
   border-radius: var(--radius-md);
-  padding: 2.5rem 2.5rem 2.5rem 5rem;
-  margin-left: 0;
-  transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
-  position: relative;
+  padding: 1.75rem 2rem;
+  transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
   overflow: hidden;
-  box-shadow: var(--shadow-soft);
-}
-
-.experience-item::before {
-  content: '';
-  position: absolute;
-  top: -20px;
-  right: -20px;
-  width: 80px;
-  height: 80px;
-  background: radial-gradient(circle, rgba(255, 182, 193, 0.15) 0%, transparent 70%);
-  border-radius: 50%;
-  filter: blur(20px);
-  z-index: 0;
-}
-
-.experience-item::after {
-  content: '';
-  position: absolute;
-  bottom: -15px;
-  left: -15px;
-  width: 60px;
-  height: 60px;
-  background: radial-gradient(circle, rgba(100, 149, 237, 0.12) 0%, transparent 70%);
-  border-radius: 50%;
-  filter: blur(15px);
-  z-index: 0;
+  display: grid;
+  grid-template-columns: 1fr auto;
+  gap: 1.5rem;
+  align-items: start;
 }
 
 .experience-item:hover {
-  background-color: #0a0a0a;
-  border-color: #2a2a2a;
-  transform: translateY(-6px);
-  box-shadow: 0 25px 60px rgba(0, 0, 0, 0.9);
-}
-
-/* Flagship roles styling */
-.flagship-role {
-  border-left: 3px solid #ffffff;
   background-color: var(--surface);
-  position: relative;
+  border-color: rgba(107, 129, 140, 0.4);
+  transform: translateY(-3px);
+  box-shadow: var(--shadow-soft);
 }
 
-.flagship-role::before {
-  content: '';
-  position: absolute;
-  top: -25px;
-  right: -25px;
-  width: 100px;
-  height: 100px;
-  background: radial-gradient(circle, rgba(255, 107, 107, 0.2) 0%, rgba(255, 182, 193, 0.15) 50%, transparent 70%);
-  border-radius: 50%;
-  filter: blur(25px);
-  z-index: 0;
+/* Flagship/Current roles styling */
+.flagship-role {
+  border-left: 3px solid var(--accent);
 }
 
 .flagship-role:hover {
-  background-color: #161616;
-  border-left: 3px solid #8af;
+  border-left-color: var(--accent-light);
 }
 
-/* Role Badges */
+/* Role Badges - compact and minimal */
 .role-badge {
-  position: absolute;
-  top: 1.5rem;
-  right: 1.5rem;
-  background-color: #ffffff;
-  color: #000000;
-  padding: 0.5rem 1rem;
-  border-radius: 25px;
-  font-size: 0.8rem;
+  background-color: rgba(74, 5, 28, 0.15);
+  color: var(--accent-soft);
+  padding: 0.35rem 0.75rem;
+  border-radius: 20px;
+  font-size: 0.7rem;
   font-weight: 600;
   text-transform: uppercase;
   letter-spacing: 0.5px;
-  border: none;
-  box-shadow: 0 4px 15px rgba(255, 255, 255, 0.2);
-  transition: all 0.3s ease;
-  z-index: 1;
+  border: 1px solid rgba(74, 5, 28, 0.3);
+  white-space: nowrap;
+  align-self: start;
 }
 
-.flagship-role .role-badge {
-  background: linear-gradient(135deg, #ffffff, #f0f0f0);
-  color: #000000;
-  box-shadow: 0 6px 20px rgba(255, 255, 255, 0.3);
+/* Experience content wrapper */
+.experience-content {
+  flex: 1;
 }
 
-/* Typography */
+/* Experience header - company name and role */
 .experience-item h3 {
-  font-size: 1.4rem;
-  font-weight: 700;
-  margin-bottom: 0.5rem;
-  color: #fff;
+  font-size: 1.2rem;
+  font-weight: 600;
+  margin-bottom: 0.35rem;
+  color: var(--text);
+  line-height: 1.3;
 }
 
 .company-location {
-  color: #b0b0b0;
-  font-size: 1.05rem;
-  margin-bottom: 1rem;
-  font-weight: 500;
+  color: var(--muted);
+  font-size: 0.9rem;
+  margin-bottom: 0.75rem;
+  font-weight: 400;
+  line-height: 1.4;
 }
 
+/* Summary - brief description */
 .summary {
-  color: #e0e0e0;
-  line-height: 1.7;
-  margin-bottom: 1.5rem;
-  font-size: 1.1rem;
+  color: #cfcfcf;
+  line-height: 1.6;
+  margin-bottom: 0.75rem;
+  font-size: 0.95rem;
+  display: -webkit-box;
+  -webkit-line-clamp: 3;
+  -webkit-box-orient: vertical;
+  overflow: hidden;
 }
 
+/* Expandable bullets - hidden by default, shown on hover/click */
 .tech-bullets {
   list-style: none;
   padding: 0;
+  margin-top: 0.5rem;
+  max-height: 0;
+  opacity: 0;
+  overflow: hidden;
+  transition: all 0.3s ease;
+}
+
+.experience-item:hover .tech-bullets {
+  max-height: 500px;
+  opacity: 1;
   margin-top: 1rem;
 }
 
 .tech-bullets li {
   position: relative;
   padding-left: 1.25rem;
-  margin-bottom: 1rem;
+  margin-bottom: 0.5rem;
   color: #b8b8b8;
-  line-height: 1.7;
-  font-size: 1rem;
+  line-height: 1.6;
+  font-size: 0.9rem;
 }
 
 .tech-bullets li::before {
-  content: '—';
+  content: '▸';
   position: absolute;
   left: 0;
-  color: #8af;
+  color: var(--accent-light);
+  font-size: 0.9em;
 }
 
 /* Links */
@@ -1730,41 +1528,43 @@ footer {
 
 /* Responsive Design */
 @media (max-width: 768px) {
-  .experience-timeline::before { 
-    display: none; 
+  .experience-grid {
+    gap: 1rem;
   }
   
-  .experience-item { 
-    padding-left: 2rem; 
+  .experience-item {
+    grid-template-columns: 1fr;
+    padding: 1.5rem;
   }
   
-  .tier-title { 
-    font-size: 1.8rem; 
+  .role-badge {
+    margin-top: 0.5rem;
   }
   
-  .tier-toggle {
-    right: 0.5rem;
+  .experience-item h3 {
+    font-size: 1.1rem;
+  }
+  
+  .company-location {
+    font-size: 0.85rem;
+  }
+  
+  .summary {
+    font-size: 0.9rem;
   }
 }
 
 @media (max-width: 480px) {
-  .experience-section { 
-    padding: 2rem 1rem; 
+  .experience-section {
+    padding: 3rem 1rem;
   }
   
-  .experience-item { 
-    padding-left: 1.5rem; 
+  .experience-item {
+    padding: 1.25rem;
   }
   
-  .flagship-role { 
-    border-left: none; 
-  }
-  
-  .role-badge {
-    position: static;
-    display: inline-block;
-    margin-bottom: 1rem;
-    margin-top: 0.5rem;
+  .flagship-role {
+    border-left-width: 2px;
   }
 }
 
@@ -1776,11 +1576,11 @@ footer {
   position: fixed;
   bottom: 2rem;
   right: 2rem;
-  background: linear-gradient(135deg, #10a37f, #34d399);
-  color: #fff;
+  background: linear-gradient(135deg, var(--accent), #6b1a2e);
+  color: var(--text);
   padding: 1rem 1.5rem;
   border-radius: 50px;
-  box-shadow: 0 8px 30px rgba(16, 163, 127, 0.4);
+  box-shadow: 0 8px 30px rgba(74, 5, 28, 0.5);
   text-decoration: none;
   display: flex;
   align-items: center;
@@ -1789,13 +1589,13 @@ footer {
   font-size: 1rem;
   z-index: 1000;
   transition: all 0.3s cubic-bezier(0.4, 0, 0.2, 1);
-  border: 2px solid rgba(255, 255, 255, 0.1);
+  border: 2px solid rgba(107, 129, 140, 0.2);
 }
 
 .floating-resume-btn:hover {
   transform: translateY(-4px) scale(1.05);
-  box-shadow: 0 15px 40px rgba(16, 163, 127, 0.6);
-  background: linear-gradient(135deg, #34d399, #10a37f);
+  box-shadow: 0 15px 40px rgba(74, 5, 28, 0.7);
+  background: linear-gradient(135deg, #6b1a2e, var(--accent));
 }
 
 .floating-resume-btn i {
@@ -1835,7 +1635,7 @@ footer {
 }
 
 .resume-card {
-  background-color: var(--surface);
+  background-color: var(--bg);
   border: 1px solid var(--border);
   border-radius: var(--radius-lg);
   padding: 2.5rem;
@@ -1843,7 +1643,7 @@ footer {
   transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
   position: relative;
   overflow: hidden;
-  box-shadow: var(--shadow-soft);
+  box-shadow: none;
 }
 
 .resume-card::before {
@@ -1853,7 +1653,7 @@ footer {
   right: -40px;
   width: 120px;
   height: 120px;
-  background: radial-gradient(circle, rgba(255, 107, 107, 0.2) 0%, rgba(255, 182, 193, 0.15) 50%, transparent 70%);
+  background: radial-gradient(circle, rgba(74, 5, 28, 0.2) 0%, rgba(107, 26, 46, 0.15) 50%, transparent 70%);
   border-radius: 50%;
   filter: blur(30px);
   z-index: 0;
@@ -1866,16 +1666,17 @@ footer {
   left: -30px;
   width: 100px;
   height: 100px;
-  background: radial-gradient(circle, rgba(100, 149, 237, 0.18) 0%, rgba(173, 216, 230, 0.12) 50%, transparent 70%);
+  background: radial-gradient(circle, rgba(107, 129, 140, 0.18) 0%, rgba(147, 166, 176, 0.12) 50%, transparent 70%);
   border-radius: 50%;
   filter: blur(25px);
   z-index: 0;
 }
 
 .resume-card:hover {
+  background-color: var(--surface);
   transform: translateY(-8px);
-  box-shadow: 0 30px 80px rgba(0, 0, 0, 0.9);
-  border-color: #2a2a2a;
+  box-shadow: var(--shadow-hover);
+  border-color: rgba(107, 129, 140, 0.4);
 }
 
 .resume-icon {
@@ -1939,8 +1740,8 @@ footer {
 }
 
 .resume-tip {
-  background-color: #0a0a0a;
-  border: 1px solid #1a1a1a;
+  background-color: var(--surface);
+  border: 1px solid var(--border);
   border-radius: 16px;
   padding: 1.5rem 2rem;
   text-align: center;
@@ -1961,7 +1762,7 @@ footer {
   right: -20px;
   width: 80px;
   height: 80px;
-  background: radial-gradient(circle, rgba(255, 182, 193, 0.15) 0%, transparent 70%);
+  background: radial-gradient(circle, rgba(221, 206, 205, 0.15) 0%, transparent 70%);
   border-radius: 50%;
   filter: blur(20px);
   z-index: 0;

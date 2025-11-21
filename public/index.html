@@ -89,7 +89,8 @@
           <a href="https://github.com/AymanMahfuz27" target="_blank" class="hero-btn hero-btn-secondary">
             <i class="fab fa-github"></i> GitHub
           </a>
-          <a href="https://aymanmahfuz27.github.io/principles-first-blog/" target="_blank" class="hero-btn hero-btn-primary">
+          <a href="https://aymanmahfuz27.github.io/principles-first-blog/" target="_blank"
+            class="hero-btn hero-btn-primary">
             <i class="fas fa-blog"></i> Read my Blog
           </a>
           <a href="#resume" class="hero-btn hero-btn-primary">
@@ -103,7 +104,7 @@
     <section id="featured" class="featured-section">
       <h2>Featured Impact</h2>
       <div class="featured-grid">
-        
+
         <!-- Arm Achievement -->
         <article class="featured-card featured-arm">
           <div class="featured-icon">
@@ -112,7 +113,8 @@
           <div class="featured-metric">99.8th</div>
           <div class="featured-metric-label">Percentile</div>
           <h3>Patent-Pending ML Validation</h3>
-          <p>First-of-its-kind Bayesian Optimization framework that discovers worst-case hardware stress in &lt;1% of search space at Arm</p>
+          <p>First-of-its-kind Bayesian Optimization framework that discovers worst-case hardware stress in &lt;1% of
+            search space at Arm</p>
           <div class="featured-tags">
             <span class="featured-tag">Python</span>
             <span class="featured-tag">Bayesian Optimization</span>
@@ -128,7 +130,8 @@
           <div class="featured-metric">🥉 Bronze</div>
           <div class="featured-metric-label">RoboCup 2025</div>
           <h3>Multi-Agent RL for Robot Soccer</h3>
-          <p>Core AI developer for UT Austin Villa's 7v7 robot soccer team, building RL-powered agent skills that won 3rd place globally</p>
+          <p>Core AI developer for UT Austin Villa's 7v7 robot soccer team, building RL-powered agent skills that won
+            3rd place globally</p>
           <div class="featured-tags">
             <span class="featured-tag">Reinforcement Learning</span>
             <span class="featured-tag">C++</span>
@@ -144,7 +147,8 @@
           <div class="featured-metric">150M+</div>
           <div class="featured-metric-label">Data Entries</div>
           <h3>Large-Scale Media Analysis Pipeline</h3>
-          <p>Built end-to-end data/ML infrastructure processing 50M+ articles and 70M+ comments with 99%+ accuracy BERT models at UT's Center for Media Engagement</p>
+          <p>Built end-to-end data/ML infrastructure processing 50M+ articles and 70M+ comments with 99%+ accuracy BERT
+            models at UT's Center for Media Engagement</p>
           <div class="featured-tags">
             <span class="featured-tag">BERT</span>
             <span class="featured-tag">BigQuery</span>
@@ -174,13 +178,19 @@
     <section id="about-me" class="container">
       <h2>About Me</h2>
       <div class="about-me-content">
-        <p>Hi, I'm Ayman. I'm a cs student at UT Austin (Hook 'em) pursuing a concentration in AI and ML. I've worked across 4 labs at UT as a undergrad research assistant, from building RL envs for robot soccer to implementing and benchmarking ViTs and LLMs  to aid medical research. I currently do ML research at ARM to optimize post-silicon validation. I love building impactful projects and solving complex problems, and I'm extremely passionate  about deep learning.</p>
+        <p>Hi, I'm Ayman. I'm a cs student at UT Austin (Hook 'em) pursuing a concentration in AI and ML. I've worked
+          across 4 labs at UT as a undergrad research assistant, from building RL envs for robot soccer to implementing
+          and benchmarking ViTs and LLMs to aid medical research. I currently do ML research at ARM to optimize
+          post-silicon validation. I love building impactful projects and solving complex problems, and I'm extremely
+          passionate about deep learning.</p>
         <p>
         </p>
         <ul>
-          <li><strong>Patent-pending ML validation at Arm:</strong> Indusrty-first Bayesian optimization that uncovers worst-case CPU &
+          <li><strong>Patent-pending ML validation at Arm:</strong> Indusrty-first Bayesian optimization that uncovers
+            worst-case CPU &
             memory stress in <1 % of the search space.</li>
-          <li><strong>RoboCup 2025 bronze:</strong> Worked on multi-agent reinforcement-learning skills and enviorments powering UT Austin Villa's
+          <li><strong>RoboCup 2025 bronze:</strong> Worked on multi-agent reinforcement-learning skills and enviorments
+            powering UT Austin Villa's
             7-v-7 robot soccer team, where we won bronze in a global tournament.</li>
           <li><strong>200 M-entry media pipeline:</strong> Built data/ML stack & fine-tuned BERT models (99 %+ accuracy)
             for UT's Center for Media Engagement.</li>
@@ -302,219 +312,142 @@
     </section>
 
     <section id="experience" class="experience-section">
-      <h2 class="sticky-header">Experience</h2>
+      <h2>Experience</h2>
 
-      <!-- Current Leadership Roles -->
-      <div class="experience-tier current-tier">
-        <div class="tier-header" onclick="toggleTier(this)">
-          <span class="tier-toggle">▼</span>
-          <h3 class="tier-title">Current Roles</h3>
-          <p class="tier-subtitle">Where I'm making impact today</p>
-        </div>
-        <div class="experience-timeline">
-          <div class="experience-item flagship-role">
-            <div class="role-badge">CURRENT</div>
+      <div class="experience-grid">
+        <!-- Current Role: Arm -->
+        <div class="experience-item flagship-role">
+          <div class="experience-content">
             <h3>Arm</h3>
-            <p class="company-location">Platform Validation Intern → ML Research Engineer (Part-Time) | Austin, TX • May
-              2025 – Present</p>
-            <p class="summary">At Arm, I independently proposed and built an ML-guided framework to solve a 20-year-old
-              challenge in hardware validation: automatically finding worst-case stress tests. My system, now deployed
-              internally and pending a patent, uses Bayesian Optimization to intelligently discover configurations that
-              push CPUs and memory to their absolute limits, proactively identifying hardware bottlenecks for the
-              next-generation platforms essential for hyperscale AI.</p>
-            <ul class="tech-bullets">
-              <li>Invented a novel dual-surrogate Bayesian Optimization pipeline using Random Forests to navigate the
-                vast, non-linear search space of hardware parameters, a design uniquely suited to the noisy and
-                expensive-to-acquire data from performance counters.</li>
-              <li>Achieved 99.8th-percentile hardware stress—far beyond manual or random attempts—by intelligently
-                exploring less than 1% of the configuration space. This work automated over 10,000 hours of validation
-                testing and located the true performance limits of the hardware.</li>
-              <li>Drove the project autonomously from concept to production, earning executive-level (SVP) recognition
-                and a pending patent. The framework is now a key part of Arm's validation strategy, ensuring the
-                reliability of hardware that will power future large-scale AI systems.</li>
-            </ul>
+            <p class="company-location">ML Research Engineer (Part-Time) | Austin, TX • May 2025 – Present</p>
+            <p class="summary">Independently proposed and built patent-pending ML framework using Bayesian Optimization
+              to automatically discover worst-case hardware stress tests, achieving 99.8th-percentile stress levels
+              while exploring <1% of configuration space. Automated 10,000+ hours of validation testing for
+                next-generation AI platforms.</p>
+                <ul class="tech-bullets">
+                  <li>Invented dual-surrogate Bayesian Optimization pipeline using Random Forests to navigate vast,
+                    non-linear search space of hardware parameters</li>
+                  <li>Achieved 99.8th-percentile hardware stress by intelligently exploring <1% of configuration space,
+                      automating 10,000+ validation hours</li>
+                  <li>Earned executive-level (SVP) recognition and pending patent; framework now key part of Arm's
+                    validation strategy</li>
+                </ul>
           </div>
+          <div class="role-badge">CURRENT</div>
+        </div>
 
-          <div class="experience-item flagship-role">
-            <div class="role-badge">BRONZE MEDAL</div>
+        <!-- Current Role: UT Robotics -->
+        <div class="experience-item flagship-role">
+          <div class="experience-content">
             <h3>University of Texas – AI Lab, Texas Robotics</h3>
             <p class="company-location">Research Assistant | Austin, TX • Jan 2025 – Present</p>
-            <p class="summary">As a core member of UT's robotics team, I developed the AI-driven agent skills that
-              helped secure a <a href="https://spl.robocup.org/results-2025/" target="_blank">3rd place victory at the
-                international RoboCup 2025 competition</a>. I championed a reinforcement learning approach in a massive
-              400K-line C++ codebase, building the high-performance policies for walking, dribbling, and attacking that
-              were critical to our hybrid system's success in the 7v7 Standard Platform League.</p>
+            <p class="summary">Developed AI-driven agent skills that helped secure <a href="https://spl.robocup.org/results-2025/" target="_blank">3rd place at RoboCup 2025</a>. Built RL-based policies for walking, dribbling, and attacking in 400K-line C++ codebase, slashing training time 70% through GPU optimization.</p>
             <ul class="tech-bullets">
-              <li>Designed and trained the foundational agent skills using hierarchical reinforcement learning, creating
-                RL-based policies for all attacker behaviors that proved more robust and effective than classical
-                methods.</li>
-              <li>Dramatically accelerated the team's research cycle by slashing RL training time by over 200% (a ~70%
-                reduction) through aggressive GPU optimization and deep C++ simulator tuning.</li>
-              <li>Pushed the boundaries of multi-agent RL by pioneering curriculum learning strategies and novel reward
-                shaping (e.g., Pitch Control, xG), providing the research groundwork for the team's future goal of a
-                fully autonomous, learning-based system.</li>
+              <li>Designed hierarchical RL policies for all attacker behaviors, proving more robust than classical methods</li>
+              <li>Reduced RL training time 70% through aggressive GPU optimization and C++ simulator tuning</li>
+              <li>Pioneered curriculum learning strategies and novel reward shaping (Pitch Control, xG) for multi-agent RL</li>
             </ul>
           </div>
+          <div class="role-badge">BRONZE</div>
         </div>
-      </div>
 
-      <!-- Industry Progression -->
-      <div class="experience-tier industry-tier">
-        <div class="tier-header" onclick="toggleTier(this)">
-          <span class="tier-toggle">▼</span>
-          <h3 class="tier-title">Industry Progression</h3>
-          <p class="tier-subtitle">Building production systems & scaling impact</p>
-        </div>
-        <div class="experience-timeline">
-          <div class="experience-item">
+        <!-- Sunwater Institute -->
+        <div class="experience-item">
+          <div class="experience-content">
             <h3>The Sunwater Institute</h3>
             <p class="company-location">Data Engineer Intern | North Bethesda, MD • Jan 2025 – March 2025</p>
-            <p class="summary">I work on the Legis-1 Platform. I build high-performance data pipelines to support
-              AI-driven policy research, processing legislative documents at scale to power structured retrieval and
-              automated analysis. My contributions include developing large-scale LLM pipelines for AI-generated news
-              and policy insights, leveraging retrieval-augmented generation (RAG) and embeddings to analyze 500K+ legal
-              records. By optimizing storage efficiency and retrieval speed, I enhance the AI-readiness of structured
-              legislative data.</p>
+            <p class="summary">Built high-performance data pipelines for Legis-1 Platform, processing millions of legislative documents. Developed LLM pipelines using RAG and embeddings to analyze 500K+ legal records for AI-driven policy research.</p>
             <ul class="tech-bullets">
-              <li>Building high-performance data pipelines for Legis-1, a legislative database with millions of legal
-                documents, optimizing retrieval speed, storage efficiency, and AI-readiness for structured data.</li>
-              <li>Developing LLM pipelines to power AI-generated news and policy analysis, leveraging
-                retrieval-augmented generation (RAG), embeddings, and scalable document processing across 500K+ records.
-              </li>
+              <li>Optimized retrieval speed, storage efficiency, and AI-readiness for legislative database with millions of documents</li>
+              <li>Developed LLM pipelines with RAG, embeddings, and scalable processing across 500K+ legal records</li>
             </ul>
           </div>
-
-          <div class="experience-item">
-            <h3>Lockheed Martin</h3>
-            <p class="company-location">Software Engineer Intern | Remote • Jun 2022 – Oct 2022</p>
-            <p class="summary">At Lockheed Martin, I optimized CRM workflows, introduced RPA solutions, and cleaned up
-              their Configuration Database to boost operational efficiency.</p>
-            <ul class="tech-bullets">
-              <li>Spearheaded the development and optimization of Customer Relationship Management (CRM) workflows at
-                Lockheed Martin, achieving a centralized device data framework that enhanced enterprise operational
-                efficiency.</li>
-              <li>Engineered advanced CRM solutions by integrating <strong>JavaScript</strong> for flow enhancements and
-                implementing Robotic Process Automation (RPA), streamlining the data de-duplication process and
-                elevating data integrity.</li>
-              <li>Administered and refined the Configuration Database, successfully purging redundant records and
-                bolstering data accuracy. Synthesized and presented data-driven insights to executives, highlighting the
-                tangible impact on operational efficiency and guiding strategic decisions.</li>
-            </ul>
-          </div>
-
-          <div class="experience-item">
-            <h3>City of Austin</h3>
-            <p class="company-location">Software Engineer Intern | Austin, TX • Jun 2021 – Aug 2021</p>
-            <p class="summary">I helped Austin's post-COVID recovery by improving loan processing workflows for small
-              businesses. My work included Python scripting and data visualization to streamline operations.</p>
-          </div>
-
-          <div class="experience-item">
-            <h3>AT&T</h3>
-            <p class="company-location">Summer Learning Academy | Austin, TX • Jun 2021 – Aug 2021</p>
-            <p class="summary">As the youngest participant, I gained exposure to AI, business strategies, and
-              professional development while collaborating on tech-focused initiatives with industry leaders.</p>
-          </div>
         </div>
-      </div>
 
-      <!-- Core Research Projects -->
-      <div class="experience-tier research-tier">
-        <div class="tier-header" onclick="toggleTier(this)">
-          <span class="tier-toggle">▼</span>
-          <h3 class="tier-title">Research Portfolio</h3>
-          <p class="tier-subtitle">Deep technical projects across AI & ML</p>
-        </div>
-        <div class="experience-timeline">
-          <div class="experience-item">
+        <!-- UT Center for Media Engagement -->
+        <div class="experience-item">
+          <div class="experience-content">
             <h3>University of Texas – Center for Media Engagement</h3>
             <p class="company-location">Software Engineer, Research Assistant | Austin, TX • Sep 2023 – May 2025</p>
-            <p class="summary">I conduct media research by studying how people interact with news, platforms, and each
-              other, by designing systems and using machine learning to evaluate political opinions, storytelling
-              patterns, and societal divides. My contributions include building a 150-million-entry dataset, developing
-              DistilBERT models for large-scale analysis, and designing the full system architecture for
-              MTurk-integrated React games to track and analyze user behavior.</p>
+            <p class="summary">Built 150M-entry dataset processing 50M+ articles and 70M+ comments. Fine-tuned BERT models achieving 99% accuracy for NLP tasks. Designed React/Flask/Firebase platform serving 1,000+ participants with 99.99% uptime.</p>
             <ul class="tech-bullets">
-              <li>Engineered large-scale data pipelines to scrape, preprocess, and upload 50M+ news articles and 70M+
-                comments to BigQuery, using APIs, sitemaps, and Pandas, while developing dashboards with Python and SQL
-                for real-time monitoring.</li>
-              <li>Led machine learning initiatives by fine-tuning multiple BERT models for key NLP tasks—including
-                clickbait detection, story identification, entity recognition, and sentiment analysis—achieving up to
-                99% accuracy.</li>
-              <li>Designed & deployed a research platform independently with React, Flask, and Firebase, featuring 3
-                interactive games, MTurk integration, real-time analytics tracking 15+ metrics, and 99.99% uptime,
-                serving 1,000+ participants.</li>
+              <li>Engineered data pipelines to BigQuery using APIs, sitemaps, and Pandas; built dashboards with Python and SQL</li>
+              <li>Fine-tuned BERT models for clickbait detection, story ID, entity recognition, sentiment analysis (99% accuracy)</li>
+              <li>Built React/Flask/Firebase platform with 3 interactive games, MTurk integration, 15+ metrics tracking</li>
             </ul>
           </div>
+        </div>
 
-          <div class="experience-item">
-            <h3>University of Texas - Oden Institute for Computational Engineering and Sciences</h3>
-            <p class="company-location">Machine Learning Engineer, Research Assistant | Austin, TX • Feb 2024 – Jan 2025
-            </p>
-            <p class="summary">At the Oden Institute, I led efforts to build a scalable deep learning pipeline for
-              medical image segmentation, training across H100 GPUs and handling over a thousand MRI scans. Focused on
-              pushing the limits of model performance and engineering reliability at high performance scale, I worked
-              hands-on with transformers, CNNs, and hybrid architectures to advance pancreas segmentation research.</p>
+        <!-- UT Oden Institute -->
+        <div class="experience-item">
+          <div class="experience-content">
+            <h3>University of Texas - Oden Institute</h3>
+            <p class="company-location">ML Research Assistant | Austin, TX • Feb 2024 – Jan 2025</p>
+            <p class="summary">Built containerized 3D pancreas MRI segmentation pipeline on H100 supercomputer using CNNs and transformers. Achieved +12% Dice gain matching SOTA performance across 1000+ scans with 5-fold cross-validation.</p>
             <ul class="tech-bullets">
-              <li>Engineered a high-throughput, containerized pipeline for 3D pancreas MRI segmentation on TACC's H100
-                supercomputer using Apptainer, SLURM, CNNs, and transformers; achieved a +12% Dice gain, matching SOTA
-                segmentation performance.</li>
-              <li>Benchmarked CNNs, vision transformers, and hybrid models across 1000+ scans with 5-fold
-                cross-validation, finding hybrids (e.g., PanSegNet) excel at small-organ segmentation, consistent with
-                medical imaging literature.</li>
-              <li>Diagnosed and resolved GPU memory bottlenecks, I/O lag, and mixed precision instability to enable
-                stable, scalable training across large-volume datasets and architectures.</li>
+              <li>Engineered Apptainer/SLURM pipeline on TACC H100s, achieving +12% Dice gain with hybrid architectures</li>
+              <li>Benchmarked CNNs, vision transformers, and hybrids across 1000+ scans, finding PanSegNet excels for small organs</li>
+              <li>Resolved GPU memory bottlenecks, I/O lag, and mixed precision instability for stable large-scale training</li>
             </ul>
           </div>
+        </div>
 
-          <div class="experience-item">
+        <!-- UT School of Information -->
+        <div class="experience-item">
+          <div class="experience-content">
             <h3>University of Texas - School of Information</h3>
             <p class="company-location">Research Assistant | Austin, TX • Feb 2024 – Jan 2025</p>
-            <p class="summary">I designed and led a research project studying the consistency and reasoning behaviors of
-              multiagent large language models (LLMs) in medical diagnosis, working at the intersection of AI,
-              healthcare, and system design. Alongside building the framework itself, I explored how factors like
-              demographics and misleading symptoms influenced multiagent collaboration, aiming to push toward more
-              reliable AI-driven clinical reasoning.</p>
+            <p class="summary">Designed multiagent LLM research project studying diagnostic consistency in medical reasoning. Applied Cohen's Kappa, Chi-square tests, and logistic regression to assess agreement and bias. Presented at UT AI Health Conference as youngest speaker.</p>
             <ul class="tech-bullets">
-              <li><a href="ut informatics health llms ying ding report.pdf" target="_blank">My project is on page 124 of
-                  this report.</a></li>
-              <li>Explored multiagent LLM reasoning paradigms, introducing contextual variations such as patient
-                demographics, symptom modifications, and misleading details to rigorously test consistency in diagnostic
-                reasoning. Developed methods to systematically analyze the influence of inter-agent communication on
-                diagnostic reliability, uncovering patterns in how agents resolve conflicts and refine responses over
-                iterative interactions.</li>
-              <li>Conducted advanced evaluations of multiagent LLM performance using machine learning-driven analyses
-                and statistical frameworks. Applied metrics such as Cohen's Kappa, Chi-square tests, and logistic
-                regression to assess agreement, accuracy, and bias across agents. Enhanced insights through correlation
-                analyses, identifying key factors affecting reasoning consistency and robustness. Presented my
-                independently designed research project at the UT AI Health Conference, standing among the youngest
-                presenters at the event. Shared findings on multiagent LLM diagnostic consistency through a technical
-                poster, synthesizing engineering, experimentation, and statistical evaluation.</li>
+              <li><a href="ut informatics health llms ying ding report.pdf" target="_blank">Project on page 124 of this report</a></li>
+              <li>Tested multiagent LLM consistency with demographic/symptom variations; analyzed inter-agent communication patterns</li>
+              <li>Applied Cohen's Kappa, Chi-square, logistic regression to assess agreement, accuracy, and bias across agents</li>
             </ul>
           </div>
+        </div>
 
-          <div class="experience-item">
-            <h3>University of Maryland – College Park</h3>
-            <p class="company-location">Software Engineering and Research Intern • Remote • Jun 2023 – May 2024</p>
-            <p class="summary">I helped build an NLP-based chatbot to engage news readers and analyzed linguistic
-              patterns to enhance the interaction. My contributions focus on Python scripting and publishing insights at
-              CHI 2024.</p>
+        <!-- Lockheed Martin -->
+        <div class="experience-item">
+          <div class="experience-content">
+            <h3>Lockheed Martin</h3>
+            <p class="company-location">Software Engineer Intern | Remote • Jun 2022 – Oct 2022</p>
+            <p class="summary">Optimized CRM workflows with JavaScript and RPA, achieving centralized device data framework. Refined Configuration Database, purging redundant records and presenting data-driven insights to executives.</p>
             <ul class="tech-bullets">
-              <li><a href="https://arxiv.org/abs/2312.10650">Project: Towards Designing a Question-Answering Chatbot for
-                  Online News</a></li>
-              <li>Led the development of an <strong>NLP-driven</strong> chatbot to augment online news reader
-                engagement, employing deep learning and AI techniques. Directed comprehensive studies and analyses,
-                culminating in findings on human-chatbot interaction dynamics.</li>
-              <li>Executed sophisticated text analytics and data labeling using <strong>Python</strong>, encompassing
-                Parts of Speech Tagging, LIWC, and clustering on sentence embeddings, to derive intricate linguistic
-                patterns and insights.</li>
-              <li>Collaborated with a cross-disciplinary team of professors and graduate students, driving content
-                creation and ensuring methodological precision. Contributed core analytical insights and visualizations
-                to the research paper published at the <strong>CHI 2024</strong> conference.</li>
-              <li>Authored Python scripts for in-depth data analysis, generating insightful graphs and visualizations
-                that formed the backbone of the research findings, illustrating complex human-chatbot interaction
-                patterns.</li>
+              <li>Developed CRM workflows achieving centralized device data framework for enhanced enterprise efficiency</li>
+              <li>Implemented RPA for data de-duplication, streamlining processes and elevating data integrity</li>
             </ul>
+          </div>
+        </div>
+
+        <!-- University of Maryland -->
+        <div class="experience-item">
+          <div class="experience-content">
+            <h3>University of Maryland – College Park</h3>
+            <p class="company-location">Research Intern | Remote • Jun 2023 – May 2024</p>
+            <p class="summary">Built NLP-driven chatbot for online news engagement using deep learning. Executed text analytics with POS tagging, LIWC, and sentence embeddings. Published research at CHI 2024 conference.</p>
+            <ul class="tech-bullets">
+              <li><a href="https://arxiv.org/abs/2312.10650" target="_blank">Published at CHI 2024 conference</a></li>
+              <li>Led NLP chatbot development for news reader engagement, conducting studies on human-chatbot dynamics</li>
+              <li>Performed text analytics using POS tagging, LIWC, and clustering on sentence embeddings with Python</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- City of Austin -->
+        <div class="experience-item">
+          <div class="experience-content">
+            <h3>City of Austin</h3>
+            <p class="company-location">Software Engineer Intern | Austin, TX • Jun 2021 – Aug 2021</p>
+            <p class="summary">Improved post-COVID loan processing workflows for small businesses using Python scripting and data visualization to streamline operations.</p>
+          </div>
+        </div>
+
+        <!-- AT&T -->
+        <div class="experience-item">
+          <div class="experience-content">
+            <h3>AT&T</h3>
+            <p class="company-location">Summer Learning Academy | Austin, TX • Jun 2021 – Aug 2021</p>
+            <p class="summary">As youngest participant, gained exposure to AI, business strategies, and professional development while collaborating on tech-focused initiatives.</p>
           </div>
         </div>
       </div>
@@ -528,6 +461,33 @@
 
       <!-- Grid of project cards -->
       <div class="projects-grid">
+
+        <!-- Project 6: Modern LLM from Scratch -->
+        <article class="project-card">
+          <a href="https://github.com/AymanMahfuz27/modern_llm" target="_blank">
+            <h3>Modern LLM from Scratch</h3>
+          </a>
+          <p>
+            Full-stack LLM implementation featuring RoPE positional embeddings, RMSNorm, SwiGLU activations, and attention sinks. 
+            Includes training pipeline, HuggingFace fine-tuning with LoRA on SST-2/SAMSum/GSM8K, and DPO alignment.
+          </p>
+          <p><strong>Tech Stack:</strong> Python, PyTorch, Transformers, PEFT, WikiText-2</p>
+          <p class="project-note">Click the title to visit the repository.</p>
+        </article>
+
+        <!-- Project 7: Stable Diffusion from Scratch -->
+        <article class="project-card">
+          <a href="https://github.com/AymanMahfuz27/stable-diffusion-from-scratch" target="_blank">
+            <h3>Stable Diffusion from Scratch</h3>
+          </a>
+          <p>
+            Complete implementation of Stable Diffusion v1 architecture from scratch, including CLIP text encoder, 
+            U-Net with cross-attention, VAE encoder/decoder, and DDPM/DDIM schedulers. Trained on custom datasets 
+            with gradient accumulation and mixed precision training.
+          </p>
+          <p><strong>Tech Stack:</strong> Python, PyTorch, CLIP, Diffusion Models, VAE</p>
+          <p class="project-note">Click the title to visit the repository.</p>
+        </article>
         <!-- Project 1: Inkwell -->
         <article class="project-card">
           <a href="https://www.inkwellbooks.app/" target="_blank">
@@ -596,32 +556,23 @@
           <p class="project-note">Click the title to visit the live site.</p>
         </article>
 
-      <!-- Project X: Eagle Router -->
-<article class="project-card">
-  <a href="https://github.com/AymanMahfuz27/Eagle-Router" target="_blank">
-    <h3>EAGLE Router (Python, ML)</h3>
-  </a>
-  <p>
-    An implementation of the <em>EAGLE: Efficient Training-Free Router for Multi-LLM Inference</em> paper.
-    This project builds a routing system that combines global and local model abilities via ELO ratings
-    and OpenAI embeddings, enabling adaptive selection between GPT-4o and GPT-4o-mini. Includes dataset
-    parsing, embedding similarity search, grid search over routing weights, and analysis of performance
-    under non-tie and skewed distributions.
-  </p>
-  <p><strong>Tech Stack:</strong> Python, OpenAI API, scikit-learn, Hugging Face Datasets, Pandas, NumPy</p>
-</article>
-
-
-        <!-- Project 6: Pintos Operating System -->
+        <!-- Project X: Eagle Router -->
         <article class="project-card">
-          <h3>Pintos Operating System</h3>
+          <a href="https://github.com/AymanMahfuz27/Eagle-Router" target="_blank">
+            <h3>EAGLE Router (Python, ML)</h3>
+          </a>
           <p>
-            Developed an operating system kernel, implementing core
-            functionalities such as thread scheduling, synchronization, and
-            virtual memory management.
+            An implementation of the <em>EAGLE: Efficient Training-Free Router for Multi-LLM Inference</em> paper.
+            This project builds a routing system that combines global and local model abilities via ELO ratings
+            and OpenAI embeddings, enabling adaptive selection between GPT-4o and GPT-4o-mini. Includes dataset
+            parsing, embedding similarity search, grid search over routing weights, and analysis of performance
+            under non-tie and skewed distributions.
           </p>
-          <p><strong>Tech Stack:</strong> C</p>
+          <p><strong>Tech Stack:</strong> Python, OpenAI API, scikit-learn, Hugging Face Datasets, Pandas, NumPy</p>
         </article>
+
+
+        
       </div>
     </section>
 
@@ -632,7 +583,8 @@
           <i class="fas fa-brain"></i>
           <h3>Deep Learning</h3>
           <p>
-            I'm passionate about learning and keeping up with the latest advancements in deep learning, from new architectures to real-world applications.
+            I'm passionate about learning and keeping up with the latest advancements in deep learning, from new
+            architectures to real-world applications.
           </p>
         </div>
         <div class="hobby-item">
@@ -746,19 +698,7 @@
     const analytics = getAnalytics(app);
   </script>
   <script>
-    function toggleTier(header) {
-      const content = header.nextElementSibling;
-      const toggle = header.querySelector('.tier-toggle');
-      if (content.style.display === 'none') {
-        content.style.display = '';
-        toggle.textContent = '▼';
-      } else {
-        content.style.display = 'none';
-        toggle.textContent = '▶';
-      }
-    }
-
-    // Mouse movement gradient effect for experience cards
+    // Simplified - no tier toggle needed anymore
     document.addEventListener('DOMContentLoaded', function () {
       const cards = document.querySelectorAll('.experience-item');
 
@@ -776,17 +716,6 @@
           card.style.setProperty('--mouse-x', '50%');
           card.style.setProperty('--mouse-y', '50%');
         });
-      });
-    });
-
-    // All tiers expanded by default for better recruiter scanning
-    window.addEventListener('DOMContentLoaded', function () {
-      // All experience tiers are visible by default
-      document.querySelectorAll('.tier-header').forEach(function (header) {
-        const content = header.nextElementSibling;
-        if (content) content.style.display = '';
-        const toggle = header.querySelector('.tier-toggle');
-        if (toggle) toggle.textContent = '▼';
       });
     });
   </script>
