@@ -442,122 +442,261 @@
       <!-- Section heading -->
       <div class="section-header">
         <h2>Projects</h2>
+        <p class="section-subtitle">Deep technical work spanning AI systems, LLMs, and generative models</p>
       </div>
 
-      <!-- Grid of project cards -->
-      <div class="projects-grid">
-
-        <!-- Project 6: Modern LLM from Scratch -->
-        <article class="project-card">
-          <a href="https://github.com/AymanMahfuz27/modern_llm" target="_blank">
-            <h3>Modern LLM from Scratch</h3>
-          </a>
-          <p>
-            Full-stack LLM implementation featuring RoPE positional embeddings, RMSNorm, SwiGLU activations, and attention sinks. 
-            Includes training pipeline, HuggingFace fine-tuning with LoRA on SST-2/SAMSum/GSM8K, and DPO alignment.
-          </p>
-          <p><strong>Tech Stack:</strong> Python, PyTorch, Transformers, PEFT, WikiText-2</p>
-          <p class="project-note">Click the title to visit the repository.</p>
-        </article>
-
-        <!-- Project 7: Stable Diffusion from Scratch -->
-        <article class="project-card">
-          <a href="https://github.com/AymanMahfuz27/stable-diffusion-from-scratch" target="_blank">
-            <h3>Stable Diffusion from Scratch</h3>
-          </a>
-          <p>
-            Complete implementation of Stable Diffusion v1 architecture from scratch, including CLIP text encoder, 
-            U-Net with cross-attention, VAE encoder/decoder, and DDPM/DDIM schedulers. Trained on custom datasets 
-            with gradient accumulation and mixed precision training.
-          </p>
-          <p><strong>Tech Stack:</strong> Python, PyTorch, CLIP, Diffusion Models, VAE</p>
-          <p class="project-note">Click the title to visit the repository.</p>
-        </article>
-        <!-- Project 1: Inkwell -->
-        <article class="project-card">
-          <a href="https://www.inkwellbooks.app/" target="_blank">
-            <h3>Inkwell: YouTube for Books</h3>
-          </a>
-          <p>
-            A dynamic book-sharing platform that allows users to explore and
-            share books freely while empowering authors to earn more by
-            bypassing traditional publishers.
-          </p>
-          <p>
-            <strong>Tech Stack:</strong> React, PostgreSQL, Django, AWS S3,
-            Django Rest Framework, Vercel
-          </p>
-
-          <p class="project-note">Click the title to visit the live site.</p>
-        </article>
-
-        <!-- Project 2: AI Dermatologist -->
-        <article class="project-card">
-          <a href="https://inreach.ai/" target="_blank">
-            <h3>InReach AI</h3>
-          </a>
-          <p>
-            An intelligent networking tool that allows users to find and email professionals that align with their
-            career interests and automatically drafts and sends emails to them using the user's resume, their intent,
-            and the reciever's experiences. It has 200+ users on it right now.
-          </p>
-          <p>
-            <strong>Tech Stack:</strong> Flask, React, Tailwind, OpenAI API, Vercel, Render
-          </p>
-
-          <p class="project-note">Click the title to visit the live site.</p>
-        </article>
-
-        <!-- Project 3: LeetCode Matchmaker -->
-        <article class="project-card">
-          <a href="https://leetcode-matchmaker-2bb8b1daa393.herokuapp.com/" target="_blank">
-            <h3>LeetCode Matchmaker</h3>
-          </a>
-          <p>
-            A web application that helps users discover LeetCode problems
-            similar to a given one, aiding in interview preparation.
-          </p>
-          <p>
-            <strong>Tech Stack:</strong> React, Flask, Scikit-learn,
-            PostgreSQL
-          </p>
-
-          <p class="project-note">Click the title to visit the live site.</p>
-        </article>
-
-        <!-- Project 4: Huffman Encoder -->
-        <article class="project-card">
-          <a href="https://codexray-frontend-3gr9rn2ug-aymanmahfuz27s-projects.vercel.app/" target="_blank">
-            <h3>CodeXray</h3>
-          </a>
-          <p>
-            Code X-Ray is an interactive, graph-powered codebase explorer that lets developers instantly understand
-            large monorepos—without reading thousands of lines first. By combining static analysis with GPT-4o, it
-            visualizes architecture, highlights complexity hotspots, and answers deep code questions like “what breaks
-            if I touch this?” right inside your IDE or browser.
-          </p>
-          <p><strong>Tech Stack:</strong> React, Tailwind, OpenAI API, Vercel, Render, AST parsing</p>
-
-          <p class="project-note">Click the title to visit the live site.</p>
-        </article>
-
-        <!-- Project X: Eagle Router -->
-        <article class="project-card">
-          <a href="https://github.com/AymanMahfuz27/Eagle-Router" target="_blank">
-            <h3>EAGLE Router (Python, ML)</h3>
-          </a>
-          <p>
-            An implementation of the <em>EAGLE: Efficient Training-Free Router for Multi-LLM Inference</em> paper.
-            This project builds a routing system that combines global and local model abilities via ELO ratings
-            and OpenAI embeddings, enabling adaptive selection between GPT-4o and GPT-4o-mini. Includes dataset
-            parsing, embedding similarity search, grid search over routing weights, and analysis of performance
-            under non-tie and skewed distributions.
-          </p>
-          <p><strong>Tech Stack:</strong> Python, OpenAI API, scikit-learn, Hugging Face Datasets, Pandas, NumPy</p>
-        </article>
-
-
+      <!-- Featured Projects - The Big Three -->
+      <div class="featured-projects">
         
+        <!-- Featured 1: Cursor for PMs -->
+        <article class="featured-project featured-project-cursor">
+          <div class="featured-project-glow"></div>
+          <div class="featured-project-content">
+            <div class="featured-project-header">
+              <div class="featured-project-icon">
+                <i class="fas fa-robot"></i>
+              </div>
+              <div class="featured-project-badges">
+                <span class="project-badge project-badge-live">
+                  <span class="pulse-dot"></span> Live Demo
+                </span>
+                <span class="project-badge project-badge-ai">AI-First</span>
+              </div>
+            </div>
+            
+            <h3>Cursor for Product Managers</h3>
+            <p class="featured-project-tagline">A Jira alternative with AI-first workflows</p>
+            
+            <p class="featured-project-description">
+              Natural language ticket management, auto-generated daily briefings, and live meeting capture 
+              that converts discussions into tickets automatically. Built an agentic system that reasons 
+              over your entire project context.
+            </p>
+            
+            <div class="featured-project-highlights">
+              <div class="highlight-item">
+                <span class="highlight-number">25+</span>
+                <span class="highlight-label">Callable Tools</span>
+              </div>
+              <div class="highlight-item">
+                <span class="highlight-number">Hybrid</span>
+                <span class="highlight-label">RAG Layer</span>
+              </div>
+              <div class="highlight-item">
+                <span class="highlight-number">Live</span>
+                <span class="highlight-label">Meeting Capture</span>
+              </div>
+            </div>
+            
+            <ul class="featured-project-details">
+              <li>Agentic LLM system via OpenAI function calling for contextual reasoning over tickets, GitHub PRs, commits, and transcripts</li>
+              <li>Hybrid RAG combining SQL filtering with vector embeddings across all project data</li>
+              <li>Auto-briefings that synthesize overnight activity, surface blockers, and recommend prioritized actions</li>
+            </ul>
+            
+            <div class="featured-project-tech">
+              <span class="tech-tag">OpenAI Function Calling</span>
+              <span class="tech-tag">RAG</span>
+              <span class="tech-tag">Vector Embeddings</span>
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">PostgreSQL</span>
+            </div>
+            
+            <div class="featured-project-actions">
+              <a href="https://cursor-for-pm-frontend.vercel.app/" target="_blank" class="project-action-btn project-action-primary">
+                <i class="fas fa-external-link-alt"></i> Try Live Demo
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Featured 2: Modern LLM -->
+        <article class="featured-project featured-project-llm">
+          <div class="featured-project-glow"></div>
+          <div class="featured-project-content">
+            <div class="featured-project-header">
+              <div class="featured-project-icon">
+                <i class="fas fa-brain"></i>
+              </div>
+              <div class="featured-project-badges">
+                <span class="project-badge project-badge-research">From Scratch</span>
+                <span class="project-badge project-badge-metrics">27.03 PPL</span>
+              </div>
+            </div>
+            
+            <h3>Modern LLM Training Pipeline</h3>
+            <p class="featured-project-tagline">253M parameter model outperforming GPT-2</p>
+            
+            <p class="featured-project-description">
+              Frontier-style LLM training pipeline from scratch with modern architectural choices 
+              and a complete alignment workflow: Pretrain → SFT → DPO → Verifier.
+            </p>
+            
+            <div class="featured-project-highlights">
+              <div class="highlight-item">
+                <span class="highlight-number">253M</span>
+                <span class="highlight-label">Parameters</span>
+              </div>
+              <div class="highlight-item">
+                <span class="highlight-number">-33%</span>
+                <span class="highlight-label">vs GPT-2 PPL</span>
+              </div>
+              <div class="highlight-item">
+                <span class="highlight-number">4</span>
+                <span class="highlight-label">Training Stages</span>
+              </div>
+            </div>
+            
+            <ul class="featured-project-details">
+              <li><strong>RoPE:</strong> Rotary Position Embeddings for better length extrapolation</li>
+              <li><strong>RMSNorm:</strong> Root Mean Square LayerNorm for faster, stable training</li>
+              <li><strong>SwiGLU:</strong> Gated Linear Units with Swish activation (2-4% better than GELU)</li>
+              <li><strong>Attention Sinks:</strong> Learnable tokens for stable generation beyond training context</li>
+            </ul>
+            
+            <div class="featured-project-tech">
+              <span class="tech-tag">PyTorch</span>
+              <span class="tech-tag">RoPE</span>
+              <span class="tech-tag">RMSNorm</span>
+              <span class="tech-tag">SwiGLU</span>
+              <span class="tech-tag">DPO</span>
+              <span class="tech-tag">RLHF</span>
+            </div>
+            
+            <div class="featured-project-actions">
+              <a href="https://github.com/AymanMahfuz27/modern_llm" target="_blank" class="project-action-btn project-action-primary">
+                <i class="fab fa-github"></i> View Repository
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Featured 3: Diffusion Models -->
+        <article class="featured-project featured-project-diffusion">
+          <div class="featured-project-glow"></div>
+          <div class="featured-project-content">
+            <div class="featured-project-header">
+              <div class="featured-project-icon">
+                <i class="fas fa-images"></i>
+              </div>
+              <div class="featured-project-badges">
+                <span class="project-badge project-badge-research">From Scratch</span>
+                <span class="project-badge project-badge-dual">MNIST + CIFAR</span>
+              </div>
+            </div>
+            
+            <h3>Diffusion Models: DDPM & DDIM</h3>
+            <p class="featured-project-tagline">Denoising diffusion from first principles</p>
+            
+            <p class="featured-project-description">
+              Complete DDPM and DDIM implementations in PyTorch without relying on Hugging Face 
+              or diffusers. Trained on MNIST and CIFAR-10 with full analysis of speed/quality trade-offs.
+            </p>
+            
+            <div class="featured-project-highlights">
+              <div class="highlight-item">
+                <span class="highlight-number">2</span>
+                <span class="highlight-label">U-Net Architectures</span>
+              </div>
+              <div class="highlight-item">
+                <span class="highlight-number">DDPM</span>
+                <span class="highlight-label">+ DDIM Samplers</span>
+              </div>
+              <div class="highlight-item">
+                <span class="highlight-number">EMA</span>
+                <span class="highlight-label">Weight Averaging</span>
+              </div>
+            </div>
+            
+            <ul class="featured-project-details">
+              <li><strong>MNIST U-Net:</strong> Cosine noise schedule, sinusoidal time embeddings, self-attention bottleneck</li>
+              <li><strong>CIFAR-10 U-Net:</strong> Multi-resolution self-attention, dropout, EMA for stable sampling</li>
+              <li><strong>DDIM Sampling:</strong> Deterministic generation with arbitrary step counts (10-1000)</li>
+              <li>Full speed/quality analysis comparing DDPM vs DDIM across step counts</li>
+            </ul>
+            
+            <div class="featured-project-tech">
+              <span class="tech-tag">PyTorch</span>
+              <span class="tech-tag">U-Net</span>
+              <span class="tech-tag">DDPM</span>
+              <span class="tech-tag">DDIM</span>
+              <span class="tech-tag">EMA</span>
+              <span class="tech-tag">SLURM/HPC</span>
+            </div>
+            
+            <div class="featured-project-actions">
+              <a href="https://github.com/AymanMahfuz27/stable-diffusion-from-scratch" target="_blank" class="project-action-btn project-action-primary">
+                <i class="fab fa-github"></i> View Repository
+              </a>
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Other Projects Carousel -->
+      <div class="other-projects-section">
+        <h3 class="other-projects-title">More Projects</h3>
+        <div class="carousel-container">
+          <button class="carousel-btn carousel-btn-prev" onclick="scrollCarousel(-1)" aria-label="Previous projects">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          
+          <div class="projects-carousel" id="projectsCarousel">
+            <!-- Inkwell -->
+            <article class="carousel-card">
+              <div class="carousel-card-icon">
+                <i class="fas fa-book-open"></i>
+              </div>
+              <h4><a href="https://www.inkwellbooks.app/" target="_blank">Inkwell</a></h4>
+              <p>YouTube for Books - dynamic book-sharing platform empowering authors</p>
+              <div class="carousel-tech">React • Django • AWS S3</div>
+            </article>
+
+            <!-- InReach AI -->
+            <article class="carousel-card">
+              <div class="carousel-card-icon">
+                <i class="fas fa-network-wired"></i>
+              </div>
+              <h4><a href="https://inreach.ai/" target="_blank">InReach AI</a></h4>
+              <p>AI networking tool with 200+ users - auto-drafts professional outreach</p>
+              <div class="carousel-tech">Flask • React • OpenAI</div>
+            </article>
+
+            <!-- CodeXray -->
+            <article class="carousel-card">
+              <div class="carousel-card-icon">
+                <i class="fas fa-project-diagram"></i>
+              </div>
+              <h4><a href="https://codexray-frontend-3gr9rn2ug-aymanmahfuz27s-projects.vercel.app/" target="_blank">CodeXray</a></h4>
+              <p>Graph-powered codebase explorer with GPT-4o for architecture visualization</p>
+              <div class="carousel-tech">React • AST • GPT-4o</div>
+            </article>
+
+            <!-- LeetCode Matchmaker -->
+            <article class="carousel-card">
+              <div class="carousel-card-icon">
+                <i class="fas fa-code"></i>
+              </div>
+              <h4><a href="https://leetcode-matchmaker-2bb8b1daa393.herokuapp.com/" target="_blank">LeetCode Matchmaker</a></h4>
+              <p>Find similar LeetCode problems using ML-powered matching</p>
+              <div class="carousel-tech">Flask • Scikit-learn • PostgreSQL</div>
+            </article>
+
+            <!-- EAGLE Router -->
+            <article class="carousel-card">
+              <div class="carousel-card-icon">
+                <i class="fas fa-route"></i>
+              </div>
+              <h4><a href="https://github.com/AymanMahfuz27/Eagle-Router" target="_blank">EAGLE Router</a></h4>
+              <p>Training-free multi-LLM router using ELO ratings and embeddings</p>
+              <div class="carousel-tech">Python • OpenAI • HuggingFace</div>
+            </article>
+          </div>
+          
+          <button class="carousel-btn carousel-btn-next" onclick="scrollCarousel(1)" aria-label="Next projects">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
       </div>
     </section>
 
@@ -609,6 +748,12 @@
   <script>
     function toggleNav() {
       document.getElementById("sidebar").classList.toggle("open");
+    }
+
+    function scrollCarousel(direction) {
+      const carousel = document.getElementById('projectsCarousel');
+      const cardWidth = 276; // card width (260px) + gap (16px)
+      carousel.scrollBy({ left: direction * cardWidth * 2, behavior: 'smooth' });
     }
   </script>
 
