@@ -5,43 +5,25 @@
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ayman Mahfuz - Portfolio</title>
+  <!-- Preconnect for fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- DM Sans Font -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet" />
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
   <!-- Vercel Analytics -->
   <script defer src="/_vercel/insights/script.js"></script>
-  <!-- <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/gsap.min.js"></script>
-    <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script> -->
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <script src="https://cdnjs.cloudflare.com/ajax/libs/gsap/3.12.2/ScrollTrigger.min.js"></script>
-  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css" />
-  <link rel="stylesheet" href="styles.css" />
-  <link rel="stylesheet"
-    href="https://fonts.googleapis.com/css2?family=Manrope:wght@300;400;600;700;800&display=swap" />
 </head>
 <!-- Google tag (gtag.js) -->
 <script async src="https://www.googletagmanager.com/gtag/js?id=G-5WV0DT2D6Q"></script>
 <script>
   window.dataLayer = window.dataLayer || [];
-  function gtag() {
-    dataLayer.push(arguments);
-  }
+  function gtag() { dataLayer.push(arguments); }
   gtag("js", new Date());
-
   gtag("config", "G-5WV0DT2D6Q");
-
-  gsap.registerPlugin(ScrollTrigger);
-
-  gsap.utils.toArray(".experience-item").forEach((item, index) => {
-    gsap.to(item, {
-      opacity: 1,
-      y: 0,
-      duration: 1,
-      delay: index * 0.1,
-      scrollTrigger: {
-        trigger: item,
-        start: "top 85%",
-        toggleActions: "play none none none",
-      },
-    });
-  });
 </script>
 
 <body>
@@ -278,9 +260,12 @@
       <div class="education-content">
         <div class="education-item">
           <div class="education-header">
-            <h3>The University of Texas at Austin</h3>
-            <p>Bachelor of Science</p>
-            <p><strong>Location:</strong> Austin, TX, USA</p>
+            <div class="education-logo">UT</div>
+            <div class="education-header-text">
+              <h3>The University of Texas at Austin</h3>
+              <p>Bachelor of Science</p>
+              <p><strong>Location:</strong> Austin, TX, USA</p>
+            </div>
           </div>
           <div class="education-details">
             <div class="education-column">
@@ -627,65 +612,15 @@
     }
   </script>
 
-  <!-- <script>
-      gsap.registerPlugin(ScrollTrigger);
-
-      gsap.from(".hero-content", {
-        opacity: 0,
-        y: 50,
-        duration: 1,
-        ease: "power3.out",
-        delay: 0.3,
-      });
-
-      gsap.utils
-        .toArray(".experience-item, .project-item, .hobby-item")
-        .forEach((item) => {
-          gsap.from(item, {
-            scrollTrigger: {
-              trigger: item,
-              start: "top 80%",
-            },
-            opacity: 0,
-            y: 50,
-            duration: 0.8,
-            ease: "power3.out",
-            stagger: 0.2,
-          });
-        });
-
-      gsap.from(".skill-tag", {
-        scrollTrigger: {
-          trigger: "#skills",
-          start: "top 80%",
-        },
-        opacity: 0,
-        scale: 0.8,
-        stagger: 0.1,
-        duration: 0.5,
-        ease: "back.out(1.7)",
-      });
-    </script>
-    <script>
-      function toggleMenu() {
-        const navLinks = document.querySelector(".nav-links");
-        navLinks.classList.toggle("active");
-      }
-    </script> -->
+  <!-- Firebase Analytics -->
   <script type="module">
-    // Import the functions you need from the SDKs you need
     import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
     import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js";
-    // TODO: Add SDKs for Firebase products that you want to use
-    // https://firebase.google.com/docs/web/setup#available-libraries
 
-    // Your web app's Firebase configuration
-    // For Firebase JS SDK v7.20.0 and later, measurementId is optional
     const firebaseConfig = {
       apiKey: "AIzaSyALCT_XguTSCkjQRXo7sr68li9hHRHPjCs",
       authDomain: "personal-portfolio-f0cfd.firebaseapp.com",
-      databaseURL:
-        "https://personal-portfolio-f0cfd-default-rtdb.firebaseio.com",
+      databaseURL: "https://personal-portfolio-f0cfd-default-rtdb.firebaseio.com",
       projectId: "personal-portfolio-f0cfd",
       storageBucket: "personal-portfolio-f0cfd.firebasestorage.app",
       messagingSenderId: "1038556174912",
@@ -693,68 +628,9 @@
       measurementId: "G-Z31302M1TF",
     };
 
-    // Initialize Firebase
     const app = initializeApp(firebaseConfig);
     const analytics = getAnalytics(app);
   </script>
-  <script>
-    // Simplified - no tier toggle needed anymore
-    document.addEventListener('DOMContentLoaded', function () {
-      const cards = document.querySelectorAll('.experience-item');
-
-      cards.forEach(card => {
-        card.addEventListener('mousemove', e => {
-          const rect = card.getBoundingClientRect();
-          const x = ((e.clientX - rect.left) / card.clientWidth) * 100;
-          const y = ((e.clientY - rect.top) / card.clientHeight) * 100;
-
-          card.style.setProperty('--mouse-x', `${x}%`);
-          card.style.setProperty('--mouse-y', `${y}%`);
-        });
-
-        card.addEventListener('mouseleave', () => {
-          card.style.setProperty('--mouse-x', '50%');
-          card.style.setProperty('--mouse-y', '50%');
-        });
-      });
-    });
-  </script>
-  <!-- <script>
-      document.addEventListener("DOMContentLoaded", function () {
-        gsap.from(".hero", {
-          opacity: 0,
-          y: 50,
-          duration: 1.2,
-          ease: "power3.out",
-        });
-
-        gsap.from(".hero-content", {
-          opacity: 0,
-          y: 50,
-          duration: 1.2,
-          delay: 0.3,
-          ease: "power3.out",
-        });
-
-        gsap.utils.toArray("section.container").forEach((section, index) => {
-          gsap.from(section, {
-            opacity: 0,
-            y: 50,
-            duration: 1.2,
-            delay: 0.5 + index * 0.2, // Stagger effect
-            ease: "power3.out",
-            scrollTrigger: {
-              trigger: section,
-              start: "top 80%",
-            },
-          });
-        });
-      });
-      window.addEventListener('load', () => {
-  ScrollTrigger.refresh();
-});
-
-    </script> -->
 </body>
 
 </html>
