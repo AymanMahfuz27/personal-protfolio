@@ -364,7 +364,7 @@
       <!-- Featured Projects - The Big Three -->
       <div class="featured-projects">
         
-        <!-- Featured 1: Cursor for PMs -->
+        <!-- Featured 1: Helm -->
         <article class="featured-project featured-project-cursor">
           <div class="featured-project-glow"></div>
           <div class="featured-project-content">
@@ -379,8 +379,8 @@
                 <span class="project-badge project-badge-ai">AI-First</span>
               </div>
             </div>
-            
-            <h3>Cursor for Product Managers</h3>
+
+            <h3>Helm</h3>
             <p class="featured-project-tagline">A Jira alternative with AI-first workflows</p>
             
             <p class="featured-project-description">
@@ -547,6 +547,63 @@
             </div>
           </div>
         </article>
+        <!-- Featured 4: TikTok Auto-Sorter -->
+        <article class="featured-project featured-project-tiktok">
+          <div class="featured-project-glow"></div>
+          <div class="featured-project-content">
+            <div class="featured-project-header">
+              <div class="featured-project-icon">
+                <i class="fab fa-tiktok"></i>
+              </div>
+              <div class="featured-project-badges">
+                <span class="project-badge project-badge-metrics">~90% Acc</span>
+                <span class="project-badge project-badge-ai">Multimodal</span>
+              </div>
+            </div>
+
+            <h3>TikTok Video Auto-Sorter</h3>
+            <p class="featured-project-tagline">Multimodal ML that organizes your saved videos</p>
+
+            <p class="featured-project-description">
+              Automatically categorizes saved TikTok videos into user-defined folders by analyzing
+              visual and audio content. Reduces TikTok's 3-tap save flow to a single confirmation,
+              achieving ~90% accuracy with minimal labeled data.
+            </p>
+
+            <div class="featured-project-highlights">
+              <div class="highlight-item">
+                <span class="highlight-number">~90%</span>
+                <span class="highlight-label">Accuracy</span>
+              </div>
+              <div class="highlight-item">
+                <span class="highlight-number">600+</span>
+                <span class="highlight-label">Videos Sorted</span>
+              </div>
+              <div class="highlight-item">
+                <span class="highlight-number">2</span>
+                <span class="highlight-label">Modalities</span>
+              </div>
+            </div>
+
+            <ul class="featured-project-details">
+              <li><strong>Visual:</strong> Sample 5 frames per video → encode with CLIP (ViT-B/32) → 512-d vector</li>
+              <li><strong>Audio:</strong> Transcribe with Whisper → encode with CLIP text encoder → 512-d vector</li>
+              <li><strong>Classifier:</strong> Two-layer MLP with class-weighted loss for imbalanced categories</li>
+              <li>Interactive labeling UI modeled after TikTok with top-3 predictions and active learning retrain loop</li>
+            </ul>
+
+            <div class="featured-project-tech">
+              <span class="tech-tag">PyTorch</span>
+              <span class="tech-tag">CLIP</span>
+              <span class="tech-tag">Whisper</span>
+              <span class="tech-tag">FastAPI</span>
+              <span class="tech-tag">Transfer Learning</span>
+            </div>
+
+            <div class="featured-project-actions">
+            </div>
+          </div>
+        </article>
       </div>
 
       <!-- Other Projects Carousel -->
@@ -608,15 +665,6 @@
               <div class="carousel-tech">Python • OpenAI • HuggingFace</div>
             </article>
 
-            <!-- TikTok Auto-Sorter -->
-            <article class="carousel-card">
-              <div class="carousel-card-icon">
-                <i class="fab fa-tiktok"></i>
-              </div>
-              <h4>TikTok Video Auto-Sorter</h4>
-              <p>Multimodal ML system that auto-categorizes saved TikTok videos into folders with ~90% accuracy using CLIP + Whisper</p>
-              <div class="carousel-tech">PyTorch • CLIP • Whisper • FastAPI</div>
-            </article>
           </div>
           
           <button class="carousel-btn carousel-btn-next" onclick="scrollCarousel(1)" aria-label="Next projects">
