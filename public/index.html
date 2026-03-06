@@ -1,476 +1,773 @@
 <!DOCTYPE html>
 <html lang="en">
-
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
   <title>Ayman Mahfuz - Portfolio</title>
-  <!-- Preconnect for fonts -->
   <link rel="preconnect" href="https://fonts.googleapis.com" />
   <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
-  <!-- DM Sans Font -->
   <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet" />
-  <!-- Icons -->
   <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
-  <!-- Styles -->
-  <link rel="stylesheet" href="styles.css" />
-  <!-- Vercel Analytics -->
-  <script defer src="/_vercel/insights/script.js"></script>
+  <style>
+    :root {
+      --bg-primary: #0c0c0c;
+      --bg-surface: rgba(24, 24, 24, 0.7);
+      --bg-surface-hover: rgba(28, 28, 28, 0.9);
+      --bg-inset: rgba(14, 14, 14, 0.9);
+      --text-primary: #e6e6e6;
+      --text-secondary: #8f8f8f;
+      --text-tertiary: #666666;
+      --accent-sage: #7d9e8a;
+      --accent-sage-light: #9db5a3;
+      --accent-honey: #d4a870;
+      --accent-coral: #d4a08f;
+      --accent-maroon: #4A051C;
+      --accent-maroon-light: #6b1a2e;
+      --accent-blue: #1a2332;
+      --accent-blue-light: #6B818C;
+      --accent-burnt-orange: #bf5700;
+      --accent-burnt-orange-light: #cc6611;
+      --border-subtle: rgba(255, 255, 255, 0.06);
+      --border-medium: rgba(255, 255, 255, 0.1);
+      --border-strong: rgba(255, 255, 255, 0.15);
+      --radius-sm: 6px;
+      --radius-md: 8px;
+      --radius-lg: 12px;
+      --radius-xl: 16px;
+      --radius-full: 9999px;
+      --shadow-card: 0 4px 24px rgba(0,0,0,0.2);
+      --shadow-elevated: 0 8px 32px rgba(0,0,0,0.25);
+      --sidebar-width: 220px;
+    }
+    *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+    html{scroll-behavior:smooth}
+    body{font-family:'DM Sans',system-ui,sans-serif;background:var(--bg-primary);color:var(--text-primary);-webkit-font-smoothing:antialiased;-moz-osx-font-smoothing:grayscale;overflow-x:hidden;line-height:1.6}
+    a{color:inherit;text-decoration:none}
+    img{display:block;max-width:100%;height:auto}
+
+    /* ===== PARALLAX BG ===== */
+    .parallax-bg{position:fixed;top:0;left:0;right:0;bottom:0;pointer-events:none;z-index:0}
+    .parallax-orb{position:absolute;border-radius:50%;filter:blur(80px);opacity:0.06}
+    .parallax-orb-1{width:600px;height:600px;background:var(--accent-sage);top:-10%;left:-5%}
+    .parallax-orb-2{width:500px;height:500px;background:var(--accent-honey);top:40%;right:-10%}
+    .parallax-orb-3{width:400px;height:400px;background:var(--accent-coral);bottom:-5%;left:30%}
+
+    /* ===== SIDEBAR ===== */
+    #sidebar{
+      position:fixed;top:0;left:0;width:var(--sidebar-width);height:100vh;
+      background:var(--bg-primary);border-right:1px solid var(--border-subtle);
+      padding:32px 20px;display:flex;flex-direction:column;justify-content:center;
+      z-index:999;transform:translateX(-100%);transition:transform .2s ease;
+    }
+    #sidebar.open{transform:translateX(0)}
+    @media(min-width:1024px){#sidebar{transform:none}}
+    #sidebar ul{list-style:none;display:flex;flex-direction:column;gap:6px}
+    #sidebar li a{
+      display:block;padding:8px 16px;border-radius:var(--radius-full);
+      color:var(--text-secondary);font-weight:500;font-size:0.9rem;
+      transition:all .2s ease;
+    }
+    #sidebar li a:hover,
+    #sidebar li a.active{
+      background:var(--bg-surface-hover);color:var(--text-primary);
+    }
+    #sidebar li a.active{
+      background:var(--text-primary);color:var(--bg-primary);
+    }
+
+    /* Nav toggle */
+    .nav-toggle{
+      position:fixed;top:16px;left:16px;font-size:1.2rem;
+      color:var(--bg-primary);background:var(--text-primary);
+      border-radius:var(--radius-full);padding:8px 12px;
+      cursor:pointer;z-index:1000;transition:all .15s;box-shadow:var(--shadow-card);
+    }
+    .nav-toggle:hover{transform:translateY(-2px);box-shadow:var(--shadow-elevated)}
+    @media(min-width:1024px){.nav-toggle{display:none}}
+
+    /* Floating resume */
+    .floating-btn{
+      position:fixed;bottom:20px;right:20px;background:var(--text-primary);color:var(--bg-primary);
+      padding:10px 20px;border-radius:var(--radius-md);display:flex;align-items:center;gap:6px;
+      font-weight:500;font-size:0.88rem;z-index:1000;transition:all .2s;box-shadow:var(--shadow-card);
+    }
+    .floating-btn:hover{background:#fff;transform:translateY(-2px);box-shadow:var(--shadow-elevated)}
+    @media(max-width:768px){
+      .floating-btn{padding:10px;border-radius:var(--radius-full)}
+      .floating-btn span{display:none}
+    }
+
+    /* Main */
+    main{margin-left:0;position:relative;z-index:1;transition:margin-left .2s}
+    @media(min-width:1024px){main{margin-left:var(--sidebar-width)}}
+
+    /* ===== SCROLL REVEAL ===== */
+    .reveal{opacity:0;transform:translateY(28px);transition:opacity .6s ease,transform .6s ease}
+    .reveal.visible{opacity:1;transform:translateY(0)}
+    .reveal-d1{transition-delay:.1s}
+    .reveal-d2{transition-delay:.2s}
+    .reveal-d3{transition-delay:.3s}
+
+    /* ===== SECTIONS ===== */
+    .section{max-width:1100px;margin:0 auto;padding:80px 24px}
+    .section-divider{height:1px;background:linear-gradient(90deg,transparent,var(--border-medium),transparent);max-width:600px;margin:0 auto}
+    .section-label{font-size:0.7rem;text-transform:uppercase;letter-spacing:0.2em;color:var(--accent-honey);font-weight:600;margin-bottom:10px}
+    .section h2{font-size:clamp(26px,4vw,36px);font-weight:700;letter-spacing:-0.03em;margin-bottom:40px;line-height:1.15}
+
+    /* ===== HERO - LUXE SPLIT ===== */
+    .hero{min-height:100vh;display:flex;align-items:center;justify-content:center;padding:60px 24px;position:relative;overflow:hidden}
+    .hero-inner{max-width:900px;width:100%;display:grid;grid-template-columns:auto 1fr;gap:48px;align-items:center}
+    .hero .prof-pic{width:200px;height:200px;border-radius:50%;object-fit:cover;border:2px solid var(--border-medium);transition:all .3s}
+    .hero .prof-pic:hover{border-color:var(--accent-honey);transform:scale(1.03)}
+    .hero h1{font-size:clamp(36px,7vw,64px);font-weight:700;letter-spacing:-0.04em;line-height:1}
+    .hero h1 .name-first{display:block;background:linear-gradient(135deg,var(--text-primary),var(--accent-sage-light));-webkit-background-clip:text;-webkit-text-fill-color:transparent;background-clip:text}
+    .hero .subtitle{font-size:clamp(15px,2vw,20px);color:var(--text-secondary);line-height:1.5;margin-top:12px;max-width:500px}
+    .hero-metrics{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+    .hero-metric{display:inline-flex;align-items:center;gap:6px;background:var(--bg-surface);border:1px solid var(--border-subtle);padding:6px 14px;border-radius:var(--radius-full);font-size:0.82rem;font-weight:500;color:var(--text-secondary);transition:all .2s}
+    .hero-metric:hover{background:var(--bg-surface-hover);border-color:var(--border-medium);color:var(--text-primary);transform:translateY(-2px)}
+    .hero-metric i{color:var(--accent-blue-light);font-size:0.85rem}
+    .hero-links{display:flex;flex-wrap:wrap;gap:10px;margin-top:24px}
+    .btn-primary{display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:var(--radius-md);font-weight:500;font-size:0.9rem;background:var(--text-primary);color:var(--bg-primary);transition:all .2s}
+    .btn-primary:hover{background:#fff;transform:translateY(-2px);box-shadow:var(--shadow-card)}
+    .btn-ghost{display:inline-flex;align-items:center;gap:6px;padding:10px 22px;border-radius:var(--radius-md);font-weight:500;font-size:0.9rem;border:1px solid var(--border-medium);color:var(--text-secondary);transition:all .2s}
+    .btn-ghost:hover{border-color:var(--border-strong);color:var(--text-primary);background:var(--bg-surface)}
+    @media(max-width:768px){
+      .hero-inner{grid-template-columns:1fr;text-align:center;justify-items:center}
+      .hero .prof-pic{width:150px;height:150px}
+      .hero-metrics,.hero-links{justify-content:center}
+    }
+    @media(max-width:480px){
+      .hero-links{flex-direction:column;width:100%}
+      .btn-primary,.btn-ghost{width:100%;justify-content:center}
+    }
+
+    /* ===== FEATURED IMPACT ===== */
+    .featured-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(280px,1fr));gap:16px}
+    .feat-card{background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);padding:28px;text-align:center;transition:all .2s;position:relative;overflow:hidden}
+    .feat-card:hover{background:var(--bg-surface-hover);border-color:var(--border-medium);transform:translateY(-3px);box-shadow:var(--shadow-card)}
+    .feat-icon{font-size:2.2rem;margin-bottom:14px;transition:transform .2s}
+    .feat-card:hover .feat-icon{transform:scale(1.1)}
+    .feat-num{font-size:2.2rem;font-weight:700;letter-spacing:-0.02em;margin-bottom:2px}
+    .feat-num-label{font-size:0.75rem;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.08em;margin-bottom:12px;font-weight:500}
+    .feat-card h3{font-size:1.05rem;font-weight:600;margin-bottom:8px}
+    .feat-card p{font-size:0.88rem;color:var(--text-secondary);line-height:1.6;margin-bottom:12px}
+    .feat-tags{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+    .feat-tag{padding:3px 10px;border-radius:var(--radius-full);font-size:0.72rem;font-weight:500}
+    .feat-arm .feat-icon{color:var(--accent-maroon-light)}
+    .feat-arm .feat-tag{background:rgba(74,5,28,0.15);color:var(--accent-coral)}
+    .feat-robocup .feat-icon{color:var(--accent-honey)}
+    .feat-robocup .feat-tag{background:rgba(212,168,112,0.15);color:var(--accent-honey)}
+    .feat-cms .feat-icon{color:var(--accent-blue-light)}
+    .feat-cms .feat-tag{background:rgba(26,35,50,0.4);color:var(--accent-blue-light)}
+
+    /* ===== ABOUT ME ===== */
+    .about-card{background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);padding:32px;transition:border-color .2s}
+    .about-card:hover{border-color:var(--border-medium)}
+    .about-card p{color:var(--text-secondary);font-size:0.95rem;line-height:1.7;margin-bottom:16px}
+    .about-card strong{color:var(--text-primary);font-weight:600}
+    .about-bullets{list-style:none;margin-top:20px;display:flex;flex-direction:column;gap:10px}
+    .about-bullets li{background:var(--bg-inset);border:1px solid var(--border-subtle);border-radius:var(--radius-md);padding:14px 16px;color:var(--text-secondary);font-size:0.92rem;line-height:1.6;transition:all .2s}
+    .about-bullets li:hover{background:var(--bg-surface);border-color:var(--border-medium);transform:translateX(4px)}
+    .about-bullets li strong{color:var(--accent-honey)}
+
+    /* ===== EDUCATION ===== */
+    .edu-card{background:linear-gradient(135deg,var(--bg-surface) 0%,rgba(191,87,0,0.03) 100%);border:1px solid var(--border-subtle);border-left:3px solid var(--accent-burnt-orange);border-radius:var(--radius-lg);padding:32px;transition:all .2s;position:relative;overflow:hidden}
+    .edu-card::before{content:'';position:absolute;top:-50px;right:-50px;width:200px;height:200px;background:radial-gradient(circle,rgba(191,87,0,0.08),transparent 70%);pointer-events:none}
+    .edu-card:hover{border-color:var(--border-medium);transform:translateY(-2px);box-shadow:var(--shadow-card)}
+    .edu-header{display:flex;align-items:flex-start;gap:20px;margin-bottom:20px;padding-bottom:20px;border-bottom:1px solid var(--border-subtle)}
+    .edu-logo{width:72px;height:72px;background:var(--accent-burnt-orange);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;flex-shrink:0;font-size:2.2rem;color:white;font-weight:700}
+    .edu-header h3{font-size:1.3rem;font-weight:600;margin-bottom:4px}
+    .edu-header p{color:var(--text-secondary);font-size:0.88rem;margin-bottom:2px}
+    .edu-header p strong{color:var(--accent-burnt-orange)}
+    .edu-details{display:grid;grid-template-columns:1fr 1.5fr;gap:24px}
+    .edu-details p{color:var(--text-secondary);font-size:0.92rem;margin-bottom:6px;line-height:1.6}
+    .edu-details strong{color:var(--text-primary)}
+    .edu-courses{list-style:none;display:grid;grid-template-columns:repeat(auto-fill,minmax(190px,1fr));gap:3px 16px;margin-top:6px}
+    .edu-courses li{color:var(--text-secondary);font-size:0.88rem;padding:3px 0 3px 16px;position:relative}
+    .edu-courses li::before{content:'\2022';position:absolute;left:0;color:var(--accent-burnt-orange);font-weight:bold}
+    @media(max-width:768px){
+      .edu-header{flex-direction:column;align-items:center;text-align:center}
+      .edu-details{grid-template-columns:1fr}
+    }
+
+    /* ===== RESUME (moved up) ===== */
+    .resume-wrap{display:flex;justify-content:center}
+    .resume-card{background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);padding:32px;text-align:center;max-width:380px;width:100%;transition:all .2s}
+    .resume-card:hover{background:var(--bg-surface-hover);border-color:var(--border-medium);transform:translateY(-2px);box-shadow:var(--shadow-card)}
+    .resume-icon{font-size:2.8rem;color:var(--accent-coral);margin-bottom:14px}
+    .resume-card h3{font-size:1.2rem;font-weight:600;margin-bottom:6px}
+    .resume-card p{color:var(--text-secondary);margin-bottom:18px;font-size:0.88rem}
+
+    /* ===== EXPERIENCE - TIMELINE ===== */
+    .timeline-wrap{position:relative;padding-left:40px}
+    .timeline-wrap::before{
+      content:'';position:absolute;top:0;bottom:0;left:15px;
+      width:2px;background:linear-gradient(to bottom,transparent,var(--border-medium) 5%,var(--border-medium) 95%,transparent);
+    }
+    .exp-item{
+      position:relative;background:var(--bg-surface);border:1px solid var(--border-subtle);
+      border-radius:var(--radius-lg);padding:24px;margin-bottom:14px;
+      transition:all .25s ease;
+    }
+    .exp-item:hover{
+      background:var(--bg-surface-hover);border-color:var(--border-medium);
+      transform:translateX(6px);box-shadow:var(--shadow-card);
+    }
+    .exp-item.flagship{border-left:3px solid var(--accent-maroon-light)}
+    .exp-item.flagship:hover{border-left-color:var(--accent-coral)}
+    /* Timeline dot */
+    .exp-item::before{
+      content:'';position:absolute;left:-33px;top:28px;
+      width:12px;height:12px;border-radius:50%;
+      background:var(--accent-honey);border:3px solid var(--bg-primary);
+      transition:transform .2s;z-index:2;
+    }
+    .exp-item:hover::before{transform:scale(1.3)}
+    /* Timeline connector line */
+    .exp-item::after{
+      content:'';position:absolute;left:-22px;top:34px;
+      width:16px;height:1px;background:var(--border-medium);
+    }
+    .exp-header{display:flex;justify-content:space-between;align-items:flex-start;gap:12px;flex-wrap:wrap}
+    .exp-item h3{font-size:1.05rem;font-weight:600;margin-bottom:3px}
+    .exp-location{color:var(--text-secondary);font-size:0.82rem;margin-bottom:10px}
+    .exp-summary{color:var(--text-secondary);font-size:0.88rem;line-height:1.6;margin-bottom:0}
+    .exp-summary a{color:var(--accent-honey);text-decoration:underline;text-decoration-color:transparent;transition:text-decoration-color .2s}
+    .exp-summary a:hover{text-decoration-color:var(--accent-honey)}
+    .role-badge{background:rgba(74,5,28,0.15);color:var(--accent-coral);padding:3px 10px;border-radius:var(--radius-full);font-size:0.68rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;white-space:nowrap;flex-shrink:0}
+    /* Hover to expand bullets */
+    .exp-bullets{
+      list-style:none;margin-top:12px;max-height:0;overflow:hidden;opacity:0;
+      transition:max-height .4s ease,opacity .3s ease,margin-top .3s ease;
+      margin-top:0;
+    }
+    .exp-item:hover .exp-bullets{max-height:400px;opacity:1;margin-top:12px}
+    .exp-bullets li{color:var(--text-tertiary);font-size:0.84rem;line-height:1.6;padding-left:16px;margin-bottom:6px;position:relative}
+    .exp-bullets li::before{content:'\203A';position:absolute;left:0;color:var(--accent-blue-light);font-weight:600}
+    .exp-bullets a{color:var(--accent-honey)}
+    .exp-bullets a:hover{text-decoration:underline}
+    .exp-expand-hint{
+      font-size:0.7rem;color:var(--text-tertiary);margin-top:8px;
+      transition:opacity .2s;display:flex;align-items:center;gap:4px;
+    }
+    .exp-item:hover .exp-expand-hint{opacity:0}
+
+    @media(max-width:640px){
+      .exp-header{flex-direction:column}
+      .role-badge{align-self:flex-start;order:-1;margin-bottom:4px}
+    }
+
+    /* ===== PROJECTS - 2x2 GRID ===== */
+    .proj-grid{display:grid;grid-template-columns:repeat(2,1fr);gap:20px;margin-bottom:48px}
+    @media(max-width:900px){.proj-grid{grid-template-columns:1fr}}
+    .proj-card{
+      position:relative;background:linear-gradient(135deg,var(--bg-surface) 0%,rgba(30,30,30,0.95) 100%);
+      border:1px solid var(--border-subtle);border-radius:var(--radius-xl);
+      overflow:hidden;transition:all .25s;
+    }
+    .proj-card:hover{border-color:var(--border-strong);transform:translateY(-4px);box-shadow:var(--shadow-elevated)}
+    .proj-glow{position:absolute;top:0;left:0;right:0;height:140px;opacity:0.35;pointer-events:none;transition:opacity .25s}
+    .proj-card:hover .proj-glow{opacity:0.55}
+    .proj-content{position:relative;padding:28px;z-index:1}
+    .proj-header{display:flex;align-items:center;justify-content:space-between;margin-bottom:14px;flex-wrap:wrap;gap:10px}
+    .proj-icon{width:50px;height:50px;border-radius:var(--radius-lg);display:flex;align-items:center;justify-content:center;font-size:1.4rem;transition:transform .2s}
+    .proj-card:hover .proj-icon{transform:scale(1.1)}
+    .proj-badges{display:flex;gap:6px;flex-wrap:wrap}
+    .proj-badge{padding:3px 10px;border-radius:var(--radius-full);font-size:0.68rem;font-weight:600;text-transform:uppercase;letter-spacing:0.05em;display:flex;align-items:center;gap:4px}
+    .proj-card h3{font-size:1.35rem;font-weight:700;letter-spacing:-0.02em;margin-bottom:4px}
+    .proj-tagline{font-size:0.92rem;color:var(--text-secondary);margin-bottom:14px}
+    .proj-desc{font-size:0.9rem;color:var(--text-secondary);line-height:1.7;margin-bottom:16px}
+    .proj-highlights{display:flex;gap:14px;margin-bottom:16px;padding:12px;background:var(--bg-inset);border-radius:var(--radius-md);border:1px solid var(--border-subtle)}
+    .proj-hl{flex:1;text-align:center}
+    .proj-hl-num{display:block;font-size:1.3rem;font-weight:700;letter-spacing:-0.02em}
+    .proj-hl-label{display:block;font-size:0.68rem;color:var(--text-tertiary);text-transform:uppercase;letter-spacing:0.05em;margin-top:2px}
+    .proj-details{list-style:none;margin-bottom:16px}
+    .proj-details li{color:var(--text-secondary);font-size:0.86rem;line-height:1.6;padding:5px 0 5px 18px;position:relative;border-bottom:1px solid var(--border-subtle)}
+    .proj-details li:last-child{border-bottom:none}
+    .proj-details li::before{content:'\203A';position:absolute;left:4px;color:var(--accent-honey);font-weight:700;font-size:1rem}
+    .proj-details li strong{color:var(--text-primary);font-weight:600}
+    .proj-tech{display:flex;flex-wrap:wrap;gap:6px;margin-bottom:16px}
+    .tech-tag{background:var(--bg-inset);border:1px solid var(--border-subtle);color:var(--text-secondary);padding:3px 10px;border-radius:var(--radius-full);font-size:0.72rem;font-weight:500;transition:all .15s}
+    .tech-tag:hover{border-color:var(--border-medium);color:var(--text-primary)}
+    .proj-actions{display:flex;gap:10px}
+    .proj-action{display:inline-flex;align-items:center;gap:6px;padding:10px 20px;border-radius:var(--radius-md);font-weight:600;font-size:0.86rem;transition:all .2s;background:var(--text-primary);color:var(--bg-primary)}
+    .proj-action:hover{background:#fff;transform:translateY(-2px);box-shadow:var(--shadow-card)}
+    .pulse-dot{width:6px;height:6px;background:var(--accent-sage-light);border-radius:50%;animation:pulse 2s infinite}
+    @keyframes pulse{0%,100%{opacity:1;transform:scale(1)}50%{opacity:.5;transform:scale(1.2)}}
+    @media(max-width:480px){
+      .proj-header{flex-direction:column;align-items:flex-start}
+      .proj-highlights{flex-direction:column;gap:8px}
+      .proj-hl{display:flex;justify-content:space-between;align-items:center;text-align:left}
+      .proj-hl-label{margin-top:0}
+      .proj-actions{flex-direction:column}
+      .proj-action{width:100%;justify-content:center}
+    }
+
+    /* Carousel */
+    .carousel-section{margin-top:40px;padding-top:24px;border-top:1px solid var(--border-subtle)}
+    .carousel-title{font-size:1.05rem;font-weight:600;color:var(--text-secondary);text-align:center;margin-bottom:20px}
+    .carousel-wrap{position:relative;display:flex;align-items:center;gap:10px}
+    .carousel-btn{flex-shrink:0;width:38px;height:38px;border-radius:50%;background:var(--bg-surface);border:1px solid var(--border-subtle);color:var(--text-secondary);cursor:pointer;display:flex;align-items:center;justify-content:center;transition:all .15s;font-size:0.9rem}
+    .carousel-btn:hover{background:var(--bg-surface-hover);border-color:var(--border-medium);color:var(--text-primary)}
+    .carousel-track{display:flex;gap:12px;overflow-x:auto;scroll-behavior:smooth;scrollbar-width:none;flex:1;padding:4px 0}
+    .carousel-track::-webkit-scrollbar{display:none}
+    .car-card{flex:0 0 250px;background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);padding:18px;transition:all .15s}
+    .car-card:hover{background:var(--bg-surface-hover);border-color:var(--border-medium);transform:translateY(-2px);box-shadow:var(--shadow-card)}
+    .car-card-icon{width:36px;height:36px;background:var(--bg-inset);border-radius:var(--radius-md);display:flex;align-items:center;justify-content:center;margin-bottom:10px;color:var(--accent-honey);font-size:0.95rem;transition:transform .15s}
+    .car-card:hover .car-card-icon{transform:scale(1.1)}
+    .car-card h4{font-size:0.95rem;font-weight:600;margin-bottom:6px}
+    .car-card h4 a{color:var(--text-primary);transition:color .15s}
+    .car-card h4 a:hover{color:var(--accent-honey)}
+    .car-card p{color:var(--text-secondary);font-size:0.82rem;line-height:1.5;margin-bottom:10px}
+    .car-tech{color:var(--text-tertiary);font-size:0.72rem;font-weight:500}
+    @media(max-width:768px){
+      .carousel-btn{display:none}
+      .car-card{flex:0 0 85%}
+    }
+
+    /* ===== SKILLS ===== */
+    .skills-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(230px,1fr));gap:14px}
+    .skill-group{background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);padding:20px;transition:border-color .2s}
+    .skill-group:hover{border-color:var(--border-medium)}
+    .skill-group h3{font-size:0.88rem;font-weight:600;margin-bottom:12px;text-align:center}
+    .skill-tags{display:flex;flex-wrap:wrap;gap:6px;justify-content:center}
+    .skill-tag{background:var(--bg-inset);border:1px solid var(--border-subtle);color:var(--text-secondary);padding:5px 10px;border-radius:var(--radius-full);font-size:0.78rem;font-weight:500;transition:all .15s}
+    .skill-tag:hover{background:rgba(26,35,50,0.4);border-color:var(--accent-blue-light);color:var(--accent-blue-light)}
+    .skill-tag i{margin-right:3px}
+    @media(max-width:480px){.skills-grid{grid-template-columns:1fr}}
+
+    /* ===== HOBBIES ===== */
+    .hobbies-grid{display:grid;grid-template-columns:repeat(auto-fit,minmax(190px,1fr));gap:14px}
+    .hobby-card{background:var(--bg-surface);border:1px solid var(--border-subtle);border-radius:var(--radius-lg);padding:22px;text-align:center;transition:all .2s}
+    .hobby-card:hover{background:var(--bg-surface-hover);border-color:var(--border-medium);transform:translateY(-2px);box-shadow:var(--shadow-card)}
+    .hobby-card i{font-size:1.8rem;color:var(--accent-coral);margin-bottom:10px;display:block;transition:transform .15s}
+    .hobby-card:hover i{transform:scale(1.1)}
+    .hobby-card h3{font-size:0.95rem;font-weight:600;margin-bottom:6px}
+    .hobby-card p{color:var(--text-secondary);font-size:0.82rem;line-height:1.5}
+
+    footer{text-align:center;padding:32px 16px;color:var(--text-tertiary);font-size:0.82rem}
+
+    /* ===== RESPONSIVE ===== */
+    @media(max-width:768px){
+      .section{padding:60px 16px}
+      .featured-grid{grid-template-columns:1fr}
+      .timeline-wrap{padding-left:32px}
+      .exp-item::before{left:-25px}
+      .exp-item::after{left:-14px;width:8px}
+    }
+  </style>
 </head>
-<!-- Google tag (gtag.js) -->
-<script async src="https://www.googletagmanager.com/gtag/js?id=G-5WV0DT2D6Q"></script>
-<script>
-  window.dataLayer = window.dataLayer || [];
-  function gtag() { dataLayer.push(arguments); }
-  gtag("js", new Date());
-  gtag("config", "G-5WV0DT2D6Q");
-</script>
-
 <body>
-  <div class="nav-toggle" onclick="toggleNav()">☰</div>
+  <!-- Parallax BG -->
+  <div class="parallax-bg">
+    <div class="parallax-orb parallax-orb-1" data-speed="0.02"></div>
+    <div class="parallax-orb parallax-orb-2" data-speed="0.035"></div>
+    <div class="parallax-orb parallax-orb-3" data-speed="0.025"></div>
+  </div>
 
-  <!-- Floating Resume CTA -->
-  <a href="Ayman_Mahfuz_resume.pdf" target="_blank" class="floating-resume-btn" title="View Resume">
-    <i class="fas fa-file-pdf"></i>
-    <span>Resume</span>
+  <!-- Nav Toggle (mobile) -->
+  <div class="nav-toggle" onclick="document.getElementById('sidebar').classList.toggle('open')">&#9776;</div>
+
+  <!-- Floating Resume -->
+  <a href="Ayman_Mahfuz_resume.pdf" target="_blank" class="floating-btn">
+    <i class="fas fa-file-pdf"></i> <span>Resume</span>
   </a>
 
+  <!-- Sidebar with pill nav -->
   <nav id="sidebar">
     <ul>
-      <li><a href="#home">Home</a></li>
+      <li><a href="#home" class="active">Home</a></li>
       <li><a href="#featured">Featured</a></li>
       <li><a href="#about-me">About Me</a></li>
       <li><a href="#education">Education</a></li>
+      <li><a href="#resume">Resume</a></li>
       <li><a href="#experience">Experience</a></li>
       <li><a href="#projects">Projects</a></li>
       <li><a href="#skills">Skills</a></li>
-      <li><a href="#resume">Resume</a></li>
       <li><a href="#hobbies">Hobbies</a></li>
     </ul>
   </nav>
 
   <main>
+    <!-- ===== HERO ===== -->
     <section id="home" class="hero">
-      <div class="hero-content">
-        <img class="prof-pic" src="Facetune_07-05-2024-16-02-47.jpg" alt="Ayman Mahfuz" />
-        <h1>Ayman Mahfuz</h1>
-        <p>
-          Computer Science Student | Software Engineer
-          & Machine Learning Researcher
-        </p>
-        <div class="hero-metrics">
-          <span class="hero-metric"><i class="fas fa-trophy"></i> RoboCup 2025 Bronze</span>
-          <span class="hero-metric"><i class="fas fa-lightbulb"></i> Patent Pending</span>
-          <span class="hero-metric"><i class="fas fa-flask"></i> 4 Research Labs</span>
-          <span class="hero-metric"><i class="fas fa-microchip"></i> ML @ Arm</span>
-        </div>
-        <div class="links">
-          <a href="https://www.linkedin.com/in/aymanmahfuz/" target="_blank" class="hero-btn hero-btn-secondary">
-            <i class="fab fa-linkedin"></i> LinkedIn
-          </a>
-          <a href="https://github.com/AymanMahfuz27" target="_blank" class="hero-btn hero-btn-secondary">
-            <i class="fab fa-github"></i> GitHub
-          </a>
-          <a href="https://aymanmahfuz27.github.io/principles-first-blog/" target="_blank"
-            class="hero-btn hero-btn-primary">
-            <i class="fas fa-blog"></i> Read my Blog
-          </a>
-          <a href="#resume" class="hero-btn hero-btn-primary">
-            <i class="fas fa-file-pdf"></i> View Resume
-          </a>
+      <div class="hero-inner reveal">
+        <img class="prof-pic" src="Facetune_07-05-2024-16-02-47.jpg" alt="Ayman Mahfuz" data-parallax-speed="0.05" />
+        <div class="hero-text">
+          <h1><span class="name-first">Ayman</span> <span class="name-last">Mahfuz</span></h1>
+          <p class="subtitle">Computer Science Student | Software Engineer & Machine Learning Researcher</p>
+          <div class="hero-metrics">
+            <span class="hero-metric"><i class="fas fa-trophy"></i> RoboCup 2025 Bronze</span>
+            <span class="hero-metric"><i class="fas fa-lightbulb"></i> Patent Pending</span>
+            <span class="hero-metric"><i class="fas fa-flask"></i> 4 Research Labs</span>
+            <span class="hero-metric"><i class="fas fa-microchip"></i> ML @ Arm</span>
+          </div>
+          <div class="hero-links">
+            <a href="https://www.linkedin.com/in/aymanmahfuz/" target="_blank" class="btn-ghost"><i class="fab fa-linkedin"></i> LinkedIn</a>
+            <a href="https://github.com/AymanMahfuz27" target="_blank" class="btn-ghost"><i class="fab fa-github"></i> GitHub</a>
+            <a href="https://aymanmahfuz27.github.io/principles-first-blog/" target="_blank" class="btn-primary"><i class="fas fa-blog"></i> Read my Blog</a>
+            <a href="#resume" class="btn-primary"><i class="fas fa-file-pdf"></i> View Resume</a>
+          </div>
         </div>
       </div>
     </section>
 
-    <!-- Featured Achievements Section -->
-    <section id="featured" class="featured-section">
-      <h2>Featured Impact</h2>
+    <div class="section-divider"></div>
+
+    <!-- ===== FEATURED IMPACT ===== -->
+    <section id="featured" class="section">
+      <div class="section-label reveal">Highlights</div>
+      <h2 class="reveal">Featured Impact</h2>
       <div class="featured-grid">
-
-        <!-- Arm Achievement -->
-        <article class="featured-card featured-arm">
-          <div class="featured-icon">
-            <i class="fas fa-microchip"></i>
-          </div>
-          <div class="featured-metric">99.8th</div>
-          <div class="featured-metric-label">Percentile</div>
+        <article class="feat-card feat-arm reveal reveal-d1">
+          <div class="feat-icon"><i class="fas fa-microchip"></i></div>
+          <div class="feat-num">99.8<span style="font-size:0.5em">th</span></div>
+          <div class="feat-num-label">Percentile</div>
           <h3>Patent-Pending ML Validation</h3>
-          <p>First-of-its-kind Bayesian Optimization framework that discovers worst-case hardware stress in &lt;1% of
-            search space at Arm</p>
-          <div class="featured-tags">
-            <span class="featured-tag">Python</span>
-            <span class="featured-tag">Bayesian Optimization</span>
-            <span class="featured-tag">Random Forests</span>
+          <p>First-of-its-kind Bayesian Optimization framework that discovers worst-case hardware stress in &lt;1% of search space at Arm</p>
+          <div class="feat-tags">
+            <span class="feat-tag">Python</span>
+            <span class="feat-tag">Bayesian Optimization</span>
+            <span class="feat-tag">Random Forests</span>
           </div>
         </article>
-
-        <!-- RoboCup Achievement -->
-        <article class="featured-card featured-robocup">
-          <div class="featured-icon">
-            <i class="fas fa-trophy"></i>
-          </div>
-          <div class="featured-metric">🥉 Bronze</div>
-          <div class="featured-metric-label">RoboCup 2025</div>
+        <article class="feat-card feat-robocup reveal reveal-d2">
+          <div class="feat-icon"><i class="fas fa-trophy"></i></div>
+          <div class="feat-num">Bronze</div>
+          <div class="feat-num-label">RoboCup 2025</div>
           <h3>Multi-Agent RL for Robot Soccer</h3>
-          <p>Core AI developer for UT Austin Villa's 7v7 robot soccer team, building RL-powered agent skills that won
-            3rd place globally</p>
-          <div class="featured-tags">
-            <span class="featured-tag">Reinforcement Learning</span>
-            <span class="featured-tag">C++</span>
-            <span class="featured-tag">GPU Optimization</span>
+          <p>Core AI developer for UT Austin Villa's 7v7 robot soccer team, building RL-powered agent skills that won 3rd place globally</p>
+          <div class="feat-tags">
+            <span class="feat-tag">Reinforcement Learning</span>
+            <span class="feat-tag">C++</span>
+            <span class="feat-tag">GPU Optimization</span>
           </div>
         </article>
-
-        <!-- CMS Achievement -->
-        <article class="featured-card featured-cms">
-          <div class="featured-icon">
-            <i class="fas fa-chart-line"></i>
-          </div>
-          <div class="featured-metric">150M+</div>
-          <div class="featured-metric-label">Data Entries</div>
+        <article class="feat-card feat-cms reveal reveal-d3">
+          <div class="feat-icon"><i class="fas fa-chart-line"></i></div>
+          <div class="feat-num">150M+</div>
+          <div class="feat-num-label">Data Entries</div>
           <h3>Large-Scale Media Analysis Pipeline</h3>
-          <p>Built end-to-end data/ML infrastructure processing 50M+ articles and 70M+ comments with 99%+ accuracy BERT
-            models at UT's Center for Media Engagement</p>
-          <div class="featured-tags">
-            <span class="featured-tag">BERT</span>
-            <span class="featured-tag">BigQuery</span>
-            <span class="featured-tag">React/Flask</span>
+          <p>Built end-to-end data/ML infrastructure processing 50M+ articles and 70M+ comments with 99%+ accuracy BERT models at UT's Center for Media Engagement</p>
+          <div class="feat-tags">
+            <span class="feat-tag">BERT</span>
+            <span class="feat-tag">BigQuery</span>
+            <span class="feat-tag">React/Flask</span>
           </div>
         </article>
-
       </div>
     </section>
 
+    <div class="section-divider"></div>
 
-    <section id="about-me" class="container">
-      <h2>About Me</h2>
-      <div class="about-me-content">
-        <p>Hi, I'm Ayman. I'm a cs student at UT Austin (Hook 'em) pursuing a concentration in AI and ML. I've worked
-          across 4 labs at UT as a undergrad research assistant, from building RL envs for robot soccer to implementing
-          and benchmarking ViTs and LLMs to aid medical research. I currently do ML research at ARM to optimize
-          post-silicon validation. I love building impactful projects and solving complex problems, and I'm extremely
-          passionate about deep learning.</p>
-        <p>
-        </p>
-        <ul>
-          <li><strong>Patent-pending ML validation at Arm:</strong> Indusrty-first Bayesian optimization that uncovers
-            worst-case CPU &
-            memory stress in <1 % of the search space.</li>
-          <li><strong>RoboCup 2025 bronze:</strong> Worked on multi-agent reinforcement-learning skills and enviorments
-            powering UT Austin Villa's
-            7-v-7 robot soccer team, where we won bronze in a global tournament.</li>
-          <li><strong>200 M-entry media pipeline:</strong> Built data/ML stack & fine-tuned BERT models (99 %+ accuracy)
-            for UT's Center for Media Engagement.</li>
-          <li><strong>Pancreas MRI segmentation on H100s using computer vision and transformers:</strong> Engineered 3D
-            medical-image pipeline, achieving +12 % Dice at the Oden Institute.</li>
-          <li><strong>Youngest speaker, UT AI Health Symposium:</strong> Presented research on multi-agent LLM clinical
-            reasoning.</li>
+    <!-- ===== ABOUT ME ===== -->
+    <section id="about-me" class="section">
+      <div class="section-label reveal">Background</div>
+      <h2 class="reveal">About Me</h2>
+      <div class="about-card reveal">
+        <p>Hi, I'm Ayman. I'm a cs student at UT Austin (Hook 'em) pursuing a concentration in AI and ML. I've worked across 4 labs at UT as a undergrad research assistant, from building RL envs for robot soccer to implementing and benchmarking ViTs and LLMs to aid medical research. I currently do ML research at ARM to optimize post-silicon validation. I love building impactful projects and solving complex problems, and I'm extremely passionate about deep learning.</p>
+        <ul class="about-bullets">
+          <li><strong>Patent-pending ML validation at Arm:</strong> Industry-first Bayesian optimization that uncovers worst-case CPU & memory stress in &lt;1% of the search space.</li>
+          <li><strong>RoboCup 2025 bronze:</strong> Worked on multi-agent reinforcement-learning skills and environments powering UT Austin Villa's 7-v-7 robot soccer team, where we won bronze in a global tournament.</li>
+          <li><strong>200 M-entry media pipeline:</strong> Built data/ML stack & fine-tuned BERT models (99%+ accuracy) for UT's Center for Media Engagement.</li>
+          <li><strong>Pancreas MRI segmentation on H100s using computer vision and transformers:</strong> Engineered 3D medical-image pipeline, achieving +12% Dice at the Oden Institute.</li>
+          <li><strong>Youngest speaker, UT AI Health Symposium:</strong> Presented research on multi-agent LLM clinical reasoning.</li>
         </ul>
       </div>
     </section>
 
-   
+    <div class="section-divider"></div>
 
-    <section id="education" class="container">
-      <h2>Education</h2>
-      <div class="education-content">
-        <div class="education-item">
-          <div class="education-header">
-            <div class="education-logo">UT</div>
-            <div class="education-header-text">
-              <h3>The University of Texas at Austin</h3>
-              <p>Bachelor of Science</p>
-              <p><strong>Location:</strong> Austin, TX, USA</p>
-            </div>
+    <!-- ===== EDUCATION ===== -->
+    <section id="education" class="section">
+      <div class="section-label reveal">Education</div>
+      <h2 class="reveal">Education</h2>
+      <div class="edu-card reveal">
+        <div class="edu-header">
+          <div class="edu-logo"><svg viewBox="0 0 120 120" width="52" height="52" fill="white"><path d="M60 10 C58 10 56 18 56 28 L56 40 C56 44 52 48 48 48 L44 48 C40 48 36 44 36 40 L36 28 C36 24 34 20 30 20 C26 20 24 24 24 28 L24 52 C24 72 40 88 60 88 C80 88 96 72 96 52 L96 28 C96 24 94 20 90 20 C86 20 84 24 84 28 L84 40 C84 44 80 48 76 48 L72 48 C68 48 64 44 64 40 L64 28 C64 18 62 10 60 10Z"/></svg></div>
+          <div>
+            <h3>The University of Texas at Austin</h3>
+            <p>Bachelor of Science</p>
+            <p><strong>Location:</strong> Austin, TX, USA</p>
           </div>
-          <div class="education-details">
-            <div class="education-column">
-              <p>
-                <strong>Major:</strong> Computer Science
-              </p>
-              <p>
-                <strong>Concentration:</strong> Artificial Intelligence and
-                Machine Learning
-              </p>
-            </div>
-            <div class="education-column">
-              <p><strong>Relevant Coursework:</strong></p>
-              <ul>
-                <li>Generative Visual Computing</li>
-                <li>Natural Language Processing</li>
-                <li>Science of High Performance Computing</li>
-                <li>Data Structures</li>
-                <li>Computer Architecture and Organization</li>
-                <li>Computer Systems and Operating Systems</li>
-                <li>Algorithms</li>
-                <li>Linear Algebra</li>
-                <li>Probability</li>
-              </ul>
-            </div>
+        </div>
+        <div class="edu-details">
+          <div>
+            <p><strong>Major:</strong> Computer Science</p>
+            <p><strong>Concentration:</strong> Artificial Intelligence and Machine Learning</p>
+          </div>
+          <div>
+            <p><strong>Relevant Coursework:</strong></p>
+            <ul class="edu-courses">
+              <li>Generative Visual Computing</li>
+              <li>Natural Language Processing</li>
+              <li>Science of High Performance Computing</li>
+              <li>Data Structures</li>
+              <li>Computer Architecture and Organization</li>
+              <li>Computer Systems and Operating Systems</li>
+              <li>Algorithms</li>
+              <li>Linear Algebra</li>
+              <li>Probability</li>
+            </ul>
           </div>
         </div>
       </div>
     </section>
 
-    <section id="experience" class="experience-section">
-      <h2>Experience</h2>
+    <div class="section-divider"></div>
 
-      <div class="experience-grid">
-        <!-- Current Role: Arm -->
-        <div class="experience-item flagship-role">
-          <div class="experience-content">
-            <h3>Arm</h3>
-            <p class="company-location">ML Research Engineer (Part-Time) | Austin, TX • May 2025 – Present</p>
-            <p class="summary">Independently proposed and built patent-pending ML framework using Bayesian Optimization
-              to automatically discover worst-case hardware stress tests, achieving 99.8th-percentile stress levels
-              while exploring <1% of configuration space. Automated 10,000+ hours of validation testing for
-                next-generation AI platforms.</p>
-                <ul class="tech-bullets">
-                  <li>Invented dual-surrogate Bayesian Optimization pipeline using Random Forests to navigate vast,
-                    non-linear search space of hardware parameters</li>
-                  <li>Achieved 99.8th-percentile hardware stress by intelligently exploring <1% of configuration space,
-                      automating 10,000+ validation hours</li>
-                  <li>Earned executive-level (SVP) recognition and pending patent; framework now key part of Arm's
-                    validation strategy</li>
-                </ul>
+    <!-- ===== RESUME (moved up) ===== -->
+    <section id="resume" class="section">
+      <h2 class="reveal">Resume</h2>
+      <div class="resume-wrap reveal">
+        <div class="resume-card">
+          <div class="resume-icon"><i class="fas fa-file-pdf"></i></div>
+          <h3>Resume</h3>
+          <p>View my latest resume</p>
+          <a href="Ayman_Mahfuz_resume.pdf" target="_blank" class="btn-primary"><i class="fas fa-eye"></i> View</a>
+        </div>
+      </div>
+    </section>
+
+    <div class="section-divider"></div>
+
+    <!-- ===== EXPERIENCE - TIMELINE ===== -->
+    <section id="experience" class="section">
+      <div class="section-label reveal">Career</div>
+      <h2 class="reveal">Experience</h2>
+      <div class="timeline-wrap">
+        <!-- Arm -->
+        <div class="exp-item flagship reveal">
+          <div class="exp-header">
+            <div>
+              <h3>Arm</h3>
+              <p class="exp-location">ML Research Engineer (Part-Time) | Austin, TX &bull; May 2025 - Present</p>
+            </div>
+            <span class="role-badge">CURRENT</span>
           </div>
-          <div class="role-badge">CURRENT</div>
+          <p class="exp-summary">Independently proposed and built patent-pending ML framework using Bayesian Optimization to automatically discover worst-case hardware stress tests, achieving 99.8th-percentile stress levels while exploring &lt;1% of configuration space. Automated 10,000+ hours of validation testing for next-generation AI platforms.</p>
+          <ul class="exp-bullets">
+            <li>Invented dual-surrogate Bayesian Optimization pipeline using Random Forests to navigate vast, non-linear search space of hardware parameters</li>
+            <li>Achieved 99.8th-percentile hardware stress by intelligently exploring &lt;1% of configuration space, automating 10,000+ validation hours</li>
+            <li>Earned executive-level (SVP) recognition and pending patent; framework now key part of Arm's validation strategy</li>
+          </ul>
+          <div class="exp-expand-hint"><i class="fas fa-chevron-down" style="font-size:0.6rem"></i> Hover for details</div>
         </div>
 
-        <!-- Current Role: UT Robotics -->
-        <div class="experience-item flagship-role">
-          <div class="experience-content">
-            <h3>University of Texas – AI Lab, Texas Robotics</h3>
-            <p class="company-location">Research Assistant | Austin, TX • Jan 2025 – Present</p>
-            <p class="summary">Developed AI-driven agent skills that helped secure <a href="https://spl.robocup.org/results-2025/" target="_blank">3rd place at RoboCup 2025</a>. Built RL-based policies for walking, dribbling, and attacking in 400K-line C++ codebase, slashing training time 70% through GPU optimization.</p>
-            <ul class="tech-bullets">
-              <li>Designed hierarchical RL policies for all attacker behaviors, proving more robust than classical methods</li>
-              <li>Reduced RL training time 70% through aggressive GPU optimization and C++ simulator tuning</li>
-              <li>Pioneered curriculum learning strategies and novel reward shaping (Pitch Control, xG) for multi-agent RL</li>
-            </ul>
+        <!-- UT Robotics -->
+        <div class="exp-item flagship reveal">
+          <div class="exp-header">
+            <div>
+              <h3>University of Texas - AI Lab, Texas Robotics</h3>
+              <p class="exp-location">Research Assistant | Austin, TX &bull; Jan 2025 - Present</p>
+            </div>
+            <span class="role-badge">BRONZE</span>
           </div>
-          <div class="role-badge">BRONZE</div>
+          <p class="exp-summary">Developed AI-driven agent skills that helped secure <a href="https://spl.robocup.org/results-2025/" target="_blank">3rd place at RoboCup 2025</a>. Built RL-based policies for walking, dribbling, and attacking in 400K-line C++ codebase, slashing training time 70% through GPU optimization.</p>
+          <ul class="exp-bullets">
+            <li>Designed hierarchical RL policies for all attacker behaviors, proving more robust than classical methods</li>
+            <li>Reduced RL training time 70% through aggressive GPU optimization and C++ simulator tuning</li>
+            <li>Pioneered curriculum learning strategies and novel reward shaping (Pitch Control, xG) for multi-agent RL</li>
+          </ul>
+          <div class="exp-expand-hint"><i class="fas fa-chevron-down" style="font-size:0.6rem"></i> Hover for details</div>
         </div>
 
-        <!-- Sunwater Institute -->
-        <div class="experience-item">
-          <div class="experience-content">
-            <h3>The Sunwater Institute</h3>
-            <p class="company-location">Data Engineer Intern | North Bethesda, MD • Jan 2025 – March 2025</p>
-            <p class="summary">Built high-performance data pipelines for Legis-1 Platform, processing millions of legislative documents. Developed LLM pipelines using RAG and embeddings to analyze 500K+ legal records for AI-driven policy research.</p>
-            <ul class="tech-bullets">
-              <li>Optimized retrieval speed, storage efficiency, and AI-readiness for legislative database with millions of documents</li>
-              <li>Developed LLM pipelines with RAG, embeddings, and scalable processing across 500K+ legal records</li>
-            </ul>
+        <!-- Sunwater -->
+        <div class="exp-item reveal">
+          <div class="exp-header">
+            <div>
+              <h3>The Sunwater Institute</h3>
+              <p class="exp-location">Data Engineer Intern | North Bethesda, MD &bull; Jan 2025 - March 2025</p>
+            </div>
           </div>
+          <p class="exp-summary">Built high-performance data pipelines for Legis-1 Platform, processing millions of legislative documents. Developed LLM pipelines using RAG and embeddings to analyze 500K+ legal records for AI-driven policy research.</p>
+          <ul class="exp-bullets">
+            <li>Optimized retrieval speed, storage efficiency, and AI-readiness for legislative database with millions of documents</li>
+            <li>Developed LLM pipelines with RAG, embeddings, and scalable processing across 500K+ legal records</li>
+          </ul>
+          <div class="exp-expand-hint"><i class="fas fa-chevron-down" style="font-size:0.6rem"></i> Hover for details</div>
         </div>
 
-        <!-- UT Center for Media Engagement -->
-        <div class="experience-item">
-          <div class="experience-content">
-            <h3>University of Texas – Center for Media Engagement</h3>
-            <p class="company-location">Software Engineer, Research Assistant | Austin, TX • Sep 2023 – May 2025</p>
-            <p class="summary">Built 150M-entry dataset processing 50M+ articles and 70M+ comments. Fine-tuned BERT models achieving 99% accuracy for NLP tasks. Designed React/Flask/Firebase platform serving 1,000+ participants with 99.99% uptime.</p>
-            <ul class="tech-bullets">
-              <li>Engineered data pipelines to BigQuery using APIs, sitemaps, and Pandas; built dashboards with Python and SQL</li>
-              <li>Fine-tuned BERT models for clickbait detection, story ID, entity recognition, sentiment analysis (99% accuracy)</li>
-              <li>Built React/Flask/Firebase platform with 3 interactive games, MTurk integration, 15+ metrics tracking</li>
-            </ul>
+        <!-- UT CMS -->
+        <div class="exp-item reveal">
+          <div class="exp-header">
+            <div>
+              <h3>University of Texas - Center for Media Engagement</h3>
+              <p class="exp-location">Software Engineer, Research Assistant | Austin, TX &bull; Sep 2023 - May 2025</p>
+            </div>
           </div>
+          <p class="exp-summary">Built 150M-entry dataset processing 50M+ articles and 70M+ comments. Fine-tuned BERT models achieving 99% accuracy for NLP tasks. Designed React/Flask/Firebase platform serving 1,000+ participants with 99.99% uptime.</p>
+          <ul class="exp-bullets">
+            <li>Engineered data pipelines to BigQuery using APIs, sitemaps, and Pandas; built dashboards with Python and SQL</li>
+            <li>Fine-tuned BERT models for clickbait detection, story ID, entity recognition, sentiment analysis (99% accuracy)</li>
+            <li>Built React/Flask/Firebase platform with 3 interactive games, MTurk integration, 15+ metrics tracking</li>
+          </ul>
+          <div class="exp-expand-hint"><i class="fas fa-chevron-down" style="font-size:0.6rem"></i> Hover for details</div>
         </div>
 
-        <!-- UT Oden Institute -->
-        <div class="experience-item">
-          <div class="experience-content">
-            <h3>University of Texas - Oden Institute</h3>
-            <p class="company-location">ML Research Assistant | Austin, TX • Feb 2024 – Jan 2025</p>
-            <p class="summary">Built containerized 3D pancreas MRI segmentation pipeline on H100 supercomputer using CNNs and transformers. Achieved +12% Dice gain matching SOTA performance across 1000+ scans with 5-fold cross-validation.</p>
-            <ul class="tech-bullets">
-              <li>Engineered Apptainer/SLURM pipeline on TACC H100s, achieving +12% Dice gain with hybrid architectures</li>
-              <li>Benchmarked CNNs, vision transformers, and hybrids across 1000+ scans, finding PanSegNet excels for small organs</li>
-              <li>Resolved GPU memory bottlenecks, I/O lag, and mixed precision instability for stable large-scale training</li>
-            </ul>
+        <!-- Oden -->
+        <div class="exp-item reveal">
+          <div class="exp-header">
+            <div>
+              <h3>University of Texas - Oden Institute</h3>
+              <p class="exp-location">ML Research Assistant | Austin, TX &bull; Feb 2024 - Jan 2025</p>
+            </div>
           </div>
+          <p class="exp-summary">Built containerized 3D pancreas MRI segmentation pipeline on H100 supercomputer using CNNs and transformers. Achieved +12% Dice gain matching SOTA performance across 1000+ scans with 5-fold cross-validation.</p>
+          <ul class="exp-bullets">
+            <li>Engineered Apptainer/SLURM pipeline on TACC H100s, achieving +12% Dice gain with hybrid architectures</li>
+            <li>Benchmarked CNNs, vision transformers, and hybrids across 1000+ scans, finding PanSegNet excels for small organs</li>
+            <li>Resolved GPU memory bottlenecks, I/O lag, and mixed precision instability for stable large-scale training</li>
+          </ul>
+          <div class="exp-expand-hint"><i class="fas fa-chevron-down" style="font-size:0.6rem"></i> Hover for details</div>
         </div>
 
-        <!-- UT School of Information -->
-        <div class="experience-item">
-          <div class="experience-content">
-            <h3>University of Texas - School of Information</h3>
-            <p class="company-location">Research Assistant | Austin, TX • Feb 2024 – Jan 2025</p>
-            <p class="summary">Designed multiagent LLM research project studying diagnostic consistency in medical reasoning. Applied Cohen's Kappa, Chi-square tests, and logistic regression to assess agreement and bias. Presented at UT AI Health Conference as youngest speaker.</p>
-            <ul class="tech-bullets">
-              <li><a href="ut informatics health llms ying ding report.pdf" target="_blank">Project on page 124 of this report</a></li>
-              <li>Tested multiagent LLM consistency with demographic/symptom variations; analyzed inter-agent communication patterns</li>
-              <li>Applied Cohen's Kappa, Chi-square, logistic regression to assess agreement, accuracy, and bias across agents</li>
-            </ul>
+        <!-- School of Info -->
+        <div class="exp-item reveal">
+          <div class="exp-header">
+            <div>
+              <h3>University of Texas - School of Information</h3>
+              <p class="exp-location">Research Assistant | Austin, TX &bull; Feb 2024 - Jan 2025</p>
+            </div>
           </div>
+          <p class="exp-summary">Designed multiagent LLM research project studying diagnostic consistency in medical reasoning. Applied Cohen's Kappa, Chi-square tests, and logistic regression to assess agreement and bias. Presented at UT AI Health Conference as youngest speaker.</p>
+          <ul class="exp-bullets">
+            <li><a href="ut informatics health llms ying ding report.pdf" target="_blank">Project on page 124 of this report</a></li>
+            <li>Tested multiagent LLM consistency with demographic/symptom variations; analyzed inter-agent communication patterns</li>
+            <li>Applied Cohen's Kappa, Chi-square, logistic regression to assess agreement, accuracy, and bias across agents</li>
+          </ul>
+          <div class="exp-expand-hint"><i class="fas fa-chevron-down" style="font-size:0.6rem"></i> Hover for details</div>
         </div>
 
-        <!-- Lockheed Martin -->
-        <div class="experience-item">
-          <div class="experience-content">
-            <h3>Lockheed Martin</h3>
-            <p class="company-location">Software Engineer Intern | Remote • Jun 2022 – Oct 2022</p>
-            <p class="summary">Optimized CRM workflows with JavaScript and RPA, achieving centralized device data framework. Refined Configuration Database, purging redundant records and presenting data-driven insights to executives.</p>
-            <ul class="tech-bullets">
-              <li>Developed CRM workflows achieving centralized device data framework for enhanced enterprise efficiency</li>
-              <li>Implemented RPA for data de-duplication, streamlining processes and elevating data integrity</li>
-            </ul>
+        <!-- Lockheed -->
+        <div class="exp-item reveal">
+          <div class="exp-header">
+            <div>
+              <h3>Lockheed Martin</h3>
+              <p class="exp-location">Software Engineer Intern | Remote &bull; Jun 2022 - Oct 2022</p>
+            </div>
           </div>
+          <p class="exp-summary">Optimized CRM workflows with JavaScript and RPA, achieving centralized device data framework. Refined Configuration Database, purging redundant records and presenting data-driven insights to executives.</p>
+          <ul class="exp-bullets">
+            <li>Developed CRM workflows achieving centralized device data framework for enhanced enterprise efficiency</li>
+            <li>Implemented RPA for data de-duplication, streamlining processes and elevating data integrity</li>
+          </ul>
+          <div class="exp-expand-hint"><i class="fas fa-chevron-down" style="font-size:0.6rem"></i> Hover for details</div>
         </div>
 
-        <!-- University of Maryland -->
-        <div class="experience-item">
-          <div class="experience-content">
-            <h3>University of Maryland – College Park</h3>
-            <p class="company-location">Research Intern | Remote • Jun 2023 – May 2024</p>
-            <p class="summary">Built NLP-driven chatbot for online news engagement using deep learning. Executed text analytics with POS tagging, LIWC, and sentence embeddings. Published research at CHI 2024 conference.</p>
-            <ul class="tech-bullets">
-              <li><a href="https://arxiv.org/abs/2312.10650" target="_blank">Published at CHI 2024 conference</a></li>
-              <li>Led NLP chatbot development for news reader engagement, conducting studies on human-chatbot dynamics</li>
-              <li>Performed text analytics using POS tagging, LIWC, and clustering on sentence embeddings with Python</li>
-            </ul>
+        <!-- UMD -->
+        <div class="exp-item reveal">
+          <div class="exp-header">
+            <div>
+              <h3>University of Maryland - College Park</h3>
+              <p class="exp-location">Research Intern | Remote &bull; Jun 2023 - May 2024</p>
+            </div>
           </div>
+          <p class="exp-summary">Built NLP-driven chatbot for online news engagement using deep learning. Executed text analytics with POS tagging, LIWC, and sentence embeddings. Published research at CHI 2024 conference.</p>
+          <ul class="exp-bullets">
+            <li><a href="https://arxiv.org/abs/2312.10650" target="_blank">Published at CHI 2024 conference</a></li>
+            <li>Led NLP chatbot development for news reader engagement, conducting studies on human-chatbot dynamics</li>
+            <li>Performed text analytics using POS tagging, LIWC, and clustering on sentence embeddings with Python</li>
+          </ul>
+          <div class="exp-expand-hint"><i class="fas fa-chevron-down" style="font-size:0.6rem"></i> Hover for details</div>
         </div>
 
         <!-- City of Austin -->
-        <div class="experience-item">
-          <div class="experience-content">
-            <h3>City of Austin</h3>
-            <p class="company-location">Software Engineer Intern | Austin, TX • Jun 2021 – Aug 2021</p>
-            <p class="summary">Improved post-COVID loan processing workflows for small businesses using Python scripting and data visualization to streamline operations.</p>
+        <div class="exp-item reveal">
+          <div class="exp-header">
+            <div>
+              <h3>City of Austin</h3>
+              <p class="exp-location">Software Engineer Intern | Austin, TX &bull; Jun 2021 - Aug 2021</p>
+            </div>
           </div>
+          <p class="exp-summary">Improved post-COVID loan processing workflows for small businesses using Python scripting and data visualization to streamline operations.</p>
         </div>
 
         <!-- AT&T -->
-        <div class="experience-item">
-          <div class="experience-content">
-            <h3>AT&T</h3>
-            <p class="company-location">Summer Learning Academy | Austin, TX • Jun 2021 – Aug 2021</p>
-            <p class="summary">As youngest participant, gained exposure to AI, business strategies, and professional development while collaborating on tech-focused initiatives.</p>
+        <div class="exp-item reveal">
+          <div class="exp-header">
+            <div>
+              <h3>AT&T</h3>
+              <p class="exp-location">Summer Learning Academy | Austin, TX &bull; Jun 2021 - Aug 2021</p>
+            </div>
           </div>
+          <p class="exp-summary">As youngest participant, gained exposure to AI, business strategies, and professional development while collaborating on tech-focused initiatives.</p>
         </div>
       </div>
     </section>
 
-    <section id="projects" class="projects-section">
-      <!-- Section heading -->
-      <div class="section-header">
-        <h2>Projects</h2>
-        <p class="section-subtitle">Deep technical work spanning AI systems, LLMs, and generative models</p>
-      </div>
+    <div class="section-divider"></div>
 
-      <!-- Featured Projects - The Big Three -->
-      <div class="featured-projects">
-        
-        <!-- Featured 1: Helm -->
-        <article class="featured-project featured-project-cursor">
-          <div class="featured-project-glow"></div>
-          <div class="featured-project-content">
-            <div class="featured-project-header">
-              <div class="featured-project-icon">
-                <i class="fas fa-robot"></i>
-              </div>
-              <div class="featured-project-badges">
-                <span class="project-badge project-badge-live">
-                  <span class="pulse-dot"></span> Live Demo
-                </span>
-                <span class="project-badge project-badge-ai">AI-First</span>
+    <!-- ===== PROJECTS - 2x2 GRID ===== -->
+    <section id="projects" class="section">
+      <div class="section-label reveal">Portfolio</div>
+      <h2 class="reveal">Projects</h2>
+      <p class="reveal" style="color:var(--text-secondary);text-align:center;margin-top:-28px;margin-bottom:32px;font-size:0.95rem">Deep technical work spanning AI systems, LLMs, and generative models</p>
+
+      <div class="proj-grid">
+        <!-- Helm -->
+        <article class="proj-card reveal">
+          <div class="proj-glow" style="background:radial-gradient(ellipse 80% 100% at 20% 0%,rgba(125,158,138,0.3),transparent 60%)"></div>
+          <div class="proj-content">
+            <div class="proj-header">
+              <div class="proj-icon" style="background:linear-gradient(135deg,rgba(125,158,138,0.2),rgba(125,158,138,0.1));color:var(--accent-sage-light)"><i class="fas fa-robot"></i></div>
+              <div class="proj-badges">
+                <span class="proj-badge" style="background:rgba(125,158,138,0.15);color:var(--accent-sage-light);border:1px solid rgba(125,158,138,0.3)"><span class="pulse-dot"></span> Live Demo</span>
+                <span class="proj-badge" style="background:rgba(125,158,138,0.1);color:var(--accent-sage)">AI-First</span>
               </div>
             </div>
-
             <h3>Helm</h3>
-            <p class="featured-project-tagline">A Jira alternative with AI-first workflows</p>
-            
-            <p class="featured-project-description">
-              Natural language ticket management, auto-generated daily briefings, and live meeting capture 
-              that converts discussions into tickets automatically. Built an agentic system that reasons 
-              over your entire project context.
-            </p>
-            
-            <div class="featured-project-highlights">
-              <div class="highlight-item">
-                <span class="highlight-number">25+</span>
-                <span class="highlight-label">Callable Tools</span>
-              </div>
-              <div class="highlight-item">
-                <span class="highlight-number">Hybrid</span>
-                <span class="highlight-label">RAG Layer</span>
-              </div>
-              <div class="highlight-item">
-                <span class="highlight-number">Live</span>
-                <span class="highlight-label">Meeting Capture</span>
-              </div>
+            <p class="proj-tagline">A Jira alternative with AI-first workflows</p>
+            <p class="proj-desc">Natural language ticket management, auto-generated daily briefings, and live meeting capture that converts discussions into tickets automatically. Built an agentic system that reasons over your entire project context.</p>
+            <div class="proj-highlights">
+              <div class="proj-hl"><span class="proj-hl-num">25+</span><span class="proj-hl-label">Callable Tools</span></div>
+              <div class="proj-hl"><span class="proj-hl-num">Hybrid</span><span class="proj-hl-label">RAG Layer</span></div>
+              <div class="proj-hl"><span class="proj-hl-num">Live</span><span class="proj-hl-label">Meeting Capture</span></div>
             </div>
-            
-            <ul class="featured-project-details">
+            <ul class="proj-details">
               <li>Agentic LLM system via OpenAI function calling for contextual reasoning over tickets, GitHub PRs, commits, and transcripts</li>
               <li>Hybrid RAG combining SQL filtering with vector embeddings across all project data</li>
               <li>Auto-briefings that synthesize overnight activity, surface blockers, and recommend prioritized actions</li>
             </ul>
-            
-            <div class="featured-project-tech">
+            <div class="proj-tech">
               <span class="tech-tag">OpenAI Function Calling</span>
               <span class="tech-tag">RAG</span>
               <span class="tech-tag">Vector Embeddings</span>
               <span class="tech-tag">React</span>
               <span class="tech-tag">PostgreSQL</span>
             </div>
-            
-            <div class="featured-project-actions">
-              <a href="https://cursor-for-pm-frontend.vercel.app/" target="_blank" class="project-action-btn project-action-primary">
-                <i class="fas fa-external-link-alt"></i> Try Live Demo
-              </a>
+            <div class="proj-actions">
+              <a href="https://cursor-for-pm-frontend.vercel.app/" target="_blank" class="proj-action"><i class="fas fa-external-link-alt"></i> Try Live Demo</a>
             </div>
           </div>
         </article>
 
-        <!-- Featured 2: Modern LLM -->
-        <article class="featured-project featured-project-llm">
-          <div class="featured-project-glow"></div>
-          <div class="featured-project-content">
-            <div class="featured-project-header">
-              <div class="featured-project-icon">
-                <i class="fas fa-brain"></i>
-              </div>
-              <div class="featured-project-badges">
-                <span class="project-badge project-badge-research">From Scratch</span>
-                <span class="project-badge project-badge-metrics">27.03 PPL</span>
+        <!-- Modern LLM -->
+        <article class="proj-card reveal">
+          <div class="proj-glow" style="background:radial-gradient(ellipse 80% 100% at 20% 0%,rgba(212,168,112,0.3),transparent 60%)"></div>
+          <div class="proj-content">
+            <div class="proj-header">
+              <div class="proj-icon" style="background:linear-gradient(135deg,rgba(212,168,112,0.2),rgba(212,168,112,0.1));color:var(--accent-honey)"><i class="fas fa-brain"></i></div>
+              <div class="proj-badges">
+                <span class="proj-badge" style="background:rgba(212,168,112,0.15);color:var(--accent-honey)">From Scratch</span>
+                <span class="proj-badge" style="background:rgba(74,5,28,0.2);color:var(--accent-coral)">27.03 PPL</span>
               </div>
             </div>
-            
             <h3>Modern LLM Training Pipeline</h3>
-            <p class="featured-project-tagline">253M parameter model outperforming GPT-2</p>
-            
-            <p class="featured-project-description">
-              Frontier-style LLM training pipeline from scratch with modern architectural choices 
-              and a complete alignment workflow: Pretrain → SFT → DPO → Verifier.
-            </p>
-            
-            <div class="featured-project-highlights">
-              <div class="highlight-item">
-                <span class="highlight-number">253M</span>
-                <span class="highlight-label">Parameters</span>
-              </div>
-              <div class="highlight-item">
-                <span class="highlight-number">-33%</span>
-                <span class="highlight-label">vs GPT-2 PPL</span>
-              </div>
-              <div class="highlight-item">
-                <span class="highlight-number">4</span>
-                <span class="highlight-label">Training Stages</span>
-              </div>
+            <p class="proj-tagline">253M parameter model outperforming GPT-2</p>
+            <p class="proj-desc">Frontier-style LLM training pipeline from scratch with modern architectural choices and a complete alignment workflow: Pretrain &rarr; SFT &rarr; DPO &rarr; Verifier.</p>
+            <div class="proj-highlights">
+              <div class="proj-hl"><span class="proj-hl-num">253M</span><span class="proj-hl-label">Parameters</span></div>
+              <div class="proj-hl"><span class="proj-hl-num">-33%</span><span class="proj-hl-label">vs GPT-2 PPL</span></div>
+              <div class="proj-hl"><span class="proj-hl-num">4</span><span class="proj-hl-label">Training Stages</span></div>
             </div>
-            
-            <ul class="featured-project-details">
+            <ul class="proj-details">
               <li><strong>RoPE:</strong> Rotary Position Embeddings for better length extrapolation</li>
               <li><strong>RMSNorm:</strong> Root Mean Square LayerNorm for faster, stable training</li>
               <li><strong>SwiGLU:</strong> Gated Linear Units with Swish activation (2-4% better than GELU)</li>
               <li><strong>Attention Sinks:</strong> Learnable tokens for stable generation beyond training context</li>
             </ul>
-            
-            <div class="featured-project-tech">
+            <div class="proj-tech">
               <span class="tech-tag">PyTorch</span>
               <span class="tech-tag">RoPE</span>
               <span class="tech-tag">RMSNorm</span>
@@ -478,60 +775,38 @@
               <span class="tech-tag">DPO</span>
               <span class="tech-tag">RLHF</span>
             </div>
-            
-            <div class="featured-project-actions">
-              <a href="https://github.com/AymanMahfuz27/modern_llm" target="_blank" class="project-action-btn project-action-primary">
-                <i class="fab fa-github"></i> View Repository
-              </a>
+            <div class="proj-actions">
+              <a href="https://github.com/AymanMahfuz27/modern_llm" target="_blank" class="proj-action"><i class="fab fa-github"></i> View Repository</a>
             </div>
           </div>
         </article>
 
-        <!-- Featured 3: Diffusion Models -->
-        <article class="featured-project featured-project-diffusion">
-          <div class="featured-project-glow"></div>
-          <div class="featured-project-content">
-            <div class="featured-project-header">
-              <div class="featured-project-icon">
-                <i class="fas fa-images"></i>
-              </div>
-              <div class="featured-project-badges">
-                <span class="project-badge project-badge-research">From Scratch</span>
-                <span class="project-badge project-badge-dual">MNIST + CIFAR</span>
+        <!-- Diffusion -->
+        <article class="proj-card reveal">
+          <div class="proj-glow" style="background:radial-gradient(ellipse 80% 100% at 20% 0%,rgba(107,129,140,0.3),transparent 60%)"></div>
+          <div class="proj-content">
+            <div class="proj-header">
+              <div class="proj-icon" style="background:linear-gradient(135deg,rgba(107,129,140,0.2),rgba(107,129,140,0.1));color:var(--accent-blue-light)"><i class="fas fa-images"></i></div>
+              <div class="proj-badges">
+                <span class="proj-badge" style="background:rgba(212,168,112,0.15);color:var(--accent-honey)">From Scratch</span>
+                <span class="proj-badge" style="background:rgba(107,129,140,0.15);color:var(--accent-blue-light)">MNIST + CIFAR</span>
               </div>
             </div>
-            
             <h3>Diffusion Models: DDPM & DDIM</h3>
-            <p class="featured-project-tagline">Denoising diffusion from first principles</p>
-            
-            <p class="featured-project-description">
-              Complete DDPM and DDIM implementations in PyTorch without relying on Hugging Face 
-              or diffusers. Trained on MNIST and CIFAR-10 with full analysis of speed/quality trade-offs.
-            </p>
-            
-            <div class="featured-project-highlights">
-              <div class="highlight-item">
-                <span class="highlight-number">2</span>
-                <span class="highlight-label">U-Net Architectures</span>
-              </div>
-              <div class="highlight-item">
-                <span class="highlight-number">DDPM</span>
-                <span class="highlight-label">+ DDIM Samplers</span>
-              </div>
-              <div class="highlight-item">
-                <span class="highlight-number">EMA</span>
-                <span class="highlight-label">Weight Averaging</span>
-              </div>
+            <p class="proj-tagline">Denoising diffusion from first principles</p>
+            <p class="proj-desc">Complete DDPM and DDIM implementations in PyTorch without relying on Hugging Face or diffusers. Trained on MNIST and CIFAR-10 with full analysis of speed/quality trade-offs.</p>
+            <div class="proj-highlights">
+              <div class="proj-hl"><span class="proj-hl-num">2</span><span class="proj-hl-label">U-Net Architectures</span></div>
+              <div class="proj-hl"><span class="proj-hl-num">DDPM</span><span class="proj-hl-label">+ DDIM Samplers</span></div>
+              <div class="proj-hl"><span class="proj-hl-num">EMA</span><span class="proj-hl-label">Weight Averaging</span></div>
             </div>
-            
-            <ul class="featured-project-details">
+            <ul class="proj-details">
               <li><strong>MNIST U-Net:</strong> Cosine noise schedule, sinusoidal time embeddings, self-attention bottleneck</li>
               <li><strong>CIFAR-10 U-Net:</strong> Multi-resolution self-attention, dropout, EMA for stable sampling</li>
               <li><strong>DDIM Sampling:</strong> Deterministic generation with arbitrary step counts (10-1000)</li>
               <li>Full speed/quality analysis comparing DDPM vs DDIM across step counts</li>
             </ul>
-            
-            <div class="featured-project-tech">
+            <div class="proj-tech">
               <span class="tech-tag">PyTorch</span>
               <span class="tech-tag">U-Net</span>
               <span class="tech-tag">DDPM</span>
@@ -539,146 +814,109 @@
               <span class="tech-tag">EMA</span>
               <span class="tech-tag">SLURM/HPC</span>
             </div>
-            
-            <div class="featured-project-actions">
-              <a href="https://github.com/AymanMahfuz27/stable-diffusion-from-scratch" target="_blank" class="project-action-btn project-action-primary">
-                <i class="fab fa-github"></i> View Repository
-              </a>
+            <div class="proj-actions">
+              <a href="https://github.com/AymanMahfuz27/stable-diffusion-from-scratch" target="_blank" class="proj-action"><i class="fab fa-github"></i> View Repository</a>
             </div>
           </div>
         </article>
-        <!-- Featured 4: TikTok Auto-Sorter -->
-        <article class="featured-project featured-project-tiktok">
-          <div class="featured-project-glow"></div>
-          <div class="featured-project-content">
-            <div class="featured-project-header">
-              <div class="featured-project-icon">
-                <i class="fab fa-tiktok"></i>
-              </div>
-              <div class="featured-project-badges">
-                <span class="project-badge project-badge-metrics">~90% Acc</span>
-                <span class="project-badge project-badge-ai">Multimodal</span>
+
+        <!-- TikTok -->
+        <article class="proj-card reveal">
+          <div class="proj-glow" style="background:radial-gradient(ellipse 80% 100% at 20% 0%,rgba(255,0,80,0.2),transparent 60%)"></div>
+          <div class="proj-content">
+            <div class="proj-header">
+              <div class="proj-icon" style="background:linear-gradient(135deg,rgba(255,0,80,0.2),rgba(255,0,80,0.1));color:#ff0050"><i class="fab fa-tiktok"></i></div>
+              <div class="proj-badges">
+                <span class="proj-badge" style="background:rgba(74,5,28,0.2);color:var(--accent-coral)">~90% Acc</span>
+                <span class="proj-badge" style="background:rgba(125,158,138,0.1);color:var(--accent-sage)">Multimodal</span>
               </div>
             </div>
-
             <h3>TikTok Video Auto-Sorter</h3>
-            <p class="featured-project-tagline">Multimodal ML that organizes your saved videos</p>
-
-            <p class="featured-project-description">
-              Automatically categorizes saved TikTok videos into user-defined folders by analyzing
-              visual and audio content. Reduces TikTok's 3-tap save flow to a single confirmation,
-              achieving ~90% accuracy with minimal labeled data.
-            </p>
-
-            <div class="featured-project-highlights">
-              <div class="highlight-item">
-                <span class="highlight-number">~90%</span>
-                <span class="highlight-label">Accuracy</span>
-              </div>
-              <div class="highlight-item">
-                <span class="highlight-number">600+</span>
-                <span class="highlight-label">Videos Sorted</span>
-              </div>
-              <div class="highlight-item">
-                <span class="highlight-number">2</span>
-                <span class="highlight-label">Modalities</span>
-              </div>
+            <p class="proj-tagline">Multimodal ML that organizes your saved videos</p>
+            <p class="proj-desc">Automatically categorizes saved TikTok videos into user-defined folders by analyzing visual and audio content. Reduces TikTok's 3-tap save flow to a single confirmation, achieving ~90% accuracy with minimal labeled data.</p>
+            <div class="proj-highlights">
+              <div class="proj-hl"><span class="proj-hl-num">~90%</span><span class="proj-hl-label">Accuracy</span></div>
+              <div class="proj-hl"><span class="proj-hl-num">600+</span><span class="proj-hl-label">Videos Sorted</span></div>
+              <div class="proj-hl"><span class="proj-hl-num">2</span><span class="proj-hl-label">Modalities</span></div>
             </div>
-
-            <ul class="featured-project-details">
-              <li><strong>Visual:</strong> Sample 5 frames per video → encode with CLIP (ViT-B/32) → 512-d vector</li>
-              <li><strong>Audio:</strong> Transcribe with Whisper → encode with CLIP text encoder → 512-d vector</li>
+            <ul class="proj-details">
+              <li><strong>Visual:</strong> Sample 5 frames per video &rarr; encode with CLIP (ViT-B/32) &rarr; 512-d vector</li>
+              <li><strong>Audio:</strong> Transcribe with Whisper &rarr; encode with CLIP text encoder &rarr; 512-d vector</li>
               <li><strong>Classifier:</strong> Two-layer MLP with class-weighted loss for imbalanced categories</li>
               <li>Interactive labeling UI modeled after TikTok with top-3 predictions and active learning retrain loop</li>
             </ul>
-
-            <div class="featured-project-tech">
+            <div class="proj-tech">
               <span class="tech-tag">PyTorch</span>
               <span class="tech-tag">CLIP</span>
               <span class="tech-tag">Whisper</span>
               <span class="tech-tag">FastAPI</span>
               <span class="tech-tag">Transfer Learning</span>
             </div>
-
-            <div class="featured-project-actions">
+            <div class="proj-actions">
+              <a href="https://github.com/AymanMahfuz27/tiktok-auto-collection-sorter" target="_blank" class="proj-action"><i class="fab fa-github"></i> View Repository</a>
             </div>
           </div>
         </article>
       </div>
 
-      <!-- Other Projects Carousel -->
-      <div class="other-projects-section">
-        <h3 class="other-projects-title">More Projects</h3>
-        <div class="carousel-container">
-          <button class="carousel-btn carousel-btn-prev" onclick="scrollCarousel(-1)" aria-label="Previous projects">
-            <i class="fas fa-chevron-left"></i>
-          </button>
-          
-          <div class="projects-carousel" id="projectsCarousel">
-            <!-- Inkwell -->
-            <article class="carousel-card">
-              <div class="carousel-card-icon">
-                <i class="fas fa-book-open"></i>
-              </div>
+      <!-- More Projects Carousel -->
+      <div class="carousel-section reveal">
+        <h3 class="carousel-title">More Projects</h3>
+        <div class="carousel-wrap">
+          <button class="carousel-btn" onclick="scrollCar(-1)"><i class="fas fa-chevron-left"></i></button>
+          <div class="carousel-track" id="carouselTrack">
+            <article class="car-card">
+              <div class="car-card-icon"><i class="fas fa-book-open"></i></div>
               <h4><a href="https://www.inkwellbooks.app/" target="_blank">Inkwell</a></h4>
               <p>YouTube for Books - dynamic book-sharing platform empowering authors</p>
-              <div class="carousel-tech">React • Django • AWS S3</div>
+              <div class="car-tech">React &bull; Django &bull; AWS S3</div>
             </article>
-
-            <!-- InReach AI -->
-            <article class="carousel-card">
-              <div class="carousel-card-icon">
-                <i class="fas fa-network-wired"></i>
-              </div>
+            <article class="car-card">
+              <div class="car-card-icon"><i class="fas fa-network-wired"></i></div>
               <h4><a href="https://inreach.ai/" target="_blank">InReach AI</a></h4>
               <p>AI networking tool with 200+ users - auto-drafts professional outreach</p>
-              <div class="carousel-tech">Flask • React • OpenAI</div>
+              <div class="car-tech">Flask &bull; React &bull; OpenAI</div>
             </article>
-
-            <!-- CodeXray -->
-            <article class="carousel-card">
-              <div class="carousel-card-icon">
-                <i class="fas fa-project-diagram"></i>
-              </div>
+            <article class="car-card">
+              <div class="car-card-icon"><i class="fas fa-project-diagram"></i></div>
               <h4><a href="https://codexray-frontend-3gr9rn2ug-aymanmahfuz27s-projects.vercel.app/" target="_blank">CodeXray</a></h4>
               <p>Graph-powered codebase explorer with GPT-4o for architecture visualization</p>
-              <div class="carousel-tech">React • AST • GPT-4o</div>
+              <div class="car-tech">React &bull; AST &bull; GPT-4o</div>
             </article>
-
-            <!-- LeetCode Matchmaker -->
-            <article class="carousel-card">
-              <div class="carousel-card-icon">
-                <i class="fas fa-code"></i>
-              </div>
+            <article class="car-card">
+              <div class="car-card-icon"><i class="fas fa-code"></i></div>
               <h4><a href="https://leetcode-matchmaker-2bb8b1daa393.herokuapp.com/" target="_blank">LeetCode Matchmaker</a></h4>
               <p>Find similar LeetCode problems using ML-powered matching</p>
-              <div class="carousel-tech">Flask • Scikit-learn • PostgreSQL</div>
+              <div class="car-tech">Flask &bull; Scikit-learn &bull; PostgreSQL</div>
             </article>
-
-            <!-- EAGLE Router -->
-            <article class="carousel-card">
-              <div class="carousel-card-icon">
-                <i class="fas fa-route"></i>
-              </div>
+            <article class="car-card">
+              <div class="car-card-icon"><i class="fas fa-route"></i></div>
               <h4><a href="https://github.com/AymanMahfuz27/Eagle-Router" target="_blank">EAGLE Router</a></h4>
               <p>Training-free multi-LLM router using ELO ratings and embeddings</p>
-              <div class="carousel-tech">Python • OpenAI • HuggingFace</div>
+              <div class="car-tech">Python &bull; OpenAI &bull; HuggingFace</div>
             </article>
-
+            <article class="car-card">
+              <div class="car-card-icon"><i class="fas fa-wallet"></i></div>
+              <h4><a href="https://github.com/AymanMahfuz27/finance-tracker" target="_blank">Finance Tracker</a></h4>
+              <p>Personal financial tracker for budgeting, expenses, and spending insights</p>
+              <div class="car-tech">Full-Stack &bull; Dashboard</div>
+            </article>
           </div>
-          
-          <button class="carousel-btn carousel-btn-next" onclick="scrollCarousel(1)" aria-label="Next projects">
-            <i class="fas fa-chevron-right"></i>
-          </button>
+          <button class="carousel-btn" onclick="scrollCar(1)"><i class="fas fa-chevron-right"></i></button>
         </div>
       </div>
     </section>
-    <section id="skills" class="container">
-      <h2>Skills</h2>
-      <div class="skills-container">
-        <div class="skills-group">
+
+    <div class="section-divider"></div>
+
+    <!-- ===== SKILLS ===== -->
+    <section id="skills" class="section">
+      <div class="section-label reveal">Toolkit</div>
+      <h2 class="reveal">Skills</h2>
+      <div class="skills-grid">
+        <div class="skill-group reveal">
           <h3>Programming Languages</h3>
-          <div class="skills">
+          <div class="skill-tags">
             <span class="skill-tag"><i class="fab fa-python"></i> Python</span>
             <span class="skill-tag"><i class="fab fa-java"></i> Java</span>
             <span class="skill-tag"><i class="fab fa-cuttlefish"></i> C</span>
@@ -689,152 +927,149 @@
             <span class="skill-tag"><i class="fab fa-php"></i> PHP</span>
           </div>
         </div>
-
-        <div class="skills-group">
+        <div class="skill-group reveal">
           <h3>Frontend Development</h3>
-          <div class="skills">
+          <div class="skill-tags">
             <span class="skill-tag"><i class="fab fa-react"></i> React.js</span>
             <span class="skill-tag"><i class="fab fa-node-js"></i> Node.js</span>
             <span class="skill-tag"><i class="fab fa-html5"></i> HTML/CSS</span>
           </div>
         </div>
-
-        <div class="skills-group">
+        <div class="skill-group reveal">
           <h3>Backend Development</h3>
-          <div class="skills">
+          <div class="skill-tags">
             <span class="skill-tag"><i class="fas fa-flask"></i> Flask</span>
             <span class="skill-tag"><i class="fab fa-python"></i> Django</span>
             <span class="skill-tag"><i class="fab fa-node-js"></i> Node.js</span>
           </div>
         </div>
-
-        <div class="skills-group">
-          <h3>Data Science & Machine Learning</h3>
-          <div class="skills">
+        <div class="skill-group reveal">
+          <h3>Data Science & ML</h3>
+          <div class="skill-tags">
             <span class="skill-tag"><i class="fas fa-chart-line"></i> Pandas</span>
             <span class="skill-tag"><i class="fas fa-chart-bar"></i> NumPy</span>
             <span class="skill-tag"><i class="fas fa-brain"></i> Scikit-learn</span>
           </div>
         </div>
-
-        <div class="skills-group">
+        <div class="skill-group reveal">
           <h3>Databases</h3>
-          <div class="skills">
+          <div class="skill-tags">
             <span class="skill-tag"><i class="fas fa-database"></i> SQL</span>
             <span class="skill-tag"><i class="fas fa-database"></i> PostgreSQL</span>
           </div>
         </div>
-
-        <div class="skills-group">
+        <div class="skill-group reveal">
           <h3>Tools & Libraries</h3>
-          <div class="skills">
+          <div class="skill-tags">
             <span class="skill-tag"><i class="fab fa-git"></i> Git</span>
             <span class="skill-tag"><i class="fas fa-cloud"></i> AWS</span>
             <span class="skill-tag"><i class="fab fa-google"></i> Google Cloud Platform</span>
           </div>
         </div>
-
-        <div class="skills-group">
+        <div class="skill-group reveal">
           <h3>Miscellaneous</h3>
-          <div class="skills">
+          <div class="skill-tags">
             <span class="skill-tag"><i class="fas fa-microchip"></i> ARM64</span>
             <span class="skill-tag"><i class="fab fa-square"></i> MATLAB</span>
           </div>
         </div>
       </div>
     </section>
-    <section id="resume" class="container">
-      <h2>📄 Resume</h2>
-      <div class="resume-container">
-        <div class="resume-card">
-          <div class="resume-icon">
-            <i class="fas fa-file-pdf"></i>
-          </div>
-          <h3>Resume</h3>
-          <p>View my latest resume</p>
-          <a href="Ayman_Mahfuz_resume.pdf" target="_blank" class="resume-download-btn">
-            <i class="fas fa-eye"></i> View
-          </a>
-        </div>
-      </div>
-    </section>
 
-    <section id="hobbies" class="container">
-      <h2>Hobbies & Interests</h2>
-      <div class="hobbies-container">
-        <div class="hobby-item">
+    <div class="section-divider"></div>
+
+    <!-- ===== HOBBIES ===== -->
+    <section id="hobbies" class="section">
+      <div class="section-label reveal">Beyond Code</div>
+      <h2 class="reveal">Hobbies & Interests</h2>
+      <div class="hobbies-grid">
+        <div class="hobby-card reveal">
           <i class="fas fa-brain"></i>
           <h3>Deep Learning</h3>
-          <p>
-            I'm passionate about learning and keeping up with the latest advancements in deep learning, from new
-            architectures to real-world applications.
-          </p>
+          <p>I'm passionate about learning and keeping up with the latest advancements in deep learning, from new architectures to real-world applications.</p>
         </div>
-        <div class="hobby-item">
+        <div class="hobby-card reveal">
           <i class="fas fa-dumbbell"></i>
           <h3>Weightlifting</h3>
           <p>I love spending time in the gym and hitting new maxes</p>
         </div>
-        <div class="hobby-item">
+        <div class="hobby-card reveal">
           <i class="fas fa-futbol"></i>
           <h3>Soccer</h3>
-          <p>
-            I've been playing soccer since I could walk. If I'm not working,
-            you can find me on the nearest field!
-          </p>
+          <p>I've been playing soccer since I could walk. If I'm not working, you can find me on the nearest field!</p>
         </div>
-        <div class="hobby-item">
+        <div class="hobby-card reveal">
           <i class="fas fa-users"></i>
           <h3>Family and Friends</h3>
-          <p>
-            I cherish spending quality time with friends and family, whether
-            it's a casual hangout or a special gathering.
-          </p>
+          <p>I cherish spending quality time with friends and family, whether it's a casual hangout or a special gathering.</p>
         </div>
-        <div class="hobby-item">
+        <div class="hobby-card reveal">
           <i class="fas fa-lightbulb"></i>
           <h3>Startups</h3>
-          <p>
-            I spend a lot of time working on my startups. Outside of coding,
-            it's asking people I'm close with for advice and feedback on my
-            current projects.
-          </p>
+          <p>I spend a lot of time working on my startups. Outside of coding, it's asking people I'm close with for advice and feedback on my current projects.</p>
         </div>
       </div>
     </section>
+
+    <footer>&copy; 2025 Ayman Mahfuz</footer>
   </main>
 
   <script>
-    function toggleNav() {
-      document.getElementById("sidebar").classList.toggle("open");
+    // Parallax orbs on scroll
+    let ticking = false;
+    window.addEventListener('scroll', () => {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          const y = window.scrollY;
+          document.querySelectorAll('.parallax-orb').forEach(orb => {
+            const s = parseFloat(orb.dataset.speed) || 0.02;
+            orb.style.transform = 'translateY(' + (y * s * -1) + 'px)';
+          });
+          // Profile pic parallax
+          const pic = document.querySelector('.prof-pic');
+          if (pic) {
+            const r = pic.getBoundingClientRect();
+            if (r.bottom > 0 && r.top < window.innerHeight) {
+              pic.style.transform = 'translateY(' + (y * -0.05) + 'px)';
+            }
+          }
+          ticking = false;
+        });
+        ticking = true;
+      }
+    });
+
+    // Scroll reveal
+    const observer = new IntersectionObserver((entries) => {
+      entries.forEach(e => { if (e.isIntersecting) e.target.classList.add('visible'); });
+    }, { threshold: 0.06, rootMargin: '0px 0px -30px 0px' });
+    document.querySelectorAll('.reveal').forEach(el => observer.observe(el));
+
+    // Active sidebar link on scroll
+    const sections = document.querySelectorAll('section[id]');
+    const navLinks = document.querySelectorAll('#sidebar a');
+    const sidebarObserver = new IntersectionObserver((entries) => {
+      entries.forEach(entry => {
+        if (entry.isIntersecting) {
+          navLinks.forEach(link => link.classList.remove('active'));
+          const active = document.querySelector('#sidebar a[href="#' + entry.target.id + '"]');
+          if (active) active.classList.add('active');
+        }
+      });
+    }, { threshold: 0.15, rootMargin: '-20% 0px -60% 0px' });
+    sections.forEach(s => sidebarObserver.observe(s));
+
+    // Close sidebar on mobile nav click
+    navLinks.forEach(link => {
+      link.addEventListener('click', () => {
+        document.getElementById('sidebar').classList.remove('open');
+      });
+    });
+
+    // Carousel
+    function scrollCar(dir) {
+      document.getElementById('carouselTrack').scrollBy({ left: dir * 270 * 2, behavior: 'smooth' });
     }
-
-    function scrollCarousel(direction) {
-      const carousel = document.getElementById('projectsCarousel');
-      const cardWidth = 276; // card width (260px) + gap (16px)
-      carousel.scrollBy({ left: direction * cardWidth * 2, behavior: 'smooth' });
-    }
-  </script>
-
-  <!-- Firebase Analytics -->
-  <script type="module">
-    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
-    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js";
-
-    const firebaseConfig = {
-      apiKey: "AIzaSyALCT_XguTSCkjQRXo7sr68li9hHRHPjCs",
-      authDomain: "personal-portfolio-f0cfd.firebaseapp.com",
-      databaseURL: "https://personal-portfolio-f0cfd-default-rtdb.firebaseio.com",
-      projectId: "personal-portfolio-f0cfd",
-      storageBucket: "personal-portfolio-f0cfd.firebasestorage.app",
-      messagingSenderId: "1038556174912",
-      appId: "1:1038556174912:web:bdcecd89a3b668959a5da5",
-      measurementId: "G-Z31302M1TF",
-    };
-
-    const app = initializeApp(firebaseConfig);
-    const analytics = getAnalytics(app);
   </script>
 </body>
-
 </html>

@@ -1,0 +1,840 @@
+<!DOCTYPE html>
+<html lang="en">
+
+<head>
+  <meta charset="UTF-8" />
+  <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+  <title>Ayman Mahfuz - Portfolio</title>
+  <!-- Preconnect for fonts -->
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+  <!-- DM Sans Font -->
+  <link href="https://fonts.googleapis.com/css2?family=DM+Sans:ital,opsz,wght@0,9..40,100..1000;1,9..40,100..1000&display=swap" rel="stylesheet" />
+  <!-- Icons -->
+  <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.5.1/css/all.min.css" />
+  <!-- Styles -->
+  <link rel="stylesheet" href="styles.css" />
+  <!-- Vercel Analytics -->
+  <script defer src="/_vercel/insights/script.js"></script>
+</head>
+<!-- Google tag (gtag.js) -->
+<script async src="https://www.googletagmanager.com/gtag/js?id=G-5WV0DT2D6Q"></script>
+<script>
+  window.dataLayer = window.dataLayer || [];
+  function gtag() { dataLayer.push(arguments); }
+  gtag("js", new Date());
+  gtag("config", "G-5WV0DT2D6Q");
+</script>
+
+<body>
+  <div class="nav-toggle" onclick="toggleNav()">☰</div>
+
+  <!-- Floating Resume CTA -->
+  <a href="Ayman_Mahfuz_resume.pdf" target="_blank" class="floating-resume-btn" title="View Resume">
+    <i class="fas fa-file-pdf"></i>
+    <span>Resume</span>
+  </a>
+
+  <nav id="sidebar">
+    <ul>
+      <li><a href="#home">Home</a></li>
+      <li><a href="#featured">Featured</a></li>
+      <li><a href="#about-me">About Me</a></li>
+      <li><a href="#education">Education</a></li>
+      <li><a href="#experience">Experience</a></li>
+      <li><a href="#projects">Projects</a></li>
+      <li><a href="#skills">Skills</a></li>
+      <li><a href="#resume">Resume</a></li>
+      <li><a href="#hobbies">Hobbies</a></li>
+    </ul>
+  </nav>
+
+  <main>
+    <section id="home" class="hero">
+      <div class="hero-content">
+        <img class="prof-pic" src="Facetune_07-05-2024-16-02-47.jpg" alt="Ayman Mahfuz" />
+        <h1>Ayman Mahfuz</h1>
+        <p>
+          Computer Science Student | Software Engineer
+          & Machine Learning Researcher
+        </p>
+        <div class="hero-metrics">
+          <span class="hero-metric"><i class="fas fa-trophy"></i> RoboCup 2025 Bronze</span>
+          <span class="hero-metric"><i class="fas fa-lightbulb"></i> Patent Pending</span>
+          <span class="hero-metric"><i class="fas fa-flask"></i> 4 Research Labs</span>
+          <span class="hero-metric"><i class="fas fa-microchip"></i> ML @ Arm</span>
+        </div>
+        <div class="links">
+          <a href="https://www.linkedin.com/in/aymanmahfuz/" target="_blank" class="hero-btn hero-btn-secondary">
+            <i class="fab fa-linkedin"></i> LinkedIn
+          </a>
+          <a href="https://github.com/AymanMahfuz27" target="_blank" class="hero-btn hero-btn-secondary">
+            <i class="fab fa-github"></i> GitHub
+          </a>
+          <a href="https://aymanmahfuz27.github.io/principles-first-blog/" target="_blank"
+            class="hero-btn hero-btn-primary">
+            <i class="fas fa-blog"></i> Read my Blog
+          </a>
+          <a href="#resume" class="hero-btn hero-btn-primary">
+            <i class="fas fa-file-pdf"></i> View Resume
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <!-- Featured Achievements Section -->
+    <section id="featured" class="featured-section">
+      <h2>Featured Impact</h2>
+      <div class="featured-grid">
+
+        <!-- Arm Achievement -->
+        <article class="featured-card featured-arm">
+          <div class="featured-icon">
+            <i class="fas fa-microchip"></i>
+          </div>
+          <div class="featured-metric">99.8th</div>
+          <div class="featured-metric-label">Percentile</div>
+          <h3>Patent-Pending ML Validation</h3>
+          <p>First-of-its-kind Bayesian Optimization framework that discovers worst-case hardware stress in &lt;1% of
+            search space at Arm</p>
+          <div class="featured-tags">
+            <span class="featured-tag">Python</span>
+            <span class="featured-tag">Bayesian Optimization</span>
+            <span class="featured-tag">Random Forests</span>
+          </div>
+        </article>
+
+        <!-- RoboCup Achievement -->
+        <article class="featured-card featured-robocup">
+          <div class="featured-icon">
+            <i class="fas fa-trophy"></i>
+          </div>
+          <div class="featured-metric">🥉 Bronze</div>
+          <div class="featured-metric-label">RoboCup 2025</div>
+          <h3>Multi-Agent RL for Robot Soccer</h3>
+          <p>Core AI developer for UT Austin Villa's 7v7 robot soccer team, building RL-powered agent skills that won
+            3rd place globally</p>
+          <div class="featured-tags">
+            <span class="featured-tag">Reinforcement Learning</span>
+            <span class="featured-tag">C++</span>
+            <span class="featured-tag">GPU Optimization</span>
+          </div>
+        </article>
+
+        <!-- CMS Achievement -->
+        <article class="featured-card featured-cms">
+          <div class="featured-icon">
+            <i class="fas fa-chart-line"></i>
+          </div>
+          <div class="featured-metric">150M+</div>
+          <div class="featured-metric-label">Data Entries</div>
+          <h3>Large-Scale Media Analysis Pipeline</h3>
+          <p>Built end-to-end data/ML infrastructure processing 50M+ articles and 70M+ comments with 99%+ accuracy BERT
+            models at UT's Center for Media Engagement</p>
+          <div class="featured-tags">
+            <span class="featured-tag">BERT</span>
+            <span class="featured-tag">BigQuery</span>
+            <span class="featured-tag">React/Flask</span>
+          </div>
+        </article>
+
+      </div>
+    </section>
+
+
+    <section id="about-me" class="container">
+      <h2>About Me</h2>
+      <div class="about-me-content">
+        <p>Hi, I'm Ayman. I'm a cs student at UT Austin (Hook 'em) pursuing a concentration in AI and ML. I've worked
+          across 4 labs at UT as a undergrad research assistant, from building RL envs for robot soccer to implementing
+          and benchmarking ViTs and LLMs to aid medical research. I currently do ML research at ARM to optimize
+          post-silicon validation. I love building impactful projects and solving complex problems, and I'm extremely
+          passionate about deep learning.</p>
+        <p>
+        </p>
+        <ul>
+          <li><strong>Patent-pending ML validation at Arm:</strong> Indusrty-first Bayesian optimization that uncovers
+            worst-case CPU &
+            memory stress in <1 % of the search space.</li>
+          <li><strong>RoboCup 2025 bronze:</strong> Worked on multi-agent reinforcement-learning skills and enviorments
+            powering UT Austin Villa's
+            7-v-7 robot soccer team, where we won bronze in a global tournament.</li>
+          <li><strong>200 M-entry media pipeline:</strong> Built data/ML stack & fine-tuned BERT models (99 %+ accuracy)
+            for UT's Center for Media Engagement.</li>
+          <li><strong>Pancreas MRI segmentation on H100s using computer vision and transformers:</strong> Engineered 3D
+            medical-image pipeline, achieving +12 % Dice at the Oden Institute.</li>
+          <li><strong>Youngest speaker, UT AI Health Symposium:</strong> Presented research on multi-agent LLM clinical
+            reasoning.</li>
+        </ul>
+      </div>
+    </section>
+
+   
+
+    <section id="education" class="container">
+      <h2>Education</h2>
+      <div class="education-content">
+        <div class="education-item">
+          <div class="education-header">
+            <div class="education-logo">UT</div>
+            <div class="education-header-text">
+              <h3>The University of Texas at Austin</h3>
+              <p>Bachelor of Science</p>
+              <p><strong>Location:</strong> Austin, TX, USA</p>
+            </div>
+          </div>
+          <div class="education-details">
+            <div class="education-column">
+              <p>
+                <strong>Major:</strong> Computer Science
+              </p>
+              <p>
+                <strong>Concentration:</strong> Artificial Intelligence and
+                Machine Learning
+              </p>
+            </div>
+            <div class="education-column">
+              <p><strong>Relevant Coursework:</strong></p>
+              <ul>
+                <li>Generative Visual Computing</li>
+                <li>Natural Language Processing</li>
+                <li>Science of High Performance Computing</li>
+                <li>Data Structures</li>
+                <li>Computer Architecture and Organization</li>
+                <li>Computer Systems and Operating Systems</li>
+                <li>Algorithms</li>
+                <li>Linear Algebra</li>
+                <li>Probability</li>
+              </ul>
+            </div>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="experience" class="experience-section">
+      <h2>Experience</h2>
+
+      <div class="experience-grid">
+        <!-- Current Role: Arm -->
+        <div class="experience-item flagship-role">
+          <div class="experience-content">
+            <h3>Arm</h3>
+            <p class="company-location">ML Research Engineer (Part-Time) | Austin, TX • May 2025 – Present</p>
+            <p class="summary">Independently proposed and built patent-pending ML framework using Bayesian Optimization
+              to automatically discover worst-case hardware stress tests, achieving 99.8th-percentile stress levels
+              while exploring <1% of configuration space. Automated 10,000+ hours of validation testing for
+                next-generation AI platforms.</p>
+                <ul class="tech-bullets">
+                  <li>Invented dual-surrogate Bayesian Optimization pipeline using Random Forests to navigate vast,
+                    non-linear search space of hardware parameters</li>
+                  <li>Achieved 99.8th-percentile hardware stress by intelligently exploring <1% of configuration space,
+                      automating 10,000+ validation hours</li>
+                  <li>Earned executive-level (SVP) recognition and pending patent; framework now key part of Arm's
+                    validation strategy</li>
+                </ul>
+          </div>
+          <div class="role-badge">CURRENT</div>
+        </div>
+
+        <!-- Current Role: UT Robotics -->
+        <div class="experience-item flagship-role">
+          <div class="experience-content">
+            <h3>University of Texas – AI Lab, Texas Robotics</h3>
+            <p class="company-location">Research Assistant | Austin, TX • Jan 2025 – Present</p>
+            <p class="summary">Developed AI-driven agent skills that helped secure <a href="https://spl.robocup.org/results-2025/" target="_blank">3rd place at RoboCup 2025</a>. Built RL-based policies for walking, dribbling, and attacking in 400K-line C++ codebase, slashing training time 70% through GPU optimization.</p>
+            <ul class="tech-bullets">
+              <li>Designed hierarchical RL policies for all attacker behaviors, proving more robust than classical methods</li>
+              <li>Reduced RL training time 70% through aggressive GPU optimization and C++ simulator tuning</li>
+              <li>Pioneered curriculum learning strategies and novel reward shaping (Pitch Control, xG) for multi-agent RL</li>
+            </ul>
+          </div>
+          <div class="role-badge">BRONZE</div>
+        </div>
+
+        <!-- Sunwater Institute -->
+        <div class="experience-item">
+          <div class="experience-content">
+            <h3>The Sunwater Institute</h3>
+            <p class="company-location">Data Engineer Intern | North Bethesda, MD • Jan 2025 – March 2025</p>
+            <p class="summary">Built high-performance data pipelines for Legis-1 Platform, processing millions of legislative documents. Developed LLM pipelines using RAG and embeddings to analyze 500K+ legal records for AI-driven policy research.</p>
+            <ul class="tech-bullets">
+              <li>Optimized retrieval speed, storage efficiency, and AI-readiness for legislative database with millions of documents</li>
+              <li>Developed LLM pipelines with RAG, embeddings, and scalable processing across 500K+ legal records</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- UT Center for Media Engagement -->
+        <div class="experience-item">
+          <div class="experience-content">
+            <h3>University of Texas – Center for Media Engagement</h3>
+            <p class="company-location">Software Engineer, Research Assistant | Austin, TX • Sep 2023 – May 2025</p>
+            <p class="summary">Built 150M-entry dataset processing 50M+ articles and 70M+ comments. Fine-tuned BERT models achieving 99% accuracy for NLP tasks. Designed React/Flask/Firebase platform serving 1,000+ participants with 99.99% uptime.</p>
+            <ul class="tech-bullets">
+              <li>Engineered data pipelines to BigQuery using APIs, sitemaps, and Pandas; built dashboards with Python and SQL</li>
+              <li>Fine-tuned BERT models for clickbait detection, story ID, entity recognition, sentiment analysis (99% accuracy)</li>
+              <li>Built React/Flask/Firebase platform with 3 interactive games, MTurk integration, 15+ metrics tracking</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- UT Oden Institute -->
+        <div class="experience-item">
+          <div class="experience-content">
+            <h3>University of Texas - Oden Institute</h3>
+            <p class="company-location">ML Research Assistant | Austin, TX • Feb 2024 – Jan 2025</p>
+            <p class="summary">Built containerized 3D pancreas MRI segmentation pipeline on H100 supercomputer using CNNs and transformers. Achieved +12% Dice gain matching SOTA performance across 1000+ scans with 5-fold cross-validation.</p>
+            <ul class="tech-bullets">
+              <li>Engineered Apptainer/SLURM pipeline on TACC H100s, achieving +12% Dice gain with hybrid architectures</li>
+              <li>Benchmarked CNNs, vision transformers, and hybrids across 1000+ scans, finding PanSegNet excels for small organs</li>
+              <li>Resolved GPU memory bottlenecks, I/O lag, and mixed precision instability for stable large-scale training</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- UT School of Information -->
+        <div class="experience-item">
+          <div class="experience-content">
+            <h3>University of Texas - School of Information</h3>
+            <p class="company-location">Research Assistant | Austin, TX • Feb 2024 – Jan 2025</p>
+            <p class="summary">Designed multiagent LLM research project studying diagnostic consistency in medical reasoning. Applied Cohen's Kappa, Chi-square tests, and logistic regression to assess agreement and bias. Presented at UT AI Health Conference as youngest speaker.</p>
+            <ul class="tech-bullets">
+              <li><a href="ut informatics health llms ying ding report.pdf" target="_blank">Project on page 124 of this report</a></li>
+              <li>Tested multiagent LLM consistency with demographic/symptom variations; analyzed inter-agent communication patterns</li>
+              <li>Applied Cohen's Kappa, Chi-square, logistic regression to assess agreement, accuracy, and bias across agents</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- Lockheed Martin -->
+        <div class="experience-item">
+          <div class="experience-content">
+            <h3>Lockheed Martin</h3>
+            <p class="company-location">Software Engineer Intern | Remote • Jun 2022 – Oct 2022</p>
+            <p class="summary">Optimized CRM workflows with JavaScript and RPA, achieving centralized device data framework. Refined Configuration Database, purging redundant records and presenting data-driven insights to executives.</p>
+            <ul class="tech-bullets">
+              <li>Developed CRM workflows achieving centralized device data framework for enhanced enterprise efficiency</li>
+              <li>Implemented RPA for data de-duplication, streamlining processes and elevating data integrity</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- University of Maryland -->
+        <div class="experience-item">
+          <div class="experience-content">
+            <h3>University of Maryland – College Park</h3>
+            <p class="company-location">Research Intern | Remote • Jun 2023 – May 2024</p>
+            <p class="summary">Built NLP-driven chatbot for online news engagement using deep learning. Executed text analytics with POS tagging, LIWC, and sentence embeddings. Published research at CHI 2024 conference.</p>
+            <ul class="tech-bullets">
+              <li><a href="https://arxiv.org/abs/2312.10650" target="_blank">Published at CHI 2024 conference</a></li>
+              <li>Led NLP chatbot development for news reader engagement, conducting studies on human-chatbot dynamics</li>
+              <li>Performed text analytics using POS tagging, LIWC, and clustering on sentence embeddings with Python</li>
+            </ul>
+          </div>
+        </div>
+
+        <!-- City of Austin -->
+        <div class="experience-item">
+          <div class="experience-content">
+            <h3>City of Austin</h3>
+            <p class="company-location">Software Engineer Intern | Austin, TX • Jun 2021 – Aug 2021</p>
+            <p class="summary">Improved post-COVID loan processing workflows for small businesses using Python scripting and data visualization to streamline operations.</p>
+          </div>
+        </div>
+
+        <!-- AT&T -->
+        <div class="experience-item">
+          <div class="experience-content">
+            <h3>AT&T</h3>
+            <p class="company-location">Summer Learning Academy | Austin, TX • Jun 2021 – Aug 2021</p>
+            <p class="summary">As youngest participant, gained exposure to AI, business strategies, and professional development while collaborating on tech-focused initiatives.</p>
+          </div>
+        </div>
+      </div>
+    </section>
+
+    <section id="projects" class="projects-section">
+      <!-- Section heading -->
+      <div class="section-header">
+        <h2>Projects</h2>
+        <p class="section-subtitle">Deep technical work spanning AI systems, LLMs, and generative models</p>
+      </div>
+
+      <!-- Featured Projects - The Big Three -->
+      <div class="featured-projects">
+        
+        <!-- Featured 1: Helm -->
+        <article class="featured-project featured-project-cursor">
+          <div class="featured-project-glow"></div>
+          <div class="featured-project-content">
+            <div class="featured-project-header">
+              <div class="featured-project-icon">
+                <i class="fas fa-robot"></i>
+              </div>
+              <div class="featured-project-badges">
+                <span class="project-badge project-badge-live">
+                  <span class="pulse-dot"></span> Live Demo
+                </span>
+                <span class="project-badge project-badge-ai">AI-First</span>
+              </div>
+            </div>
+
+            <h3>Helm</h3>
+            <p class="featured-project-tagline">A Jira alternative with AI-first workflows</p>
+            
+            <p class="featured-project-description">
+              Natural language ticket management, auto-generated daily briefings, and live meeting capture 
+              that converts discussions into tickets automatically. Built an agentic system that reasons 
+              over your entire project context.
+            </p>
+            
+            <div class="featured-project-highlights">
+              <div class="highlight-item">
+                <span class="highlight-number">25+</span>
+                <span class="highlight-label">Callable Tools</span>
+              </div>
+              <div class="highlight-item">
+                <span class="highlight-number">Hybrid</span>
+                <span class="highlight-label">RAG Layer</span>
+              </div>
+              <div class="highlight-item">
+                <span class="highlight-number">Live</span>
+                <span class="highlight-label">Meeting Capture</span>
+              </div>
+            </div>
+            
+            <ul class="featured-project-details">
+              <li>Agentic LLM system via OpenAI function calling for contextual reasoning over tickets, GitHub PRs, commits, and transcripts</li>
+              <li>Hybrid RAG combining SQL filtering with vector embeddings across all project data</li>
+              <li>Auto-briefings that synthesize overnight activity, surface blockers, and recommend prioritized actions</li>
+            </ul>
+            
+            <div class="featured-project-tech">
+              <span class="tech-tag">OpenAI Function Calling</span>
+              <span class="tech-tag">RAG</span>
+              <span class="tech-tag">Vector Embeddings</span>
+              <span class="tech-tag">React</span>
+              <span class="tech-tag">PostgreSQL</span>
+            </div>
+            
+            <div class="featured-project-actions">
+              <a href="https://cursor-for-pm-frontend.vercel.app/" target="_blank" class="project-action-btn project-action-primary">
+                <i class="fas fa-external-link-alt"></i> Try Live Demo
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Featured 2: Modern LLM -->
+        <article class="featured-project featured-project-llm">
+          <div class="featured-project-glow"></div>
+          <div class="featured-project-content">
+            <div class="featured-project-header">
+              <div class="featured-project-icon">
+                <i class="fas fa-brain"></i>
+              </div>
+              <div class="featured-project-badges">
+                <span class="project-badge project-badge-research">From Scratch</span>
+                <span class="project-badge project-badge-metrics">27.03 PPL</span>
+              </div>
+            </div>
+            
+            <h3>Modern LLM Training Pipeline</h3>
+            <p class="featured-project-tagline">253M parameter model outperforming GPT-2</p>
+            
+            <p class="featured-project-description">
+              Frontier-style LLM training pipeline from scratch with modern architectural choices 
+              and a complete alignment workflow: Pretrain → SFT → DPO → Verifier.
+            </p>
+            
+            <div class="featured-project-highlights">
+              <div class="highlight-item">
+                <span class="highlight-number">253M</span>
+                <span class="highlight-label">Parameters</span>
+              </div>
+              <div class="highlight-item">
+                <span class="highlight-number">-33%</span>
+                <span class="highlight-label">vs GPT-2 PPL</span>
+              </div>
+              <div class="highlight-item">
+                <span class="highlight-number">4</span>
+                <span class="highlight-label">Training Stages</span>
+              </div>
+            </div>
+            
+            <ul class="featured-project-details">
+              <li><strong>RoPE:</strong> Rotary Position Embeddings for better length extrapolation</li>
+              <li><strong>RMSNorm:</strong> Root Mean Square LayerNorm for faster, stable training</li>
+              <li><strong>SwiGLU:</strong> Gated Linear Units with Swish activation (2-4% better than GELU)</li>
+              <li><strong>Attention Sinks:</strong> Learnable tokens for stable generation beyond training context</li>
+            </ul>
+            
+            <div class="featured-project-tech">
+              <span class="tech-tag">PyTorch</span>
+              <span class="tech-tag">RoPE</span>
+              <span class="tech-tag">RMSNorm</span>
+              <span class="tech-tag">SwiGLU</span>
+              <span class="tech-tag">DPO</span>
+              <span class="tech-tag">RLHF</span>
+            </div>
+            
+            <div class="featured-project-actions">
+              <a href="https://github.com/AymanMahfuz27/modern_llm" target="_blank" class="project-action-btn project-action-primary">
+                <i class="fab fa-github"></i> View Repository
+              </a>
+            </div>
+          </div>
+        </article>
+
+        <!-- Featured 3: Diffusion Models -->
+        <article class="featured-project featured-project-diffusion">
+          <div class="featured-project-glow"></div>
+          <div class="featured-project-content">
+            <div class="featured-project-header">
+              <div class="featured-project-icon">
+                <i class="fas fa-images"></i>
+              </div>
+              <div class="featured-project-badges">
+                <span class="project-badge project-badge-research">From Scratch</span>
+                <span class="project-badge project-badge-dual">MNIST + CIFAR</span>
+              </div>
+            </div>
+            
+            <h3>Diffusion Models: DDPM & DDIM</h3>
+            <p class="featured-project-tagline">Denoising diffusion from first principles</p>
+            
+            <p class="featured-project-description">
+              Complete DDPM and DDIM implementations in PyTorch without relying on Hugging Face 
+              or diffusers. Trained on MNIST and CIFAR-10 with full analysis of speed/quality trade-offs.
+            </p>
+            
+            <div class="featured-project-highlights">
+              <div class="highlight-item">
+                <span class="highlight-number">2</span>
+                <span class="highlight-label">U-Net Architectures</span>
+              </div>
+              <div class="highlight-item">
+                <span class="highlight-number">DDPM</span>
+                <span class="highlight-label">+ DDIM Samplers</span>
+              </div>
+              <div class="highlight-item">
+                <span class="highlight-number">EMA</span>
+                <span class="highlight-label">Weight Averaging</span>
+              </div>
+            </div>
+            
+            <ul class="featured-project-details">
+              <li><strong>MNIST U-Net:</strong> Cosine noise schedule, sinusoidal time embeddings, self-attention bottleneck</li>
+              <li><strong>CIFAR-10 U-Net:</strong> Multi-resolution self-attention, dropout, EMA for stable sampling</li>
+              <li><strong>DDIM Sampling:</strong> Deterministic generation with arbitrary step counts (10-1000)</li>
+              <li>Full speed/quality analysis comparing DDPM vs DDIM across step counts</li>
+            </ul>
+            
+            <div class="featured-project-tech">
+              <span class="tech-tag">PyTorch</span>
+              <span class="tech-tag">U-Net</span>
+              <span class="tech-tag">DDPM</span>
+              <span class="tech-tag">DDIM</span>
+              <span class="tech-tag">EMA</span>
+              <span class="tech-tag">SLURM/HPC</span>
+            </div>
+            
+            <div class="featured-project-actions">
+              <a href="https://github.com/AymanMahfuz27/stable-diffusion-from-scratch" target="_blank" class="project-action-btn project-action-primary">
+                <i class="fab fa-github"></i> View Repository
+              </a>
+            </div>
+          </div>
+        </article>
+        <!-- Featured 4: TikTok Auto-Sorter -->
+        <article class="featured-project featured-project-tiktok">
+          <div class="featured-project-glow"></div>
+          <div class="featured-project-content">
+            <div class="featured-project-header">
+              <div class="featured-project-icon">
+                <i class="fab fa-tiktok"></i>
+              </div>
+              <div class="featured-project-badges">
+                <span class="project-badge project-badge-metrics">~90% Acc</span>
+                <span class="project-badge project-badge-ai">Multimodal</span>
+              </div>
+            </div>
+
+            <h3>TikTok Video Auto-Sorter</h3>
+            <p class="featured-project-tagline">Multimodal ML that organizes your saved videos</p>
+
+            <p class="featured-project-description">
+              Automatically categorizes saved TikTok videos into user-defined folders by analyzing
+              visual and audio content. Reduces TikTok's 3-tap save flow to a single confirmation,
+              achieving ~90% accuracy with minimal labeled data.
+            </p>
+
+            <div class="featured-project-highlights">
+              <div class="highlight-item">
+                <span class="highlight-number">~90%</span>
+                <span class="highlight-label">Accuracy</span>
+              </div>
+              <div class="highlight-item">
+                <span class="highlight-number">600+</span>
+                <span class="highlight-label">Videos Sorted</span>
+              </div>
+              <div class="highlight-item">
+                <span class="highlight-number">2</span>
+                <span class="highlight-label">Modalities</span>
+              </div>
+            </div>
+
+            <ul class="featured-project-details">
+              <li><strong>Visual:</strong> Sample 5 frames per video → encode with CLIP (ViT-B/32) → 512-d vector</li>
+              <li><strong>Audio:</strong> Transcribe with Whisper → encode with CLIP text encoder → 512-d vector</li>
+              <li><strong>Classifier:</strong> Two-layer MLP with class-weighted loss for imbalanced categories</li>
+              <li>Interactive labeling UI modeled after TikTok with top-3 predictions and active learning retrain loop</li>
+            </ul>
+
+            <div class="featured-project-tech">
+              <span class="tech-tag">PyTorch</span>
+              <span class="tech-tag">CLIP</span>
+              <span class="tech-tag">Whisper</span>
+              <span class="tech-tag">FastAPI</span>
+              <span class="tech-tag">Transfer Learning</span>
+            </div>
+
+            <div class="featured-project-actions">
+            </div>
+          </div>
+        </article>
+      </div>
+
+      <!-- Other Projects Carousel -->
+      <div class="other-projects-section">
+        <h3 class="other-projects-title">More Projects</h3>
+        <div class="carousel-container">
+          <button class="carousel-btn carousel-btn-prev" onclick="scrollCarousel(-1)" aria-label="Previous projects">
+            <i class="fas fa-chevron-left"></i>
+          </button>
+          
+          <div class="projects-carousel" id="projectsCarousel">
+            <!-- Inkwell -->
+            <article class="carousel-card">
+              <div class="carousel-card-icon">
+                <i class="fas fa-book-open"></i>
+              </div>
+              <h4><a href="https://www.inkwellbooks.app/" target="_blank">Inkwell</a></h4>
+              <p>YouTube for Books - dynamic book-sharing platform empowering authors</p>
+              <div class="carousel-tech">React • Django • AWS S3</div>
+            </article>
+
+            <!-- InReach AI -->
+            <article class="carousel-card">
+              <div class="carousel-card-icon">
+                <i class="fas fa-network-wired"></i>
+              </div>
+              <h4><a href="https://inreach.ai/" target="_blank">InReach AI</a></h4>
+              <p>AI networking tool with 200+ users - auto-drafts professional outreach</p>
+              <div class="carousel-tech">Flask • React • OpenAI</div>
+            </article>
+
+            <!-- CodeXray -->
+            <article class="carousel-card">
+              <div class="carousel-card-icon">
+                <i class="fas fa-project-diagram"></i>
+              </div>
+              <h4><a href="https://codexray-frontend-3gr9rn2ug-aymanmahfuz27s-projects.vercel.app/" target="_blank">CodeXray</a></h4>
+              <p>Graph-powered codebase explorer with GPT-4o for architecture visualization</p>
+              <div class="carousel-tech">React • AST • GPT-4o</div>
+            </article>
+
+            <!-- LeetCode Matchmaker -->
+            <article class="carousel-card">
+              <div class="carousel-card-icon">
+                <i class="fas fa-code"></i>
+              </div>
+              <h4><a href="https://leetcode-matchmaker-2bb8b1daa393.herokuapp.com/" target="_blank">LeetCode Matchmaker</a></h4>
+              <p>Find similar LeetCode problems using ML-powered matching</p>
+              <div class="carousel-tech">Flask • Scikit-learn • PostgreSQL</div>
+            </article>
+
+            <!-- EAGLE Router -->
+            <article class="carousel-card">
+              <div class="carousel-card-icon">
+                <i class="fas fa-route"></i>
+              </div>
+              <h4><a href="https://github.com/AymanMahfuz27/Eagle-Router" target="_blank">EAGLE Router</a></h4>
+              <p>Training-free multi-LLM router using ELO ratings and embeddings</p>
+              <div class="carousel-tech">Python • OpenAI • HuggingFace</div>
+            </article>
+
+          </div>
+          
+          <button class="carousel-btn carousel-btn-next" onclick="scrollCarousel(1)" aria-label="Next projects">
+            <i class="fas fa-chevron-right"></i>
+          </button>
+        </div>
+      </div>
+    </section>
+    <section id="skills" class="container">
+      <h2>Skills</h2>
+      <div class="skills-container">
+        <div class="skills-group">
+          <h3>Programming Languages</h3>
+          <div class="skills">
+            <span class="skill-tag"><i class="fab fa-python"></i> Python</span>
+            <span class="skill-tag"><i class="fab fa-java"></i> Java</span>
+            <span class="skill-tag"><i class="fab fa-cuttlefish"></i> C</span>
+            <span class="skill-tag"><i class="fab fa-js"></i> JavaScript</span>
+            <span class="skill-tag"><i class="fab fa-html5"></i> HTML/CSS</span>
+            <span class="skill-tag"><i class="fas fa-gem"></i> Ruby</span>
+            <span class="skill-tag"><i class="fab fa-cuttlefish"></i> C++</span>
+            <span class="skill-tag"><i class="fab fa-php"></i> PHP</span>
+          </div>
+        </div>
+
+        <div class="skills-group">
+          <h3>Frontend Development</h3>
+          <div class="skills">
+            <span class="skill-tag"><i class="fab fa-react"></i> React.js</span>
+            <span class="skill-tag"><i class="fab fa-node-js"></i> Node.js</span>
+            <span class="skill-tag"><i class="fab fa-html5"></i> HTML/CSS</span>
+          </div>
+        </div>
+
+        <div class="skills-group">
+          <h3>Backend Development</h3>
+          <div class="skills">
+            <span class="skill-tag"><i class="fas fa-flask"></i> Flask</span>
+            <span class="skill-tag"><i class="fab fa-python"></i> Django</span>
+            <span class="skill-tag"><i class="fab fa-node-js"></i> Node.js</span>
+          </div>
+        </div>
+
+        <div class="skills-group">
+          <h3>Data Science & Machine Learning</h3>
+          <div class="skills">
+            <span class="skill-tag"><i class="fas fa-chart-line"></i> Pandas</span>
+            <span class="skill-tag"><i class="fas fa-chart-bar"></i> NumPy</span>
+            <span class="skill-tag"><i class="fas fa-brain"></i> Scikit-learn</span>
+          </div>
+        </div>
+
+        <div class="skills-group">
+          <h3>Databases</h3>
+          <div class="skills">
+            <span class="skill-tag"><i class="fas fa-database"></i> SQL</span>
+            <span class="skill-tag"><i class="fas fa-database"></i> PostgreSQL</span>
+          </div>
+        </div>
+
+        <div class="skills-group">
+          <h3>Tools & Libraries</h3>
+          <div class="skills">
+            <span class="skill-tag"><i class="fab fa-git"></i> Git</span>
+            <span class="skill-tag"><i class="fas fa-cloud"></i> AWS</span>
+            <span class="skill-tag"><i class="fab fa-google"></i> Google Cloud Platform</span>
+          </div>
+        </div>
+
+        <div class="skills-group">
+          <h3>Miscellaneous</h3>
+          <div class="skills">
+            <span class="skill-tag"><i class="fas fa-microchip"></i> ARM64</span>
+            <span class="skill-tag"><i class="fab fa-square"></i> MATLAB</span>
+          </div>
+        </div>
+      </div>
+    </section>
+    <section id="resume" class="container">
+      <h2>📄 Resume</h2>
+      <div class="resume-container">
+        <div class="resume-card">
+          <div class="resume-icon">
+            <i class="fas fa-file-pdf"></i>
+          </div>
+          <h3>Resume</h3>
+          <p>View my latest resume</p>
+          <a href="Ayman_Mahfuz_resume.pdf" target="_blank" class="resume-download-btn">
+            <i class="fas fa-eye"></i> View
+          </a>
+        </div>
+      </div>
+    </section>
+
+    <section id="hobbies" class="container">
+      <h2>Hobbies & Interests</h2>
+      <div class="hobbies-container">
+        <div class="hobby-item">
+          <i class="fas fa-brain"></i>
+          <h3>Deep Learning</h3>
+          <p>
+            I'm passionate about learning and keeping up with the latest advancements in deep learning, from new
+            architectures to real-world applications.
+          </p>
+        </div>
+        <div class="hobby-item">
+          <i class="fas fa-dumbbell"></i>
+          <h3>Weightlifting</h3>
+          <p>I love spending time in the gym and hitting new maxes</p>
+        </div>
+        <div class="hobby-item">
+          <i class="fas fa-futbol"></i>
+          <h3>Soccer</h3>
+          <p>
+            I've been playing soccer since I could walk. If I'm not working,
+            you can find me on the nearest field!
+          </p>
+        </div>
+        <div class="hobby-item">
+          <i class="fas fa-users"></i>
+          <h3>Family and Friends</h3>
+          <p>
+            I cherish spending quality time with friends and family, whether
+            it's a casual hangout or a special gathering.
+          </p>
+        </div>
+        <div class="hobby-item">
+          <i class="fas fa-lightbulb"></i>
+          <h3>Startups</h3>
+          <p>
+            I spend a lot of time working on my startups. Outside of coding,
+            it's asking people I'm close with for advice and feedback on my
+            current projects.
+          </p>
+        </div>
+      </div>
+    </section>
+  </main>
+
+  <script>
+    function toggleNav() {
+      document.getElementById("sidebar").classList.toggle("open");
+    }
+
+    function scrollCarousel(direction) {
+      const carousel = document.getElementById('projectsCarousel');
+      const cardWidth = 276; // card width (260px) + gap (16px)
+      carousel.scrollBy({ left: direction * cardWidth * 2, behavior: 'smooth' });
+    }
+  </script>
+
+  <!-- Firebase Analytics -->
+  <script type="module">
+    import { initializeApp } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-app.js";
+    import { getAnalytics } from "https://www.gstatic.com/firebasejs/11.0.2/firebase-analytics.js";
+
+    const firebaseConfig = {
+      apiKey: "AIzaSyALCT_XguTSCkjQRXo7sr68li9hHRHPjCs",
+      authDomain: "personal-portfolio-f0cfd.firebaseapp.com",
+      databaseURL: "https://personal-portfolio-f0cfd-default-rtdb.firebaseio.com",
+      projectId: "personal-portfolio-f0cfd",
+      storageBucket: "personal-portfolio-f0cfd.firebasestorage.app",
+      messagingSenderId: "1038556174912",
+      appId: "1:1038556174912:web:bdcecd89a3b668959a5da5",
+      measurementId: "G-Z31302M1TF",
+    };
+
+    const app = initializeApp(firebaseConfig);
+    const analytics = getAnalytics(app);
+  </script>
+</body>
+
+</html>
